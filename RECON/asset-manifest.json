@@ -1,0 +1,1173 @@
+{
+  "url": "https://flowermarketplace.com/",
+  "capturedVia": "browser-network+recon",
+  "total": 146,
+  "ok": 141,
+  "error": 5,
+  "fontsCss": "fonts/fonts.css",
+  "assets": [
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woocommerce-gateway-authorize-net-cim/assets/css/blocks/wc-authorize-net-cim-checkout-block.css?ver=3.10.19",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 18395,
+      "localPath": "css/flowermarketplace.com/wc-authorize-net-cim-checkout-block-e228dcd380.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/0b5c95843a684c817befc78c95993fc3-1600.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 151010,
+      "localPath": "images/flowermarketplace.com/0b5c95843a684c817befc78c95993fc3-1600-93dc4b0060.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-cart-weight/build/style-index.css?ver=1786994869",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 1,
+      "localPath": "css/flowermarketplace.com/style-index-af77228ad0.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woocommerce/assets/css/prettyPhoto.css?ver=3.1.6",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 9229,
+      "localPath": "css/flowermarketplace.com/prettyPhoto-f94a55480e.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/yith-woocommerce-wishlist-premium/assets/css/font-awesome.css?ver=4.7.0",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 29697,
+      "localPath": "css/flowermarketplace.com/font-awesome-48a6cf209d.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/yith-woocommerce-wishlist-premium/assets/css/jquery.selectBox.css?ver=1.2.0",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 2630,
+      "localPath": "css/flowermarketplace.com/jquery.selectBox-44b307c9f9.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi-authorize-net-payment-entry/assets/css/font-awesome.min.css?ver=7.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 31000,
+      "localPath": "css/flowermarketplace.com/font-awesome.min-ccc9fd49e8.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/yith-woocommerce-wishlist-premium/assets/css/style.css?ver=4.14.0",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 42707,
+      "localPath": "css/flowermarketplace.com/style-c55ed0c1b0.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi-authorize-net-payment-entry/assets/css/jquery-confirm.min.css?ver=7.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 22546,
+      "localPath": "css/flowermarketplace.com/jquery-confirm.min-5892df99ab.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi-wc-phone-orders/css/wcpd-style.css?ver=20201817",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 4524,
+      "localPath": "css/flowermarketplace.com/wcpd-style-b03966d27a.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/front-end-registration-login/js/chosen/chosen.min.css?ver=7.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 10220,
+      "localPath": "css/flowermarketplace.com/chosen.min-27ca9e29f0.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-product-listing-filter/css/slideshow.css?ver=7.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 1937,
+      "localPath": "css/flowermarketplace.com/slideshow-d5f6d49259.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-product-listing-filter/css/owl.carousel-default.css?ver=7.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 1302,
+      "localPath": "css/flowermarketplace.com/owl.carousel-default-18363754db.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-product-listing-filter/css/owl.carousel.css?ver=7.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 4027,
+      "localPath": "css/flowermarketplace.com/owl.carousel-29634eb9be.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-product-listing-filter/css/jquery.pajinatify.css?ver=7.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 1894,
+      "localPath": "css/flowermarketplace.com/jquery.pajinatify-dbca3c985e.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-product-listing-filter/css/jquery-ui.css?ver=20180410",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 37326,
+      "localPath": "css/flowermarketplace.com/jquery-ui-d68350ad87.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-product-listing-filter/css/jquery.auto-complete.css?ver=1.0.7",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 653,
+      "localPath": "css/flowermarketplace.com/jquery.auto-complete-bf8cb36b75.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-product-listing-filter/css/custom.css?ver=1780034321",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 87248,
+      "localPath": "css/flowermarketplace.com/custom-015bad9e67.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=11.1.0",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 92125,
+      "localPath": "css/flowermarketplace.com/woocommerce-bf5ef37bdc.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=11.1.0",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 20154,
+      "localPath": "css/flowermarketplace.com/woocommerce-layout-c67ca48ab0.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fedex-shipment-tracking/assets/frontend/css/style.css?ver=7.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 780,
+      "localPath": "css/flowermarketplace.com/style-45b3164a2b.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/select2.css?ver=7.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 14621,
+      "localPath": "css/flowermarketplace.com/select2-49512aef7b.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.5.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 5829,
+      "localPath": "css/flowermarketplace.com/reset-d9a24cbaed.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.5.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 5827,
+      "localPath": "css/flowermarketplace.com/theme-f00f081fa9.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=3.5.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 7534,
+      "localPath": "css/flowermarketplace.com/header-footer-b04ef84315.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.2.4",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 54666,
+      "localPath": "css/flowermarketplace.com/frontend.min-ba62bc486c.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/elementor/css/post-2281548.css?ver=1789469398",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 2773,
+      "localPath": "css/flowermarketplace.com/post-2281548-ca18055851.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/mycred/assets/css/mycred-front.css?ver=10.5",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 6398,
+      "localPath": "css/flowermarketplace.com/mycred-front-6abb3940f9.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/mycred/assets/css/mycred-social-share.css?ver=10.5",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 8385,
+      "localPath": "css/flowermarketplace.com/mycred-social-share-0bf7b4b6d0.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woocommerce-gateway-authorize-net-cim/vendor/skyverge/wc-plugin-framework/woocommerce/payment-gateway/assets/css/frontend/sv-wc-payment-gateway-payment-form.min.css?ver=6.2.4",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 6936,
+      "localPath": "css/flowermarketplace.com/sv-wc-payment-gateway-payment-form.min-1e8c723575.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/mycred-woocommerce-plus/assets/css/woo-plus.css?ver=1.7.5",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 1578,
+      "localPath": "css/flowermarketplace.com/woo-plus-0ff4f8c2f1.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/mycred/assets/css/mycred-social-icons.css?ver=10.5",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 1459,
+      "localPath": "css/flowermarketplace.com/mycred-social-icons-c82c1844e2.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/style.css?ver=2.0.1",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 22936,
+      "localPath": "css/flowermarketplace.com/style-1be4ac3c15.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/elementor/assets/css/widget-alert.min.css?ver=4.2.4",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 1665,
+      "localPath": "css/flowermarketplace.com/widget-alert.min-8ccd6cfe2f.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css?ver=4.2.4",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 205,
+      "localPath": "css/flowermarketplace.com/e-animation-shrink.min-267ece2208.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.2.4",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 560,
+      "localPath": "css/flowermarketplace.com/widget-heading.min-f185b67667.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=4.2.4",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 1793,
+      "localPath": "css/flowermarketplace.com/widget-spacer.min-557c9f6281.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.2.4",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 214,
+      "localPath": "css/flowermarketplace.com/widget-image.min-13c12695ad.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/fmi-home.css?ver=1788359322",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 35259,
+      "localPath": "css/flowermarketplace.com/fmi-home-d47483756c.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/elementor/assets/css/widget-video.min.css?ver=4.2.4",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 1243,
+      "localPath": "css/flowermarketplace.com/widget-video.min-20d7d6bd3c.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/elementor/css/post-2193356.css?ver=1789469408",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 42745,
+      "localPath": "css/flowermarketplace.com/post-2193356-29ac85902c.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/fmi-footer.css?ver=1783095076",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 4096,
+      "localPath": "css/flowermarketplace.com/fmi-footer-22c050993d.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/elementor/google-fonts/css/jacquesfrancois.css?ver=1779911514",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 453,
+      "localPath": "css/flowermarketplace.com/jacquesfrancois-156cf5327e.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/fmi-auth.css?ver=1786374563",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 15644,
+      "localPath": "css/flowermarketplace.com/fmi-auth-a111c80ec7.css"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 2241,
+      "localPath": "css/fonts.googleapis.com/css2-4a906169a7.bin"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/creame-whatsapp-me/public/css/joinchat.min.css?ver=6.3.2",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 20935,
+      "localPath": "css/flowermarketplace.com/joinchat.min-13436a6071.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/front-end-registration-login/css/forms.css?ver=1789479866",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 4935,
+      "localPath": "css/flowermarketplace.com/forms-074bae8441.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi_subscription_points/assests/style.css?ver=1789479866",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 15973,
+      "localPath": "css/flowermarketplace.com/style-8839b05bac.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi-authorize-net-payment-entry/assets/css/style.css?ver=1789479866",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 10460,
+      "localPath": "css/flowermarketplace.com/style-61b381ea56.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/css/wc_ship_custom.css?ver=1789479866",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 36221,
+      "localPath": "css/flowermarketplace.com/wc_ship_custom-917d6a194c.css"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 3706,
+      "localPath": "css/fonts.googleapis.com/css2-d1c35d038a.bin"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/fontawesome.min.css?ver=1789479866",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 57873,
+      "localPath": "css/flowermarketplace.com/fontawesome.min-3dd49f8a48.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/custom.css?ver=1789479866",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 119583,
+      "localPath": "css/flowermarketplace.com/custom-ab4ef422d6.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/elementor/google-fonts/css/fraunces.css?ver=1779906542",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "error",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/elementor/google-fonts/css/worksans.css?ver=1752816386",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "error",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/elementor/google-fonts/css/inter.css?ver=1755797967",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "error",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/elementor/google-fonts/css/lato.css?ver=1752816387",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "error",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/elementor/google-fonts/css/roboto.css?ver=1752816331",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "error",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"%232A1733\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"6 9 12 15 18 9\"/></svg>",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 196,
+      "localPath": "images/svg--fba06cccf6.bin"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=11.1.0",
+      "kind": "stylesheet",
+      "via": "network",
+      "status": "ok",
+      "bytes": 8655,
+      "localPath": "css/flowermarketplace.com/woocommerce-smallscreen-5c31fc5661.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/33366d30ffbd0b9304731257f074f57d-480.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 14748,
+      "localPath": "images/flowermarketplace.com/33366d30ffbd0b9304731257f074f57d-480-146fdb3e85.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/73e7f8d2edb3395bae17a4be4f8b4975-240.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 5140,
+      "localPath": "images/flowermarketplace.com/73e7f8d2edb3395bae17a4be4f8b4975-240-7913d5576d.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/9c8f899629d9cd94c2f65e0474e2d302-500.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 6764,
+      "localPath": "images/flowermarketplace.com/9c8f899629d9cd94c2f65e0474e2d302-500-86a981573e.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/7765fbdaac48650bf283a3ff81a126dc-450.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 4494,
+      "localPath": "images/flowermarketplace.com/7765fbdaac48650bf283a3ff81a126dc-450-a0ccac80a9.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/831fd0b98e08fe217a7e37f4f54c445d-249.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 6364,
+      "localPath": "images/flowermarketplace.com/831fd0b98e08fe217a7e37f4f54c445d-249-e6dc7924b5.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/9caffa42f100ae8ff1e3d86dc3f07c0a-244.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 12300,
+      "localPath": "images/flowermarketplace.com/9caffa42f100ae8ff1e3d86dc3f07c0a-244-cbc225d9a6.webp"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+      "kind": "font",
+      "via": "network",
+      "status": "ok",
+      "bytes": 48432,
+      "localPath": "fonts/fonts.gstatic.com/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-bec94a4daf.woff2"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeP2Xz5c.woff2",
+      "kind": "font",
+      "via": "network",
+      "status": "ok",
+      "bytes": 67388,
+      "localPath": "fonts/fonts.gstatic.com/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeP2Xz5c-9e5095030b.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/03c895f62509a1802afade74dde839b2-480.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 11096,
+      "localPath": "images/flowermarketplace.com/03c895f62509a1802afade74dde839b2-480-bf5e4a9f9a.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/8d84fb2861423d27749f14c711d40c4f-480.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 20550,
+      "localPath": "images/flowermarketplace.com/8d84fb2861423d27749f14c711d40c4f-480-c7aa10aa9b.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/bc3dff37241196a134e14bc1a6216c62-480.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 10640,
+      "localPath": "images/flowermarketplace.com/bc3dff37241196a134e14bc1a6216c62-480-6c122f0e3d.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/2cb852255ecf8884a12469fd1f89eb78-800.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 35252,
+      "localPath": "images/flowermarketplace.com/2cb852255ecf8884a12469fd1f89eb78-800-9c63fa88d8.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/b7696452f26e685c3a5a8d2ecdfcfb2e-800.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 26002,
+      "localPath": "images/flowermarketplace.com/b7696452f26e685c3a5a8d2ecdfcfb2e-800-161358b056.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/7cd5cea6b34c5a034509dd7b882df5b0-360.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 7564,
+      "localPath": "images/flowermarketplace.com/7cd5cea6b34c5a034509dd7b882df5b0-360-6ab53eb502.webp"
+    },
+    {
+      "url": "https://www.google.co.id/ads/ga-audiences?v=1&t=sr&slf_rd=1&_r=4&tid=G-P4VS57WMK4&cid=1020435648.1789479869&gtm=45je69b1v893272881za200zd893272881&rcb=8&aip=1&dma=0&gcs=G1--&gcd=13l3l3l3l5l1&npa=0&frm=0&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153&z=1895281735",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 42,
+      "localPath": "images/www.google.co.id/ga-audiences-eae124a18a.bin"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-product-listing-filter/images/email_icon.png",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 210,
+      "localPath": "images/flowermarketplace.com/email_icon-1a552ac3b1.png"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-product-listing-filter/images/password_icon.png",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 345,
+      "localPath": "images/flowermarketplace.com/password_icon-d09c857618.png"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/images/fmi-logo-2026.jpg",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 26268,
+      "localPath": "images/flowermarketplace.com/fmi-logo-2026-53f7665fdc.jpg"
+    },
+    {
+      "url": "https://s.w.org/images/core/emoji/17.0.2/svg/1f4de.svg",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 391,
+      "localPath": "images/s.w.org/1f4de-e41c5f6e92.svg"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/2026/01/cropped-fmi-fav-icon-32x32.png",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 2514,
+      "localPath": "images/flowermarketplace.com/cropped-fmi-fav-icon-32x32-486eaf4216.png"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/beea4b8a2102fba07d3c37b1c199911c-295.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 6516,
+      "localPath": "images/flowermarketplace.com/beea4b8a2102fba07d3c37b1c199911c-295-c9ab70f3ba.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/23d346c143122c6f8d6f4fe450281f4c-215.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 4724,
+      "localPath": "images/flowermarketplace.com/23d346c143122c6f8d6f4fe450281f4c-215-afc377fab1.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/cbd3959eb2bb794e36bcf009170441f7-545.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 8814,
+      "localPath": "images/flowermarketplace.com/cbd3959eb2bb794e36bcf009170441f7-545-85a858a2e3.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/686ab38db7a90137a39bbe635ca72a17-528.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 8452,
+      "localPath": "images/flowermarketplace.com/686ab38db7a90137a39bbe635ca72a17-528-d88655ee3b.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/039f05bd4c1e430f95d9751d47d5b462-967.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 12668,
+      "localPath": "images/flowermarketplace.com/039f05bd4c1e430f95d9751d47d5b462-967-8f7c3021c7.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/765066e6ad2cb36b1dc91ba6836784dc-329.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 4564,
+      "localPath": "images/flowermarketplace.com/765066e6ad2cb36b1dc91ba6836784dc-329-7410406a80.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-product-listing-filter/images/newsletter-cross.png",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 1283,
+      "localPath": "images/flowermarketplace.com/newsletter-cross-7fcec8d8c4.png"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-product-listing-filter/images/logo-img.png",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 316648,
+      "localPath": "images/flowermarketplace.com/logo-img-47dd87021a.png"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/854c58b2fd1278e7004f45fc12d67609-44.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 712,
+      "localPath": "images/flowermarketplace.com/854c58b2fd1278e7004f45fc12d67609-44-21cdcb80d9.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/54a95adbf84c9490ddf4f56c3f089e62-48.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 806,
+      "localPath": "images/flowermarketplace.com/54a95adbf84c9490ddf4f56c3f089e62-48-7ad66fb55d.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/bf3538cbc0699eea3bb4e2a967d07b0a-45.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 710,
+      "localPath": "images/flowermarketplace.com/bf3538cbc0699eea3bb4e2a967d07b0a-45-430eb27333.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/f302dc9743559f0a136a69deec707644-49.webp",
+      "kind": "image",
+      "via": "network",
+      "status": "ok",
+      "bytes": 934,
+      "localPath": "images/flowermarketplace.com/f302dc9743559f0a136a69deec707644-49-9c683d1afc.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/yith-woocommerce-wishlist-premium/assets/fonts/fontawesome-webfont.woff2?v=4.7.0",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 77160,
+      "localPath": "fonts/flowermarketplace.com/fontawesome-webfont-f7c4170fbc.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/yith-woocommerce-wishlist-premium/assets/fonts/fontawesome-webfont.woff?v=4.7.0",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 98024,
+      "localPath": "fonts/flowermarketplace.com/fontawesome-webfont-110983d9fa.woff"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/yith-woocommerce-wishlist-premium/assets/fonts/fontawesome-webfont.ttf?v=4.7.0",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 165548,
+      "localPath": "fonts/flowermarketplace.com/fontawesome-webfont-78759245a0.ttf"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.woff2",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 6488,
+      "localPath": "fonts/flowermarketplace.com/WooCommerce-a459c9de52.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.woff",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 8084,
+      "localPath": "fonts/flowermarketplace.com/WooCommerce-524b9f07ec.woff"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.ttf",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 14748,
+      "localPath": "fonts/flowermarketplace.com/WooCommerce-03b41008f4.ttf"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi-authorize-net-payment-entry/assets/fonts/fontawesome-webfont.woff2?v=4.7.0",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 77160,
+      "localPath": "fonts/flowermarketplace.com/fontawesome-webfont-020c6fe7bd.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi-authorize-net-payment-entry/assets/fonts/fontawesome-webfont.woff?v=4.7.0",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 98024,
+      "localPath": "fonts/flowermarketplace.com/fontawesome-webfont-e43736858e.woff"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi-authorize-net-payment-entry/assets/fonts/fontawesome-webfont.ttf?v=4.7.0",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 165548,
+      "localPath": "fonts/flowermarketplace.com/fontawesome-webfont-236e36dba6.ttf"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Light.woff2",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 962392,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Light-43a36643b5.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Light.woff",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 1557384,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Light-1ca6773feb.woff"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Light.ttf",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 3540756,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Light-a18cfebd8d.ttf"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Bold.woff2",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 990076,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Bold-b833f9e6ed.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Bold.woff",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 1578616,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Bold-72fb825dff.woff"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Bold.ttf",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 3552580,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Bold-926da03ffa.ttf"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Black.woff2",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 926148,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Black-16f4e1a676.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Black.woff",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 1524884,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Black-e51092e46f.woff"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Black.ttf",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 3544644,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Black-d6992ffc9d.ttf"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Medium.woff2",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 989864,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Medium-62962010b4.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Medium.woff",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 1585800,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Medium-de7cf9b922.woff"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Medium.ttf",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 3564404,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Medium-c5cdcfc6cd.ttf"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Semibold.woff2",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 996264,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Semibold-72902b288a.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Semibold.woff",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 1589364,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Semibold-615cda56a7.woff"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Semibold.ttf",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 3549832,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Semibold-328944e222.ttf"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Regular.woff2",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 940776,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Regular-f0085775c9.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Regular.woff",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 1527612,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Regular-1986e69d74.woff"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Regular.ttf",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 3517544,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Regular-d148d577ce.ttf"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Thin.woff2",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 940040,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Thin-be35b7e33e.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Thin.woff",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 1527792,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Thin-9fe0adb326.woff"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/fonts/SFProDisplay-Thin.ttf",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 3527472,
+      "localPath": "fonts/flowermarketplace.com/SFProDisplay-Thin-82da6cc244.ttf"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/mycred/assets/css/fonts/mycred-social-icons.ttf?u9j1dx",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 3224,
+      "localPath": "fonts/flowermarketplace.com/mycred-social-icons-fb3f546624.ttf"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/mycred/assets/css/fonts/mycred-social-icons.woff?u9j1dx",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 3300,
+      "localPath": "fonts/flowermarketplace.com/mycred-social-icons-8accc7c99d.woff"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/elementor/google-fonts/fonts/jacquesfrancois-eb3f3605.woff2",
+      "kind": "font",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 28728,
+      "localPath": "fonts/flowermarketplace.com/jacquesfrancois-eb3f3605-e381d900dc.woff2"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi-authorize-net-payment-entry/assets/css/style.css?ver=1789479540",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 10460,
+      "localPath": "css/flowermarketplace.com/style-b87eaf3210.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi_subscription_points/assests/style.css?ver=1789479540",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 15973,
+      "localPath": "css/flowermarketplace.com/style-cbd689734f.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/front-end-registration-login/css/forms.css?ver=1789479540",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 4935,
+      "localPath": "css/flowermarketplace.com/forms-cd660c7351.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/css/wc_ship_custom.css?ver=1789479540",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 36221,
+      "localPath": "css/flowermarketplace.com/wc_ship_custom-28e3b3dcc1.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/fontawesome.min.css?ver=1789479540",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 57873,
+      "localPath": "css/flowermarketplace.com/fontawesome.min-a17e64126c.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/custom.css?ver=1789479540",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 119583,
+      "localPath": "css/flowermarketplace.com/custom-e2b4a32b48.css"
+    },
+    {
+      "url": "https://www.google.co.id/ads/ga-audiences?v=1&t=sr&slf_rd=1&_r=4&tid=G-P4VS57WMK4&cid=819910684.1789479545&gtm=45je69b1v893272881za200zd893272881&rcb=14&aip=1&dma=0&gcs=G1--&gcd=13l3l3l3l5l1&npa=0&frm=0&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153&z=2096383047",
+      "kind": "image",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 42,
+      "localPath": "images/www.google.co.id/ga-audiences-5da9d3c13d.bin"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi-authorize-net-payment-entry/assets/css/style.css?ver=1789479564",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 10460,
+      "localPath": "css/flowermarketplace.com/style-5d916d088e.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi_subscription_points/assests/style.css?ver=1789479564",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 15973,
+      "localPath": "css/flowermarketplace.com/style-7eae4a2919.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/front-end-registration-login/css/forms.css?ver=1789479564",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 4935,
+      "localPath": "css/flowermarketplace.com/forms-44e318715c.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/css/wc_ship_custom.css?ver=1789479564",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 36221,
+      "localPath": "css/flowermarketplace.com/wc_ship_custom-f5c8f0ff86.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/fontawesome.min.css?ver=1789479564",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 57873,
+      "localPath": "css/flowermarketplace.com/fontawesome.min-45d6c2df8a.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/custom.css?ver=1789479564",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 119583,
+      "localPath": "css/flowermarketplace.com/custom-5290dab9d8.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/uploads/fmi-home-opt/4142275c5e7d3d072c1283df13388efa-900.webp",
+      "kind": "image",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 68122,
+      "localPath": "images/flowermarketplace.com/4142275c5e7d3d072c1283df13388efa-900-cc92a73b92.webp"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi-authorize-net-payment-entry/assets/css/style.css?ver=1789479603",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 10460,
+      "localPath": "css/flowermarketplace.com/style-581fd74dfc.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/fmi_subscription_points/assests/style.css?ver=1789479603",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 15973,
+      "localPath": "css/flowermarketplace.com/style-c27738bd4c.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/front-end-registration-login/css/forms.css?ver=1789479603",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 4935,
+      "localPath": "css/flowermarketplace.com/forms-a71e6a6e07.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/plugins/woo-shipping-methods/assets/css/wc_ship_custom.css?ver=1789479603",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 36221,
+      "localPath": "css/flowermarketplace.com/wc_ship_custom-6239e726aa.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/fontawesome.min.css?ver=1789479603",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 57873,
+      "localPath": "css/flowermarketplace.com/fontawesome.min-ebfccb7e88.css"
+    },
+    {
+      "url": "https://flowermarketplace.com/wp-content/themes/fmi-farms-elementor/css/custom.css?ver=1789479603",
+      "kind": "stylesheet",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 119583,
+      "localPath": "css/flowermarketplace.com/custom-6e4fd20153.css"
+    },
+    {
+      "url": "https://www.google.co.id/ads/ga-audiences?v=1&t=sr&slf_rd=1&_r=4&tid=G-P4VS57WMK4&cid=819910684.1789479545&gtm=45je69b1v893272881za200zd893272881&rcb=1&aip=1&dma=0&gcs=G1--&gcd=13l3l3l3l5l1&npa=0&frm=0&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153&z=2079776841",
+      "kind": "image",
+      "via": "recon",
+      "status": "ok",
+      "bytes": 42,
+      "localPath": "images/www.google.co.id/ga-audiences-6c31b3a094.bin"
+    }
+  ]
+}

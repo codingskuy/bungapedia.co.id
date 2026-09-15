@@ -1,0 +1,1676 @@
+body.woocommerce-account{
+    font-family: 'SFProDisplay';
+}
+
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../fonts/SFProDisplay-Light.eot');
+    src: url('../fonts/SFProDisplay-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Light.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Light.woff') format('woff'),
+        url('../fonts/SFProDisplay-Light.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Light.svg#SFProDisplay-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../fonts/SFProDisplay-Bold.eot');
+    src: url('../fonts/SFProDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Bold.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Bold.woff') format('woff'),
+        url('../fonts/SFProDisplay-Bold.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Bold.svg#SFProDisplay-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../fonts/SFProDisplay-Black.eot');
+    src: url('../fonts/SFProDisplay-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Black.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Black.woff') format('woff'),
+        url('../fonts/SFProDisplay-Black.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Black.svg#SFProDisplay-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../fonts/SFProDisplay-Medium.eot');
+    src: url('../fonts/SFProDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Medium.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Medium.woff') format('woff'),
+        url('../fonts/SFProDisplay-Medium.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Medium.svg#SFProDisplay-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../fonts/SFProDisplay-Semibold.eot');
+    src: url('../fonts/SFProDisplay-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Semibold.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Semibold.woff') format('woff'),
+        url('../fonts/SFProDisplay-Semibold.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Semibold.svg#SFProDisplay-Semibold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../fonts/SFProDisplay-Regular.eot');
+    src: url('../fonts/SFProDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Regular.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Regular.woff') format('woff'),
+        url('../fonts/SFProDisplay-Regular.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Regular.svg#SFProDisplay-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../fonts/SFProDisplay-Thin.eot');
+    src: url('../fonts/SFProDisplay-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SFProDisplay-Thin.woff2') format('woff2'),
+        url('../fonts/SFProDisplay-Thin.woff') format('woff'),
+        url('../fonts/SFProDisplay-Thin.ttf') format('truetype'),
+        url('../fonts/SFProDisplay-Thin.svg#SFProDisplay-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Absolute Center Spinner */
+.loading {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(rgba(20, 20, 20, .8), rgba(0, 0, 0, .8));
+
+    background: -webkit-radial-gradient(rgba(20, 20, 20, .8), rgba(0, 0, 0, .8));
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+    /* hide "loading..." text */
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+.loading:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 10px;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    -webkit-animation: spinner 150ms infinite linear;
+    -moz-animation: spinner 150ms infinite linear;
+    -ms-animation: spinner 150ms infinite linear;
+    -o-animation: spinner 150ms infinite linear;
+    animation: spinner 150ms infinite linear;
+    border-radius: 0.5em;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+    box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/*============================== Shipping Manager Start =========================*/
+.woocommerce_page_shipping-manager{
+    background: #f0f0f1;
+}
+.woocommerce_page_shipping-manager #wpbody-content h1{
+    font-weight: 600;
+    padding: 0;
+    margin: 30px 0 40px;
+}
+.woocommerce_page_shipping-manager #wpbody-content h3{
+    font-size: 24px;
+    font-weight: 600;
+    color: #3a6fac;
+    padding: 0;
+    margin: 0 0 20px;
+}
+.woocommerce_page_shipping-manager #wpbody-content .table{
+    max-width: 1010px;
+}
+
+.woocommerce_page_shipping-manager #wpbody-content .table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #3c3c3c;
+    font-size: 16px;
+    font-weight: bold;
+}
+/*.woocommerce_page_shipping-manager #wpbody-content .table>tbody>tr{
+    padding: 0;
+}*/
+
+.woocommerce_page_shipping-manager #wpbody-content .table>tbody>tr>td, 
+.woocommerce_page_shipping-manager #wpbody-content .table>tbody>tr>th, 
+.woocommerce_page_shipping-manager #wpbody-content .table>thead>tr>td, 
+.woocommerce_page_shipping-manager #wpbody-content .table>thead>tr>th{
+    width: 25%;
+}
+.woocommerce_page_shipping-manager #wpbody-content .wc-ship-button {
+    max-width: 1010px;
+    text-align: right;
+    padding: 0;
+    margin: 0 0 60px;
+}
+.woocommerce_page_shipping-manager #wpbody-content .table>tbody>tr:first-child>td{
+    padding-top: 20px;
+}
+.woocommerce_page_shipping-manager #wpbody-content .table>tbody>tr>td{
+    border-bottom: none;
+    border-bottom: 1px solid #333;
+    font-size: 14px;
+    color: #000;
+    font-weight: 600;
+}
+
+.woocommerce_page_shipping-manager #wpbody-content .table>tbody>tr>td a{
+    display: inline-block;
+}
+.woocommerce_page_shipping-manager #wpbody-content .table>tbody>tr>td a.wc_edit_carrier {
+    color: #707070;
+    padding: 0 0 0 26px;
+    margin: 0 24px 0 0;
+    background: url(../images/edit-icon.png) no-repeat 0 50%;
+    background-size: 18px;
+}
+.woocommerce_page_shipping-manager #wpbody-content .table>tbody>tr>td a.wc_remove_carrier {
+    color: #000000;
+    padding: 0 0 0 24px;
+    margin: 0;
+    background: url(../images/remove.png) no-repeat 0 50%;
+    background-size: 20px;
+}
+
+
+.woocommerce_page_shipping-manager #wpbody-content .wc-ship-button a {
+    display: inline-block;
+    background: url(../images/add-icon.png) no-repeat 30px 50%, #66b100;
+    padding: 8px 30px 8px 50px;
+    background-size: 16px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+}
+.woocommerce_page_shipping-manager .modal.in{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.woocommerce_page_shipping-manager .modal-content .modal-header h4.modal-title {
+    font-size: 26px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+.woocommerce_page_shipping-manager .modal-content label.control-label.col-sm-2 {
+    width: 150px;
+}
+.woocommerce_page_shipping-manager .modal-content .modal-body .form-group .col-sm-10{
+    width: calc(100% - 150px);
+}
+.woocommerce_page_shipping-manager .modal-content .modal-body .form-group .col-sm-5 {
+    width: calc(100% - 460px);
+}
+.woocommerce_page_shipping-manager .modal-content .modal-body .form-control{
+    max-width: 100%;
+    border: 1px solid #ccc;
+}
+.woocommerce_page_shipping-manager .modal-content .modal-body .form-group .col-sm-offset-2.col-sm-10 {
+    width: 100%;
+    margin: 0 !important;
+    text-align: right;
+}
+.woocommerce_page_shipping-manager .modal-content .modal-body .form-group .col-sm-offset-2.col-sm-10 .btn.btn-default{
+    background: #66b100;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    padding: 6px 30px;
+    border-radius: 27px;
+}
+.woocommerce_page_shipping-manager .modal.fade.in, body.modal-open .modal.fade.in{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.woocommerce_page_shipping-manager .modal-body.success_body img{
+        max-width: 80px;
+    margin: 20px auto 30px;
+}
+.woocommerce_page_shipping-manager .modal-body.success_body{
+    text-align: center;
+}
+.woocommerce_page_shipping-manager .modal-body.success_body p a{
+    color: #01d358;
+}
+
+
+
+@media (min-width: 768px){
+.modal-dialog {
+    width: 750px !important;
+}
+.wc_shipping_methods_wrapper header.woocommerce-Address-title.title {
+    display: block;
+}
+}
+
+
+/*============================== Shipping Manager End =========================*/
+
+/*================================ My Account Modal Tab Start ================================*/
+.my-account .woocommerce-MyAccount-content .woocommerce-orders-table th{
+    font-family: 'SFProDisplay';
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: bold;
+    color: #3B3B3B;
+    text-transform: capitalize;
+}
+.my-account .woocommerce-MyAccount-content .woocommerce-orders-table th, .my-account .woocommerce-MyAccount-content .woocommerce-orders-table td{
+    padding: 12px 0;
+}
+.my-account .woocommerce-MyAccount-content .woocommerce-orders-table td{
+    font-family: 'SFProDisplay';
+    font-size: 16px;
+    line-height: 1.2;
+    color: #000000;
+    font-weight: 500;
+}
+.my-account .woocommerce-MyAccount-content .woocommerce-orders-table td a.ship_method_edit, .my-account .woocommerce-MyAccount-content .woocommerce-orders-table td a.ship_method_remove{
+    color: #66b100;
+    text-decoration: none;
+}
+.my-account .woocommerce-MyAccount-content .wc_ship_method_button{
+    text-align: right;
+    display: block;
+    margin: 30px 0 20px;
+}
+.my-account .woocommerce-MyAccount-content .wc_ship_method_button a.wc_btn.wc_shp_add_new_carrier {
+    background: #66b100;
+    color: #fff;
+    padding: 10px 40px;
+    border-radius: 27px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.wc_shipping_methods_wrapper .woocommerce-Address-title{
+    margin-bottom: 20px;    
+} 
+.wc_shipping_methods_wrapper .woocommerce-Address-title h3{
+    font-family: 'SFProDisplay';
+    font-weight: bold;
+    font-size: 30px;
+    color: #070707;
+    padding: 0;
+    margin: 0;
+}
+.wc_shipping_methods_wrapper header.woocommerce-Address-title.title{
+    display: flex;
+    align-items: center;
+}
+.wc_shipping_methods_wrapper header.woocommerce-Address-title.title h3 {
+    flex: 65%;
+}
+.wc_shipping_methods_wrapper header.woocommerce-Address-title.title h5.shipp_note{
+    color: #852191;
+    text-decoration: underline;
+}
+.wc_shipping_methods_wrapper .ship_addr_list, .bill_addr_list{
+    list-style: none;
+    padding: 0;
+    margin: 0 -10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.wc_shipping_methods_wrapper .ship_addr_list li.ship_addr, .wc_shipping_methods_wrapper .ship_addr_list li.button_li,  .bill_addr_list li.bill_addr, .bill_addr_list li.button_li{
+    width: 33.333333%;
+    padding: 0 10px;
+    margin-bottom: 20px
+}
+.wc_shipping_methods_wrapper .ship_addr_list li.button_li span.wc_ship_method_button, .bill_addr_list li.button_li .wc_bill_method_button {
+    background: #f5f5f5;
+    height: 100%;
+    display: flex !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    min-height: 180px;
+}
+
+.wc_shipping_methods_wrapper .ship_addr_list li.button_li span.wc_ship_method_button a, .bill_addr_list li.button_li .wc_bill_method_button a{
+    background: #66b100;
+    color: #fff;
+    font-size: 12px;
+    padding: 8px 20px;
+    border-radius: 27px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.ship_addr_list li.ship_addr .ship_addr-wrap, .bill_addr_list li.bill_addr .ship_addr-wrap{
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: 7px;
+    height: 100%;
+}
+.ship_addr_list li.ship_addr .ship_addr-wrap h6, .bill_addr_list li.bill_addr .ship_addr-wrap h6{
+    color: #9f00d9;
+    text-transform: capitalize;
+    padding: 0;
+    margin: 0 0 10px;
+    font-weight: bold;
+    font-family: 'SFProDisplay';
+    font-size: 14px;
+}
+
+.ship_addr_list li.ship_addr h4, .bill_addr_list li.bill_addr h4 {
+    font-family: 'SFProDisplay';
+    font-size: 22px;
+    color: #000;
+    padding: 0;
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+.ship_addr_list li.ship_addr p, .bill_addr_list li.bill_addr p{
+    font-family: 'SFProDisplay';
+    font-size: 14px;
+    color: #525253;
+}
+.ship_addr_list li.ship_addr div.ship-list-btn a, div.ship-list-btn a{
+    font-family: 'SFProDisplay';
+    font-size: 13px;
+    color: #66b100;
+    text-decoration: none;
+}
+/*.form-horizontal{
+    padding: 15px;
+}*/
+.modal-body.success_body{
+    text-align: center;
+}
+
+.modal-body.success_body img{
+    max-width: 50px;
+    margin: 20px auto;
+}
+
+.comman-modal .modal-header .close{
+    font-size: 0;
+}
+
+.comman-modal select optgroup{
+    color: #70af02;
+}
+.comman-modal select optgroup option{
+    padding: 0;
+    margin: 0 5px;
+    color: #000;
+}
+
+.comman-modal .form-control, #carrier_delivery_ship_addr{
+    height: 40px;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #000;
+}
+.comman-modal .form-control:focus{
+    box-shadow: none;
+    border: 1px solid #ccc;
+}
+
+#carrier_delivery_ship_addr option{
+    margin: 0 5px;
+}
+.comman-modal .comm-btn{
+    background: #66b100;
+    color: #fff;
+    padding: 8px 30px !important;
+    border-radius: 27px;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid #66b100;
+    outline: none;
+    box-shadow: none;
+    line-height: 1.2;
+    margin: 0 10px 0 0 !important;
+    text-transform: capitalize;
+    font-size: 16px;
+    line-height: 1.2;
+}
+.comman-modal .comm-btn:last-child{
+    margin-right: 0 !important;
+}
+
+
+.comman-modal .comm-btn:hover, .comman-modal .comm-btn:focus, .comman-modal .comm-btn:active:focus{
+    background: #fff !important;
+    background-color: #fff !important;
+    border: 1px solid #66b100 !important;
+    color: #66b100 !important;
+    outline: none;
+    box-shadow: none;
+}
+
+.rt-side-btn-wrap {
+    text-align: right;
+}
+
+.carrier_delivery_days label ~ input[type="checkbox"]:checked{
+    color: red;
+}
+.pro_content .pro_option ul li.li_pro_price .single_add_to_cart_button.loading:before, .pro_content .pro_option ul li.li_pro_price .single_add_to_cart_button.loading:after{
+    display: none;
+}
+
+
+.carrier_delivery_days label.checkbox-inline input[type="checkbox"]{
+    display: none;
+}
+.carrier_delivery_days label.checkbox-inline {
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px 8px 6px;
+    width: 16%;
+    text-align: center;
+    color: #66b100;
+    transition: all 300ms ease-in-out;
+    font-size: 18px;
+    line-height: 1.2;
+}
+.carrier_delivery_days label.checkbox-inline:hover, .carrier_delivery_days label.checkbox-inline.checked{
+    color: #fff;
+    background: #66b100;
+    border-color: #66b100;
+}
+.carrier_delivery_days label.checkbox-inline input[type="checkbox"]:checked ~ label.checkbox-inline{
+color: #fff;
+    background: #66b100;
+    border-color: #66b100;
+}
+.comman-modal .modal-title{
+    margin: 0;
+    line-height: 1.2;
+    font-family: 'SFProDisplay';
+    font-size: 28px;
+    font-weight: bold;
+    color: #070707;
+}
+.comman-modal .modal-header{
+    padding: 30px 30px;
+}
+.comman-modal .modal-body{
+    padding: 30px 30px 15px;
+}
+.comman-modal label.control-label{
+    font-size: 18px;
+    line-height: 1.2;
+    color: #000000;
+    font-weight: 400;
+}
+.comman-modal .modal-body.add-address-modal{
+    padding: 0;
+}
+.comman-modal .modal-body.add-address-modal .nav-tabs{
+    padding: 0 15px;
+}
+.comman-modal .modal-body.add-address-modal .nav-tabs>li{
+    margin-bottom: 0;
+    padding: 0 15px;
+}
+.comman-modal .modal-body.add-address-modal .nav-tabs>li>a {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    font-size: 20px;
+    color: #000000;
+    padding: 0 0 10px;
+    position: relative;
+}
+.comman-modal .modal-body.add-address-modal .nav-tabs>li>a:hover, .comman-modal .modal-body.add-address-modal .nav-tabs>li.active>a{
+    color: #66B100;
+}
+.comman-modal .modal-body.add-address-modal .nav-tabs>li.active>a:after, .comman-modal .modal-body.add-address-modal .nav-tabs>li>a:hover:after{
+    content: '';
+    position: absolute;
+    background: #66B100;
+    height: 5px;
+    width: 100%;
+    left: 0;
+    bottom: -1px;
+}
+.comman-modal .modal-header.add-address-modal{
+    border-bottom: none;
+}
+.comman-modal .modal-body.add-address-modal .tab-content{
+    padding: 30px 30px 0;
+}
+
+.comm-select, .country-field select  {
+    height: 35px;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #000;
+    box-shadow: none;
+    outline: none;
+}
+.ex-padd{
+    padding: 0 30px 15px;
+}
+
+/*#payment .place-order .validate-required .woocommerce-form__label-for-checkbox.checkbox{
+    padding-left: 20px !important;
+}*/
+h3#ship-to-different-address {
+    margin-top: 0;
+}
+form.checkout.woocommerce-checkout .woocommerce-shipping-fields label.woocommerce-form__label.woocommerce-form__label-for-checkbox.checkbox{
+ padding: 0 0 0 21px;
+}
+ul.wc_payment_methods.payment_methods.methods li.wc_payment_method.payment_method_authorize_net_cim_credit_card {
+    display: flex;
+    flex-wrap: wrap;
+}
+#payment ul.payment_methods li label[for='payment_method_authorize_net_cim_credit_card'] {
+    align-items: center;
+}
+
+
+/*================================ My Account Modal Tab End ================================*/
+
+
+.shop_table tr td 
+{
+    display: flex;
+    align-items: center;
+    border: none !important; 
+}
+
+.shop_table td, .shop_table th
+{
+    border: none !important; 
+}
+
+.shop_table tr
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #ececec;
+}
+
+
+
+/********** radio css ***************/
+
+#wc_custom_fob_delivered_field .woocommerce-input-wrapper {
+	display: inline-block;
+	/* margin-bottom: 36px; */
+	overflow: hidden;
+    border-radius: 50px; 
+    background: #c4c4c4;
+    padding: 3px;
+}
+
+#wc_custom_fob_delivered_field .woocommerce-input-wrapper input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+#wc_custom_fob_delivered_field .woocommerce-input-wrapper label {
+	/* background-color: #e4e4e4; */
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+	padding: 5px 15px;
+	margin-right: -1px;
+	border: none;
+	/* box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1); */
+	transition: all 0.1s ease-in-out;
+    display: inline-block;
+    color: #FFF;
+    margin: 0 !important;
+}
+
+#wc_custom_fob_delivered_field .woocommerce-input-wrapper label:hover {
+	cursor: pointer;
+}
+
+#wc_custom_fob_delivered_field  .woocommerce-input-wrapper input:checked + label {
+	background-color: #782bdb;
+    box-shadow: none;
+    border-radius: 50px;
+    color: #FFF;
+}
+
+#wc_custom_fob_delivered_field 
+{
+    margin-right: 10px; 
+}
+
+.shop_table tfoot tr th 
+{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.wc_custom_ship_fob select
+{
+    background-color: #dbdbdb;
+    border-radius: 5px;
+}
+
+.shop_table .cart_item td 
+{
+    text-transform: uppercase; 
+}
+
+.order-total .woocommerce-Price-amount
+{
+    color: #782bdb !important; 
+}
+p#customer_newsletter_opt_in_field{
+    position: absolute;
+    opacity: 0;
+}
+h3#ship-to-different-address{
+    display: none;
+}
+
+@media (max-width: 767px){
+
+.wc_shipping_methods_wrapper header.woocommerce-Address-title.title {
+    display: block;
+}
+ .wc_shipping_methods_wrapper .ship_addr_list li.ship_addr, .wc_shipping_methods_wrapper .ship_addr_list li.button_li, .bill_addr_list li.bill_addr, .bill_addr_list li.button_li {
+    width: 100%;
+}   
+}
+
+/******* 24/2/2023*******/
+
+
+
+/* The Modal (background) */
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    padding: 0 30px 30px;
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 15px 16px;
+    background-color: #FFF;
+    border-bottom: 1px solid #A8A8A8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-right: 0; 
+}
+  
+
+.modal-header h2 
+{
+    font-size: 30px; 
+    font-weight: 600; 
+}
+
+/************** Acordian ************/ 
+ 
+.accordion > li {
+    list-style: none;
+    margin: 0;
+  }
+  
+  .accordion-trigger {
+    margin: 1px 0 0;
+    padding: 2px 15px;
+    background: #fff;
+    transition: .2s ease-in;
+    border: 1px solid #AFAFAF;
+    border-radius: 10px;
+    height: 40px; 
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: -1px;
+    cursor: pointer;
+}
+  
+
+  .accordion-content {
+    padding: 20px 20px 20px;
+    z-index: -1px;
+    position: relative;
+  }
+
+  .modal-body 
+  {
+    box-shadow: 0px 3px 10px #00000029;
+    border: 1px solid #AFAFAF;
+    border-radius: 0 0 10px;
+    background: #F5F5F5;
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  .arrow {
+        margin-left: auto;
+        font-size: 30px;
+        transition: all 0.4s ease-in-out;
+        line-height: 0;
+    }
+
+  .cover-check input[type="checkbox"]
+  {
+    position: relative;
+    width: 20px; 
+    height: 20px;
+    margin-right: 10px;
+  }
+
+
+  .cover-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.company-name 
+{
+    font-size: 16px;
+    padding-left: 10px;
+    color: #66B100;
+}
+
+.roted-arrow .arrow 
+{
+    position: relative;
+    transform: rotate(180deg);
+    transition: all 0.4s ease-in-out;
+}
+
+.inforamtion-area
+{
+    background: #FFFFFF;
+    border: 1px solid #AFAFAF;
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.con-details {
+    display: flex;
+}
+
+.con-heading {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 0;
+    color: #000;
+}
+
+.con-details ul 
+{
+    margin: 0; 
+    margin-right: 30px;
+}
+
+.gray-text 
+{
+    font-size: 15px; 
+    color: #7A7A7A; 
+    line-height: 24px;
+}
+
+.con-details h4
+{
+    font-size: 15px; 
+    color: #000; 
+    font-weight: 500;
+}
+
+.billing-form h4 
+{
+  font-size: 18px; 
+  font-weight: 600; 
+  color: #000; 
+  margin-bottom: 15px;  
+}
+
+.billing-form .form-design, .billing-form .select-form
+{
+  width: 100%; 
+  border-radius: 10px; 
+  border: 1px solid #AFAFAF; 
+  padding: 5px 15px; 
+  margin-bottom: 10px; 
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 35px;
+}
+
+.billing-form form 
+{
+  width: 100%; 
+}
+
+.partisation-area 
+{
+  display: flex;
+  align-items: start; 
+  justify-content: space-between;
+}
+ 
+.partisation-area .cover-form 
+{
+  width: 100%;
+ 
+}
+
+.padding-right15 
+{
+  padding-right: 15px;
+}
+
+.save-button 
+{
+  background: #66B100; 
+  padding: 15px 30px; 
+  font-size: 20px; 
+  color: #FFF; 
+  border: none;
+  border-radius: 10px; 
+  cursor: pointer; 
+}
+ 
+.text-center 
+{
+  text-align: center;
+}
+
+.cover-acordian 
+{
+  display: flex;
+  align-items: flex-start; 
+}
+
+.plus-icon {
+    background: #66B100;
+    border-radius: 10px;
+    padding: 10px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    cursor: pointer;
+    height: 35px;
+}
+
+.plus-icon img
+{
+    width: 25px; 
+}
+
+.arrow i 
+{
+  color: #66B100; 
+}
+
+.select-form 
+{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background-image: url("../images/down-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-position-x: 98.5%;
+}
+
+.cover-check label span 
+{
+  color: #6e6e6e; 
+}
+
+.contact-details-form 
+{
+  display: none;
+}
+
+
+.modal-dialog 
+{
+    width: 60% !important; 
+}
+ 
+.modal-content 
+{
+    width: 100% !important; 
+}
+
+
+.modal-dialog > .modal-content 
+{
+    padding: 0;
+    box-shadow: none;
+}
+
+.form-horizontal 
+{
+    margin: 0; 
+}
+
+.common-modal-header .modal-header {
+    padding: 15px 0px 0;
+    border-bottom: 0;
+    border-bottom: 1px solid #afafaf;
+    height: 48px;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+}
+
+.accordion 
+{
+    margin-bottom: inherit; 
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.con-details ul {
+    list-style: none;
+}
+
+.con-details li 
+{
+    margin: 0;
+}
+
+.common-modal-header form select, .common-modal-header form input {
+    font-size: 16px;
+    height: 35px;
+}
+
+.cover-form select, .cover-form input {
+    margin-bottom: 10px;
+}
+
+.cover-form select 
+{
+    border-radius: 10px; 
+    box-shadow: none;
+    font-size: 15px;
+}
+
+.modal-content > .modal-body 
+{
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.save-button 
+{
+    border: none;
+    padding: 5px 25px; 
+}
+
+.accordion-trigger 
+{
+    font-size: 20px; 
+    font-weight: 600; 
+}
+
+#cust_addr_type 
+{
+    border-radius: 10px; 
+    margin-bottom: 10px; 
+}
+
+.con-details h4 
+{
+    margin: 0;
+}
+
+.close 
+{
+    opacity: 1 !important;
+}
+
+.card-header h2 
+{
+    margin: 0 !important;
+}
+
+.card-header h2 button 
+{
+    padding: 0;
+    border: none !important;
+    width: 100%; 
+    outline: none !important;
+    text-decoration: none;
+}
+
+.card-header h2 button .accordion-trigger 
+{
+    text-decoration: none !important;
+    color: #000;
+}
+
+div#collapseTwo {
+    padding: 15px 10px 0 10px;
+}
+
+.btn-link:focus, .btn-link:hover {
+    color: #23527c;
+    text-decoration: none !important;
+    background-color: transparent;
+}
+ 
+
+.cover-form > p 
+{
+    margin: 0;
+}
+
+.cover-check input, .cover-check label 
+{
+    margin: 0 !important;
+    font-size: 16px;
+    margin-left: 10px !important;
+}
+
+.cover-check label span 
+{
+    font-weight: 400;
+    color: #66B100; 
+
+}
+
+.modal-content {
+    width: 100% !important;
+    padding-bottom: 15px;
+}
+
+.my-account .common-modal-header 
+{
+    margin-top: 0 !important;
+    padding-top: 0;
+}
+
+.common-modal-header .modal-title 
+{
+    font-size: 22px; 
+}
+
+.cover-acordian option 
+{
+    height: 30px;
+    line-height: 22px;
+}
+
+.cover-acordian option:checked{
+    color: rgb(0 0 0);
+    background: rgb(112 175 2);
+  }
+  .cover-acordian option:hover, .cover-acordian option:focus{
+    color: rgb(0 0 0) !important;
+    background: rgb(112 175 2) !important;
+  }
+
+ 
+.page-id-10 .cover-acordian > .modal-body 
+{
+    padding: 0 !important;
+} 
+
+.page-id-10 select.cust-dropdown.ship-radio {
+    font-size: 16px;
+}
+
+.page-id-10 .comman-modal .modal-header {
+    padding: 0;
+    padding-top: 10px;
+}
+ 
+.page-id-10 .comman-modal .modal-header .modal-title 
+{
+    font-size: 20px;
+}
+
+.cover-acordian option {
+    background: #e1e1e1;
+    opacity: 1;
+}
+
+.edit_shipping_details 
+{
+    padding: 0 !important;
+}
+
+.cust-dropdown 
+{
+    height: 35px;
+}
+
+.form-row .select2-container {
+    
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #afafaf;
+}
+
+/* ******/
+.edit-shipping-header
+{
+    padding: 25px 20px !important;
+    display: flex;
+    align-items: center;
+    flex-flow: row-reverse; 
+}
+
+.edit-shipping-header h4 
+{
+    font-size: 25px !important; 
+}
+
+.edit-shipping-header .close {
+    font-size: 0;
+    border: 1px solid #000;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    opacity: 0.5 !important;
+}
+
+/***/ 
+
+.carear-header
+{
+    padding: 25px 20px !important;
+    display: flex;
+    align-items: center;
+    flex-flow: row-reverse; 
+}
+
+.carear-header h4 
+{
+    font-size: 25px !important; 
+}
+
+.carear-header .close {
+    font-size: 0;
+    border: 1px solid #000;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    opacity: 0.5 !important;
+}
+
+/******/
+
+.sucess-header
+{
+    padding: 25px 20px !important;
+    display: flex;
+    align-items: center;
+    flex-flow: row-reverse; 
+    height: auto !important;
+}
+
+.sucess-header h4 
+{
+    font-size: 25px !important; 
+}
+
+.sucess-header .close {
+    font-size: 0;
+    border: 1px solid #000;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    opacity: 0.5 !important;
+}
+
+/*** Select 2 Dropdown  *****/
+
+.select2-results__option {
+    padding: 1px 10px !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    margin: 0 !important;
+    font-size: 15px !important; 
+}
+
+.select2-dropdown {
+    border: 1px solid #767676 !important; 
+    border-top: 1px solid #767676 !important; 
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #1e90ff !important;
+    color: white;
+}
+
+.select2-search.select2-search--dropdown  
+{
+    display: none;
+}
+
+
+/***** last Update 01.03.2023 ******/
+
+.comman-modal .modal-header.add-address-modal 
+{
+    padding: 15px 0;
+    margin: 0;
+    border-bottom: 1px solid #afafaf;
+    height: 48px;
+}
+
+.modal-header.add-address-modal .modal-title 
+{
+    font-size: 22px; 
+    
+}
+
+.page-id-9 .cover-acordian .modal-body 
+{
+    padding: 0 !important;
+}
+
+.page-id-9 .cust-dropdown {
+    font-size: 16px;
+    height: 35px;
+}
+
+.page-id-9 .cover-acordian 
+{
+    margin-top: 15px;
+}
+
+/***** last Update 01.03.2023 End ******/
+
+/*** Select 2 Dropdown End  *****/
+
+
+
+/*
+#wc-ship-modal-my-account .modal-dialog {
+    width: 750px !important;
+}
+
+#wc-ship-modal-my-account .modal-title {
+    font-size: 25px;
+}
+
+#wc-ship-modal-my-account .modal-dialog > .modal-content 
+{
+    overflow: hidden;
+}
+
+#wc-bill-modal-my-account .modal-header
+{
+    padding: 25px 20px;
+    display: flex;
+    align-items: center;
+    flex-flow: row-reverse; 
+    height: auto;
+}
+
+#wc-bill-modal-my-account .modal-dialog {
+    width: 750px !important;
+}
+
+#wc-bill-modal-my-account .common-modal-header .modal-title {
+    font-size: 30px;
+}
+
+#wc-ship-modal-my-account .common-modal-header .modal-title {
+    font-size: 30px;
+}
+
+#wc-ship-modal-my-account .modal-dialog > .modal-content {
+    padding: 0;
+    box-shadow: none;
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+
+#wc-bill-modal-my-account .modal-dialog > .modal-content {
+    padding: 0;
+    box-shadow: none;
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+ 
+*/
+
+/*********************/ 
+
+
+/* .modal 
+{
+    z-index: 99999 !important; 
+} */
+
+
+@media only screen and  (max-width:1399px){
+
+    .inforamtion-area {
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    .common-modal-header .modal-title {
+        line-height: 1;
+        font-size: 20px;
+    }
+
+    .accordion-trigger {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .con-details h4 {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .con-heading {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+
+    .common-modal-header .modal-header {
+        padding: 5px 0px 0; 
+    }
+
+    .billing-form h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 10px;
+    }
+
+    .plus-icon img
+    {
+        width: 25px; 
+    }
+    
+}
+
+
+
+@media (max-width: 991.98px) { 
+
+    .modal-dialog {
+        width: 80% !important;
+    }
+
+ } 
+
+ @media (max-width: 767.98px) { 
+
+    .modal-dialog {
+        width: 95% !important;
+    }
+
+ } 
+
+ @media (max-width: 575.98px) { 
+
+     .con-details 
+     {
+        flex-flow: wrap;
+     }
+
+     .partisation-area 
+     {
+        flex-flow: wrap !important;
+     }
+
+     .padding-right15 
+     {
+        padding-right: 0;
+     }
+
+     .partisation-area .cover-form 
+     {
+        margin-bottom: 15px;
+     }
+
+     .plus-icon {
+        padding: 8px 10px;
+        flex: 0 0 auto;
+    }
+
+    .con-details ul {
+        margin: 0;
+        margin-right: 0;
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .accordion-trigger {
+        font-size: 15px; 
+    }
+
+    .company-name {
+        font-size: 10px;
+        padding-left: 5px;
+        color: #66B100;
+    }
+
+    .modal-content 
+    {
+        padding: 0 15px 20px; 
+    }
+
+    /* .con-details h4 {
+        font-size: 16px; 
+    } */
+    
+
+ } 
+
+/*10-3-23-start*/
+.page-id-10 .comman-modal .modal-header.add-address-modal {
+    margin-bottom: 16px;
+}
+ .custom-required{
+    border: 1px solid red !important;
+}
+
+/*10-3-23-end*/
+
+/*21-11-23-start*/
+.modal-backdrop.fade.show{
+    opacity: 0.5;
+}
+
+/*10-3-23-end*/

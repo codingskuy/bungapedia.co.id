@@ -1,0 +1,2268 @@
+{
+  "label": "shop",
+  "url": "http://127.0.0.1:5179/#/stok",
+  "capturedAt": "2026-09-15T14:31:46.669Z",
+  "console": {
+    "errors": [],
+    "warnings": [],
+    "pageErrors": []
+  },
+  "navigation": [
+    {
+      "viewport": 1440,
+      "recovered": false,
+      "url": "http://127.0.0.1:5179/#/stok",
+      "readyState": "complete"
+    },
+    {
+      "viewport": 768,
+      "recovered": false,
+      "url": "http://127.0.0.1:5179/#/stok",
+      "readyState": "complete"
+    },
+    {
+      "viewport": 390,
+      "recovered": false,
+      "url": "http://127.0.0.1:5179/#/stok",
+      "readyState": "complete"
+    }
+  ],
+  "captures": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "screenshots/shop-1440.png",
+      "signals": {
+        "href": "http://127.0.0.1:5179/#/stok",
+        "title": "Bungapedia — Bunga Potong Grosir Segar Online",
+        "lang": "id",
+        "bodyTextChars": 2273,
+        "scrollHeight": 1743,
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "h1": [],
+        "headings": [
+          {
+            "tag": "h3",
+            "text": "Tanggal Kirim"
+          },
+          {
+            "tag": "h3",
+            "text": "Minta penawaran"
+          }
+        ],
+        "metaDescription": "Bungapedia — Bunga potong grosir segar, dikirim kilat ke seluruh Indonesia. Stok live, harga grosir, untuk florist & event organizer.",
+        "counts": {
+          "links": 30,
+          "images": 8,
+          "video": 0,
+          "canvas": 0,
+          "sections": 16,
+          "forms": 1,
+          "buttons": 41,
+          "inputs": 10,
+          "interactive": 81,
+          "scripts": 2,
+          "stylesheets": 0
+        },
+        "frameworks": {
+          "react": false,
+          "next": false,
+          "vue": false,
+          "nuxt": false,
+          "svelte": false,
+          "astro": false,
+          "three": false,
+          "gsap": false,
+          "lenis": false
+        },
+        "scripts": [
+          "http://127.0.0.1:5179/@vite/client",
+          "http://127.0.0.1:5179/src/main.ts?t=1789482673709"
+        ],
+        "stylesheets": [],
+        "sections": [
+          {
+            "tag": "header",
+            "id": "",
+            "className": "site-header",
+            "text": "✿ Bungapediabunga grosir · bungapedia.co.id StokPrebookPerpustakaan BungaBlogTentang ⌕ Minta Penawaran Masuk 🛒 Keranjang ☰ Stok LivePrebookPerpustakaan BungaBlogTentang ◷ Cut-off 15:28:28 · kirim dari Jakarta",
+            "rect": {
+              "x": 0,
+              "y": 31,
+              "width": 1425,
+              "height": 131
+            },
+            "style": {
+              "display": "block",
+              "position": "sticky",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "nav",
+            "id": "",
+            "className": "main-nav",
+            "text": "StokPrebookPerpustakaan BungaBlogTentang",
+            "rect": {
+              "x": 364,
+              "y": 48,
+              "width": 367,
+              "height": 52
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "nav",
+            "id": "",
+            "className": "subnav",
+            "text": "Stok LivePrebookPerpustakaan BungaBlogTentang ◷ Cut-off 15:28:28 · kirim dari Jakarta",
+            "rect": {
+              "x": 0,
+              "y": 117,
+              "width": 1425,
+              "height": 44
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "main",
+            "id": "top",
+            "className": "",
+            "text": "Belanja per Ikat ⤓ Ekspor ♡ 0 🛒 Lihat keranjang ⏱ Timer Keranjang: 90:00 Semua KategoriMawarMawar KebunHortensiaTulipPeonyDedaunanTropisLilyAlstroemeriaBox Kombo Semua WarnaMerahPeachPinkPutihHijauLavenderCampur Semua KebunBandungBatuImpor",
+            "rect": {
+              "x": 0,
+              "y": 162,
+              "width": 1425,
+              "height": 1122
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Mawar MAWAR FREEDOM MERAH Mawar | Merah 24 tersedia Rp185.000/ikat − 1 + Add",
+            "rect": {
+              "x": 147,
+              "y": 370,
+              "width": 271,
+              "height": 437
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Mawar Kebun SALE -19% GARDEN ROSE JULIET PEACH Mawar Kebun | Peach 9 tersedia Rp395.000 Rp320.000/ikat − 1 + Add",
+            "rect": {
+              "x": 434,
+              "y": 370,
+              "width": 271,
+              "height": 437
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Mawar Kebun SALE -46% GARDEN ROSE SOUTH PARK Mawar Kebun | Pink 14 tersedia Rp305.000 Rp165.000/ikat − 1 + Add",
+            "rect": {
+              "x": 721,
+              "y": 370,
+              "width": 271,
+              "height": 437
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Hortensia HORTENSIA PUTIH Hortensia | Putih 120 tersedia Rp28.000/tangkai − 10 + Add",
+            "rect": {
+              "x": 1008,
+              "y": 370,
+              "width": 271,
+              "height": 437
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Tulip TULIP DOUBLE PINK Tulip | Pink 31 tersedia Rp225.000/ikat − 1 + Add",
+            "rect": {
+              "x": 147,
+              "y": 823,
+              "width": 271,
+              "height": 437
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Peony SALE -27% PEONY SARAH BERNHARDT Peony | Pink 60 tersedia Rp62.000 Rp45.000/tangkai − 10 + Add",
+            "rect": {
+              "x": 434,
+              "y": 823,
+              "width": 271,
+              "height": 437
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Dedaunan EUCALYPTUS SILVER DOLLAR Dedaunan | Hijau 48 tersedia Rp95.000/ikat − 1 + Add",
+            "rect": {
+              "x": 721,
+              "y": 823,
+              "width": 271,
+              "height": 437
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Tropis ANTHURIUM MERAH Tropis | Merah 200 tersedia Rp25.000/tangkai − 25 + Add",
+            "rect": {
+              "x": 1008,
+              "y": 823,
+              "width": 271,
+              "height": 437
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "footer",
+            "id": "",
+            "className": "site-footer",
+            "text": "✿Bungapedia Keluarga florist Indonesia. Harga grosir untuk profesional — dengan harga & ketersediaan live, rantai dingin terjaga dari kebun ke tokomu. 0800-1-BUNGAHub Jakarta · Pasar Bunga Rawa BelongSenin–Sabtu 05:00–17:00 WIB BelanjaStok ",
+            "rect": {
+              "x": 0,
+              "y": 1340,
+              "width": 1425,
+              "height": 403
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgb(28, 36, 21)",
+              "color": "rgb(207, 216, 194)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "aside",
+            "id": "",
+            "className": "drawer",
+            "text": "Keranjang (0)✕ Tutup Keranjang masih kosong.Yuk tambah promo hari ini 🥀 TotalRp0 Checkout →",
+            "rect": {
+              "x": 1445,
+              "y": 0,
+              "width": 400,
+              "height": 900
+            },
+            "style": {
+              "display": "flex",
+              "position": "fixed",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "header",
+            "id": "",
+            "className": "",
+            "text": "Keranjang (0)✕ Tutup",
+            "rect": {
+              "x": 1445,
+              "y": 0,
+              "width": 400,
+              "height": 73
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "footer",
+            "id": "",
+            "className": "",
+            "text": "TotalRp0 Checkout →",
+            "rect": {
+              "x": 1445,
+              "y": 794,
+              "width": 400,
+              "height": 106
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          }
+        ],
+        "cssVariables": [
+          [
+            "--bg",
+            "#faf8f3"
+          ],
+          [
+            "--surface",
+            "#ffffff"
+          ],
+          [
+            "--fg",
+            "#333333"
+          ],
+          [
+            "--ink",
+            "#22262b"
+          ],
+          [
+            "--muted",
+            "#6b7280"
+          ],
+          [
+            "--border",
+            "#e8e4db"
+          ],
+          [
+            "--border-strong",
+            "#d9d4c8"
+          ],
+          [
+            "--accent",
+            "#69a63c"
+          ],
+          [
+            "--accent-dark",
+            "#4f7f2b"
+          ],
+          [
+            "--accent-soft",
+            "#eef5e6"
+          ],
+          [
+            "--footer-bg",
+            "#1c2415"
+          ],
+          [
+            "--footer-fg",
+            "#cfd8c2"
+          ],
+          [
+            "--gold",
+            "#c9a227"
+          ],
+          [
+            "--danger",
+            "#d6492f"
+          ],
+          [
+            "--radius",
+            "14px"
+          ],
+          [
+            "--font-body",
+            "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif"
+          ],
+          [
+            "--font-ui",
+            "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+          ],
+          [
+            "--font-display",
+            "\"Iowan Old Style\", \"Palatino Linotype\", Palatino, Georgia, serif"
+          ]
+        ],
+        "rootVariables": [
+          [
+            "--bg",
+            "#faf8f3"
+          ],
+          [
+            "--surface",
+            "#ffffff"
+          ],
+          [
+            "--fg",
+            "#333333"
+          ],
+          [
+            "--ink",
+            "#22262b"
+          ],
+          [
+            "--muted",
+            "#6b7280"
+          ],
+          [
+            "--border",
+            "#e8e4db"
+          ],
+          [
+            "--border-strong",
+            "#d9d4c8"
+          ],
+          [
+            "--accent",
+            "#69a63c"
+          ],
+          [
+            "--accent-dark",
+            "#4f7f2b"
+          ],
+          [
+            "--accent-soft",
+            "#eef5e6"
+          ],
+          [
+            "--footer-bg",
+            "#1c2415"
+          ],
+          [
+            "--footer-fg",
+            "#cfd8c2"
+          ],
+          [
+            "--gold",
+            "#c9a227"
+          ],
+          [
+            "--danger",
+            "#d6492f"
+          ],
+          [
+            "--radius",
+            "14px"
+          ],
+          [
+            "--font-body",
+            "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif"
+          ],
+          [
+            "--font-ui",
+            "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+          ],
+          [
+            "--font-display",
+            "\"Iowan Old Style\", \"Palatino Linotype\", Palatino, Georgia, serif"
+          ]
+        ],
+        "palette": {
+          "body": {
+            "backgroundColor": "rgb(250, 248, 243)",
+            "color": "rgb(51, 51, 51)",
+            "borderColor": "rgb(51, 51, 51)",
+            "fontFamily": "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+            "backgroundImage": ""
+          },
+          "header": {
+            "backgroundColor": "rgb(255, 255, 255)",
+            "color": "rgb(34, 38, 43)",
+            "borderColor": "rgb(34, 38, 43)",
+            "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+            "backgroundImage": ""
+          },
+          "nav": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(34, 38, 43)",
+            "borderColor": "rgb(34, 38, 43)",
+            "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+            "backgroundImage": ""
+          },
+          "main": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(51, 51, 51)",
+            "borderColor": "rgb(51, 51, 51)",
+            "fontFamily": "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+            "backgroundImage": ""
+          },
+          "footer": {
+            "backgroundColor": "rgb(28, 36, 21)",
+            "color": "rgb(207, 216, 194)",
+            "borderColor": "rgb(207, 216, 194)",
+            "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+            "backgroundImage": ""
+          },
+          "buttons": [
+            {
+              "text": "Minta Penawaran",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "Masuk",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "🛒 Keranjang",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "☰",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "Belanja per Ikat",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "⤓ Ekspor",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "♡ 0",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "🛒 Lihat keranjang",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "Ubah",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(79, 127, 43)",
+              "borderColor": "rgb(79, 127, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "▦",
+              "backgroundColor": "rgb(34, 38, 43)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "☰",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "‹ Prev",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            }
+          ]
+        },
+        "motion": {
+          "htmlScrollBehavior": "smooth",
+          "scrollSnapRules": 0,
+          "smoothScrollRules": 1,
+          "stickyOrFixedCount": 5
+        },
+        "fonts": [],
+        "fontFaces": [],
+        "resources": {
+          "images": [
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/33366d30ffbd0b9304731257f074f57d-480-146fdb3e85.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/831fd0b98e08fe217a7e37f4f54c445d-249-e6dc7924b5.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/2cb852255ecf8884a12469fd1f89eb78-800-9c63fa88d8.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/73e7f8d2edb3395bae17a4be4f8b4975-240-7913d5576d.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/7765fbdaac48650bf283a3ff81a126dc-450-a0ccac80a9.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/03c895f62509a1802afade74dde839b2-480-bf5e4a9f9a.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/9caffa42f100ae8ff1e3d86dc3f07c0a-244-cbc225d9a6.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/8d84fb2861423d27749f14c711d40c4f-480-c7aa10aa9b.webp",
+            "http://127.0.0.1:5179/favicon.png"
+          ],
+          "fonts": [],
+          "media": []
+        },
+        "images": [
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/33366d30ffbd0b9304731257f074f57d-480-146fdb3e85.webp",
+            "srcset": "",
+            "alt": "MAWAR FREEDOM MERAH",
+            "width": 480,
+            "height": 480
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/831fd0b98e08fe217a7e37f4f54c445d-249-e6dc7924b5.webp",
+            "srcset": "",
+            "alt": "GARDEN ROSE JULIET PEACH",
+            "width": 249,
+            "height": 235
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/2cb852255ecf8884a12469fd1f89eb78-800-9c63fa88d8.webp",
+            "srcset": "",
+            "alt": "GARDEN ROSE SOUTH PARK",
+            "width": 800,
+            "height": 678
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/73e7f8d2edb3395bae17a4be4f8b4975-240-7913d5576d.webp",
+            "srcset": "",
+            "alt": "HORTENSIA PUTIH",
+            "width": 240,
+            "height": 240
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/7765fbdaac48650bf283a3ff81a126dc-450-a0ccac80a9.webp",
+            "srcset": "",
+            "alt": "TULIP DOUBLE PINK",
+            "width": 450,
+            "height": 450
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/03c895f62509a1802afade74dde839b2-480-bf5e4a9f9a.webp",
+            "srcset": "",
+            "alt": "PEONY SARAH BERNHARDT",
+            "width": 480,
+            "height": 482
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/9caffa42f100ae8ff1e3d86dc3f07c0a-244-cbc225d9a6.webp",
+            "srcset": "",
+            "alt": "EUCALYPTUS SILVER DOLLAR",
+            "width": 244,
+            "height": 247
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/8d84fb2861423d27749f14c711d40c4f-480-c7aa10aa9b.webp",
+            "srcset": "",
+            "alt": "ANTHURIUM MERAH",
+            "width": 480,
+            "height": 454
+          }
+        ],
+        "canvases": []
+      }
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "screenshot": "screenshots/shop-768.png",
+      "signals": {
+        "href": "http://127.0.0.1:5179/#/stok",
+        "title": "Bungapedia — Bunga Potong Grosir Segar Online",
+        "lang": "id",
+        "bodyTextChars": 2214,
+        "scrollHeight": 3392,
+        "viewport": {
+          "width": 768,
+          "height": 900
+        },
+        "h1": [],
+        "headings": [
+          {
+            "tag": "h3",
+            "text": "Tanggal Kirim"
+          },
+          {
+            "tag": "h3",
+            "text": "Minta penawaran"
+          }
+        ],
+        "metaDescription": "Bungapedia — Bunga potong grosir segar, dikirim kilat ke seluruh Indonesia. Stok live, harga grosir, untuk florist & event organizer.",
+        "counts": {
+          "links": 30,
+          "images": 8,
+          "video": 0,
+          "canvas": 0,
+          "sections": 16,
+          "forms": 1,
+          "buttons": 41,
+          "inputs": 10,
+          "interactive": 81,
+          "scripts": 2,
+          "stylesheets": 0
+        },
+        "frameworks": {
+          "react": false,
+          "next": false,
+          "vue": false,
+          "nuxt": false,
+          "svelte": false,
+          "astro": false,
+          "three": false,
+          "gsap": false,
+          "lenis": false
+        },
+        "scripts": [
+          "http://127.0.0.1:5179/@vite/client",
+          "http://127.0.0.1:5179/src/main.ts?t=1789482673709"
+        ],
+        "stylesheets": [],
+        "sections": [
+          {
+            "tag": "header",
+            "id": "",
+            "className": "site-header",
+            "text": "✿ Bungapediabunga grosir · bungapedia.co.id StokPrebookPerpustakaan BungaBlogTentang ⌕ Minta Penawaran Masuk 🛒 Keranjang ☰ Stok LivePrebookPerpustakaan BungaBlogTentang ◷ Cut-off 15:28:21 · kirim dari Jakarta",
+            "rect": {
+              "x": 0,
+              "y": 31,
+              "width": 753,
+              "height": 148
+            },
+            "style": {
+              "display": "block",
+              "position": "sticky",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "nav",
+            "id": "",
+            "className": "main-nav",
+            "text": "StokPrebookPerpustakaan BungaBlogTentang",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "style": {
+              "display": "none",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "nav",
+            "id": "",
+            "className": "subnav",
+            "text": "Stok LivePrebookPerpustakaan BungaBlogTentang ◷ Cut-off 15:28:21 · kirim dari Jakarta",
+            "rect": {
+              "x": 0,
+              "y": 117,
+              "width": 753,
+              "height": 61
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "main",
+            "id": "top",
+            "className": "",
+            "text": "Belanja per Ikat ⤓ Ekspor ♡ 0 🛒 Lihat keranjang ⏱ Timer Keranjang: 90:00 Semua KategoriMawarMawar KebunHortensiaTulipPeonyDedaunanTropisLilyAlstroemeriaBox Kombo Semua WarnaMerahPeachPinkPutihHijauLavenderCampur Semua KebunBandungBatuImpor",
+            "rect": {
+              "x": 0,
+              "y": 179,
+              "width": 753,
+              "height": 2417
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Mawar MAWAR FREEDOM MERAH Mawar | Merah 24 tersedia Rp185.000/ikat − 1 + Add",
+            "rect": {
+              "x": 24,
+              "y": 482,
+              "width": 345,
+              "height": 511
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Mawar Kebun SALE -19% GARDEN ROSE JULIET PEACH Mawar Kebun | Peach 9 tersedia Rp395.000 Rp320.000/ikat − 1 + Add",
+            "rect": {
+              "x": 385,
+              "y": 482,
+              "width": 345,
+              "height": 511
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Mawar Kebun SALE -46% GARDEN ROSE SOUTH PARK Mawar Kebun | Pink 14 tersedia Rp305.000 Rp165.000/ikat − 1 + Add",
+            "rect": {
+              "x": 24,
+              "y": 1009,
+              "width": 345,
+              "height": 511
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Hortensia HORTENSIA PUTIH Hortensia | Putih 120 tersedia Rp28.000/tangkai − 10 + Add",
+            "rect": {
+              "x": 385,
+              "y": 1009,
+              "width": 345,
+              "height": 511
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Tulip TULIP DOUBLE PINK Tulip | Pink 31 tersedia Rp225.000/ikat − 1 + Add",
+            "rect": {
+              "x": 24,
+              "y": 1535,
+              "width": 345,
+              "height": 511
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Peony SALE -27% PEONY SARAH BERNHARDT Peony | Pink 60 tersedia Rp62.000 Rp45.000/tangkai − 10 + Add",
+            "rect": {
+              "x": 385,
+              "y": 1535,
+              "width": 345,
+              "height": 511
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Dedaunan EUCALYPTUS SILVER DOLLAR Dedaunan | Hijau 48 tersedia Rp95.000/ikat − 1 + Add",
+            "rect": {
+              "x": 24,
+              "y": 2062,
+              "width": 345,
+              "height": 511
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Tropis ANTHURIUM MERAH Tropis | Merah 200 tersedia Rp25.000/tangkai − 25 + Add",
+            "rect": {
+              "x": 385,
+              "y": 2062,
+              "width": 345,
+              "height": 511
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "footer",
+            "id": "",
+            "className": "site-footer",
+            "text": "✿Bungapedia Keluarga florist Indonesia. Harga grosir untuk profesional — dengan harga & ketersediaan live, rantai dingin terjaga dari kebun ke tokomu. 0800-1-BUNGAHub Jakarta · Pasar Bunga Rawa BelongSenin–Sabtu 05:00–17:00 WIB BelanjaStok ",
+            "rect": {
+              "x": 0,
+              "y": 2652,
+              "width": 753,
+              "height": 740
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgb(28, 36, 21)",
+              "color": "rgb(207, 216, 194)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "aside",
+            "id": "",
+            "className": "drawer",
+            "text": "Keranjang (0)✕ Tutup Keranjang masih kosong.Yuk tambah promo hari ini 🥀 TotalRp0 Checkout →",
+            "rect": {
+              "x": 773,
+              "y": 0,
+              "width": 400,
+              "height": 900
+            },
+            "style": {
+              "display": "flex",
+              "position": "fixed",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "header",
+            "id": "",
+            "className": "",
+            "text": "Keranjang (0)✕ Tutup",
+            "rect": {
+              "x": 773,
+              "y": 0,
+              "width": 400,
+              "height": 73
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "footer",
+            "id": "",
+            "className": "",
+            "text": "TotalRp0 Checkout →",
+            "rect": {
+              "x": 773,
+              "y": 794,
+              "width": 400,
+              "height": 106
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          }
+        ],
+        "cssVariables": [
+          [
+            "--bg",
+            "#faf8f3"
+          ],
+          [
+            "--surface",
+            "#ffffff"
+          ],
+          [
+            "--fg",
+            "#333333"
+          ],
+          [
+            "--ink",
+            "#22262b"
+          ],
+          [
+            "--muted",
+            "#6b7280"
+          ],
+          [
+            "--border",
+            "#e8e4db"
+          ],
+          [
+            "--border-strong",
+            "#d9d4c8"
+          ],
+          [
+            "--accent",
+            "#69a63c"
+          ],
+          [
+            "--accent-dark",
+            "#4f7f2b"
+          ],
+          [
+            "--accent-soft",
+            "#eef5e6"
+          ],
+          [
+            "--footer-bg",
+            "#1c2415"
+          ],
+          [
+            "--footer-fg",
+            "#cfd8c2"
+          ],
+          [
+            "--gold",
+            "#c9a227"
+          ],
+          [
+            "--danger",
+            "#d6492f"
+          ],
+          [
+            "--radius",
+            "14px"
+          ],
+          [
+            "--font-body",
+            "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif"
+          ],
+          [
+            "--font-ui",
+            "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+          ],
+          [
+            "--font-display",
+            "\"Iowan Old Style\", \"Palatino Linotype\", Palatino, Georgia, serif"
+          ]
+        ],
+        "rootVariables": [
+          [
+            "--bg",
+            "#faf8f3"
+          ],
+          [
+            "--surface",
+            "#ffffff"
+          ],
+          [
+            "--fg",
+            "#333333"
+          ],
+          [
+            "--ink",
+            "#22262b"
+          ],
+          [
+            "--muted",
+            "#6b7280"
+          ],
+          [
+            "--border",
+            "#e8e4db"
+          ],
+          [
+            "--border-strong",
+            "#d9d4c8"
+          ],
+          [
+            "--accent",
+            "#69a63c"
+          ],
+          [
+            "--accent-dark",
+            "#4f7f2b"
+          ],
+          [
+            "--accent-soft",
+            "#eef5e6"
+          ],
+          [
+            "--footer-bg",
+            "#1c2415"
+          ],
+          [
+            "--footer-fg",
+            "#cfd8c2"
+          ],
+          [
+            "--gold",
+            "#c9a227"
+          ],
+          [
+            "--danger",
+            "#d6492f"
+          ],
+          [
+            "--radius",
+            "14px"
+          ],
+          [
+            "--font-body",
+            "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif"
+          ],
+          [
+            "--font-ui",
+            "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+          ],
+          [
+            "--font-display",
+            "\"Iowan Old Style\", \"Palatino Linotype\", Palatino, Georgia, serif"
+          ]
+        ],
+        "palette": {
+          "body": {
+            "backgroundColor": "rgb(250, 248, 243)",
+            "color": "rgb(51, 51, 51)",
+            "borderColor": "rgb(51, 51, 51)",
+            "fontFamily": "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+            "backgroundImage": ""
+          },
+          "header": {
+            "backgroundColor": "rgb(255, 255, 255)",
+            "color": "rgb(34, 38, 43)",
+            "borderColor": "rgb(34, 38, 43)",
+            "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+            "backgroundImage": ""
+          },
+          "nav": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(34, 38, 43)",
+            "borderColor": "rgb(34, 38, 43)",
+            "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+            "backgroundImage": ""
+          },
+          "main": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(51, 51, 51)",
+            "borderColor": "rgb(51, 51, 51)",
+            "fontFamily": "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+            "backgroundImage": ""
+          },
+          "footer": {
+            "backgroundColor": "rgb(28, 36, 21)",
+            "color": "rgb(207, 216, 194)",
+            "borderColor": "rgb(207, 216, 194)",
+            "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+            "backgroundImage": ""
+          },
+          "buttons": [
+            {
+              "text": "Minta Penawaran",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "Masuk",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "🛒 Keranjang",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "☰",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "Belanja per Ikat",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "⤓ Ekspor",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "♡ 0",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "🛒 Lihat keranjang",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "Ubah",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(79, 127, 43)",
+              "borderColor": "rgb(79, 127, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "▦",
+              "backgroundColor": "rgb(34, 38, 43)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "☰",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "‹ Prev",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            }
+          ]
+        },
+        "motion": {
+          "htmlScrollBehavior": "smooth",
+          "scrollSnapRules": 0,
+          "smoothScrollRules": 1,
+          "stickyOrFixedCount": 5
+        },
+        "fonts": [],
+        "fontFaces": [],
+        "resources": {
+          "images": [
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/33366d30ffbd0b9304731257f074f57d-480-146fdb3e85.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/831fd0b98e08fe217a7e37f4f54c445d-249-e6dc7924b5.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/2cb852255ecf8884a12469fd1f89eb78-800-9c63fa88d8.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/73e7f8d2edb3395bae17a4be4f8b4975-240-7913d5576d.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/7765fbdaac48650bf283a3ff81a126dc-450-a0ccac80a9.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/03c895f62509a1802afade74dde839b2-480-bf5e4a9f9a.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/9caffa42f100ae8ff1e3d86dc3f07c0a-244-cbc225d9a6.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/8d84fb2861423d27749f14c711d40c4f-480-c7aa10aa9b.webp"
+          ],
+          "fonts": [],
+          "media": []
+        },
+        "images": [
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/33366d30ffbd0b9304731257f074f57d-480-146fdb3e85.webp",
+            "srcset": "",
+            "alt": "MAWAR FREEDOM MERAH",
+            "width": 480,
+            "height": 480
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/831fd0b98e08fe217a7e37f4f54c445d-249-e6dc7924b5.webp",
+            "srcset": "",
+            "alt": "GARDEN ROSE JULIET PEACH",
+            "width": 249,
+            "height": 235
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/2cb852255ecf8884a12469fd1f89eb78-800-9c63fa88d8.webp",
+            "srcset": "",
+            "alt": "GARDEN ROSE SOUTH PARK",
+            "width": 800,
+            "height": 678
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/73e7f8d2edb3395bae17a4be4f8b4975-240-7913d5576d.webp",
+            "srcset": "",
+            "alt": "HORTENSIA PUTIH",
+            "width": 240,
+            "height": 240
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/7765fbdaac48650bf283a3ff81a126dc-450-a0ccac80a9.webp",
+            "srcset": "",
+            "alt": "TULIP DOUBLE PINK",
+            "width": 450,
+            "height": 450
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/03c895f62509a1802afade74dde839b2-480-bf5e4a9f9a.webp",
+            "srcset": "",
+            "alt": "PEONY SARAH BERNHARDT",
+            "width": 480,
+            "height": 482
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/9caffa42f100ae8ff1e3d86dc3f07c0a-244-cbc225d9a6.webp",
+            "srcset": "",
+            "alt": "EUCALYPTUS SILVER DOLLAR",
+            "width": 244,
+            "height": 247
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/8d84fb2861423d27749f14c711d40c4f-480-c7aa10aa9b.webp",
+            "srcset": "",
+            "alt": "ANTHURIUM MERAH",
+            "width": 480,
+            "height": 454
+          }
+        ],
+        "canvases": []
+      }
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "screenshot": "screenshots/shop-390.png",
+      "signals": {
+        "href": "http://127.0.0.1:5179/#/stok",
+        "title": "Bungapedia — Bunga Potong Grosir Segar Online",
+        "lang": "id",
+        "bodyTextChars": 2212,
+        "scrollHeight": 3250,
+        "viewport": {
+          "width": 390,
+          "height": 900
+        },
+        "h1": [],
+        "headings": [
+          {
+            "tag": "h3",
+            "text": "Tanggal Kirim"
+          },
+          {
+            "tag": "h3",
+            "text": "Minta penawaran"
+          }
+        ],
+        "metaDescription": "Bungapedia — Bunga potong grosir segar, dikirim kilat ke seluruh Indonesia. Stok live, harga grosir, untuk florist & event organizer.",
+        "counts": {
+          "links": 30,
+          "images": 8,
+          "video": 0,
+          "canvas": 0,
+          "sections": 16,
+          "forms": 1,
+          "buttons": 41,
+          "inputs": 10,
+          "interactive": 81,
+          "scripts": 2,
+          "stylesheets": 0
+        },
+        "frameworks": {
+          "react": false,
+          "next": false,
+          "vue": false,
+          "nuxt": false,
+          "svelte": false,
+          "astro": false,
+          "three": false,
+          "gsap": false,
+          "lenis": false
+        },
+        "scripts": [
+          "http://127.0.0.1:5179/@vite/client",
+          "http://127.0.0.1:5179/src/main.ts?t=1789482673709"
+        ],
+        "stylesheets": [],
+        "sections": [
+          {
+            "tag": "header",
+            "id": "",
+            "className": "site-header",
+            "text": "✿ Bungapediabunga grosir · bungapedia.co.id StokPrebookPerpustakaan BungaBlogTentang ⌕ Minta Penawaran Masuk 🛒 Keranjang ☰ Stok LivePrebookPerpustakaan BungaBlogTentang ◷ Cut-off 15:28:14 · kirim dari Jakarta",
+            "rect": {
+              "x": 0,
+              "y": 46,
+              "width": 375,
+              "height": 148
+            },
+            "style": {
+              "display": "block",
+              "position": "sticky",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "nav",
+            "id": "",
+            "className": "main-nav",
+            "text": "StokPrebookPerpustakaan BungaBlogTentang",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "style": {
+              "display": "none",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "nav",
+            "id": "",
+            "className": "subnav",
+            "text": "Stok LivePrebookPerpustakaan BungaBlogTentang ◷ Cut-off 15:28:14 · kirim dari Jakarta",
+            "rect": {
+              "x": 0,
+              "y": 132,
+              "width": 375,
+              "height": 61
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "main",
+            "id": "top",
+            "className": "",
+            "text": "Belanja per Ikat ⤓ Ekspor ♡ 0 🛒 Lihat keranjang ⏱ Timer Keranjang: 90:00 Semua KategoriMawarMawar KebunHortensiaTulipPeonyDedaunanTropisLilyAlstroemeriaBox Kombo Semua WarnaMerahPeachPinkPutihHijauLavenderCampur Semua KebunBandungBatuImpor",
+            "rect": {
+              "x": 0,
+              "y": 194,
+              "width": 375,
+              "height": 1871
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Mawar MAWAR FREEDOM MERAH Mawar | Merah 24 tersedia Rp185.000/ikat − 1 + Add",
+            "rect": {
+              "x": 24,
+              "y": 643,
+              "width": 156,
+              "height": 338
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Mawar Kebun SALE -19% GARDEN ROSE JULIET PEACH Mawar Kebun | Peach 9 tersedia Rp395.000 Rp320.000/ikat − 1 + Add",
+            "rect": {
+              "x": 196,
+              "y": 643,
+              "width": 156,
+              "height": 338
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Mawar Kebun SALE -46% GARDEN ROSE SOUTH PARK Mawar Kebun | Pink 14 tersedia Rp305.000 Rp165.000/ikat − 1 + Add",
+            "rect": {
+              "x": 24,
+              "y": 997,
+              "width": 156,
+              "height": 338
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Hortensia HORTENSIA PUTIH Hortensia | Putih 120 tersedia Rp28.000/tangkai − 10 + Add",
+            "rect": {
+              "x": 196,
+              "y": 997,
+              "width": 156,
+              "height": 338
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Tulip TULIP DOUBLE PINK Tulip | Pink 31 tersedia Rp225.000/ikat − 1 + Add",
+            "rect": {
+              "x": 24,
+              "y": 1350,
+              "width": 156,
+              "height": 338
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Peony SALE -27% PEONY SARAH BERNHARDT Peony | Pink 60 tersedia Rp62.000 Rp45.000/tangkai − 10 + Add",
+            "rect": {
+              "x": 196,
+              "y": 1350,
+              "width": 156,
+              "height": 338
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Dedaunan EUCALYPTUS SILVER DOLLAR Dedaunan | Hijau 48 tersedia Rp95.000/ikat − 1 + Add",
+            "rect": {
+              "x": 24,
+              "y": 1704,
+              "width": 156,
+              "height": 338
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "article",
+            "id": "",
+            "className": "shop-card svelte-r19ybu",
+            "text": "Tropis ANTHURIUM MERAH Tropis | Merah 200 tersedia Rp25.000/tangkai − 25 + Add",
+            "rect": {
+              "x": 196,
+              "y": 1704,
+              "width": 156,
+              "height": 338
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(51, 51, 51)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "footer",
+            "id": "",
+            "className": "site-footer",
+            "text": "✿Bungapedia Keluarga florist Indonesia. Harga grosir untuk profesional — dengan harga & ketersediaan live, rantai dingin terjaga dari kebun ke tokomu. 0800-1-BUNGAHub Jakarta · Pasar Bunga Rawa BelongSenin–Sabtu 05:00–17:00 WIB BelanjaStok ",
+            "rect": {
+              "x": 0,
+              "y": 2121,
+              "width": 375,
+              "height": 1129
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgb(28, 36, 21)",
+              "color": "rgb(207, 216, 194)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "aside",
+            "id": "",
+            "className": "drawer",
+            "text": "Keranjang (0)✕ Tutup Keranjang masih kosong.Yuk tambah promo hari ini 🥀 TotalRp0 Checkout →",
+            "rect": {
+              "x": 393,
+              "y": 0,
+              "width": 359,
+              "height": 885
+            },
+            "style": {
+              "display": "flex",
+              "position": "fixed",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "header",
+            "id": "",
+            "className": "",
+            "text": "Keranjang (0)✕ Tutup",
+            "rect": {
+              "x": 393,
+              "y": 0,
+              "width": 359,
+              "height": 73
+            },
+            "style": {
+              "display": "flex",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          },
+          {
+            "tag": "footer",
+            "id": "",
+            "className": "",
+            "text": "TotalRp0 Checkout →",
+            "rect": {
+              "x": 393,
+              "y": 779,
+              "width": 359,
+              "height": 106
+            },
+            "style": {
+              "display": "block",
+              "position": "static",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "fontSize": "16px"
+            }
+          }
+        ],
+        "cssVariables": [
+          [
+            "--bg",
+            "#faf8f3"
+          ],
+          [
+            "--surface",
+            "#ffffff"
+          ],
+          [
+            "--fg",
+            "#333333"
+          ],
+          [
+            "--ink",
+            "#22262b"
+          ],
+          [
+            "--muted",
+            "#6b7280"
+          ],
+          [
+            "--border",
+            "#e8e4db"
+          ],
+          [
+            "--border-strong",
+            "#d9d4c8"
+          ],
+          [
+            "--accent",
+            "#69a63c"
+          ],
+          [
+            "--accent-dark",
+            "#4f7f2b"
+          ],
+          [
+            "--accent-soft",
+            "#eef5e6"
+          ],
+          [
+            "--footer-bg",
+            "#1c2415"
+          ],
+          [
+            "--footer-fg",
+            "#cfd8c2"
+          ],
+          [
+            "--gold",
+            "#c9a227"
+          ],
+          [
+            "--danger",
+            "#d6492f"
+          ],
+          [
+            "--radius",
+            "14px"
+          ],
+          [
+            "--font-body",
+            "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif"
+          ],
+          [
+            "--font-ui",
+            "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+          ],
+          [
+            "--font-display",
+            "\"Iowan Old Style\", \"Palatino Linotype\", Palatino, Georgia, serif"
+          ]
+        ],
+        "rootVariables": [
+          [
+            "--bg",
+            "#faf8f3"
+          ],
+          [
+            "--surface",
+            "#ffffff"
+          ],
+          [
+            "--fg",
+            "#333333"
+          ],
+          [
+            "--ink",
+            "#22262b"
+          ],
+          [
+            "--muted",
+            "#6b7280"
+          ],
+          [
+            "--border",
+            "#e8e4db"
+          ],
+          [
+            "--border-strong",
+            "#d9d4c8"
+          ],
+          [
+            "--accent",
+            "#69a63c"
+          ],
+          [
+            "--accent-dark",
+            "#4f7f2b"
+          ],
+          [
+            "--accent-soft",
+            "#eef5e6"
+          ],
+          [
+            "--footer-bg",
+            "#1c2415"
+          ],
+          [
+            "--footer-fg",
+            "#cfd8c2"
+          ],
+          [
+            "--gold",
+            "#c9a227"
+          ],
+          [
+            "--danger",
+            "#d6492f"
+          ],
+          [
+            "--radius",
+            "14px"
+          ],
+          [
+            "--font-body",
+            "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif"
+          ],
+          [
+            "--font-ui",
+            "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+          ],
+          [
+            "--font-display",
+            "\"Iowan Old Style\", \"Palatino Linotype\", Palatino, Georgia, serif"
+          ]
+        ],
+        "palette": {
+          "body": {
+            "backgroundColor": "rgb(250, 248, 243)",
+            "color": "rgb(51, 51, 51)",
+            "borderColor": "rgb(51, 51, 51)",
+            "fontFamily": "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+            "backgroundImage": ""
+          },
+          "header": {
+            "backgroundColor": "rgb(255, 255, 255)",
+            "color": "rgb(34, 38, 43)",
+            "borderColor": "rgb(34, 38, 43)",
+            "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+            "backgroundImage": ""
+          },
+          "nav": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(34, 38, 43)",
+            "borderColor": "rgb(34, 38, 43)",
+            "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+            "backgroundImage": ""
+          },
+          "main": {
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "color": "rgb(51, 51, 51)",
+            "borderColor": "rgb(51, 51, 51)",
+            "fontFamily": "-apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif",
+            "backgroundImage": ""
+          },
+          "footer": {
+            "backgroundColor": "rgb(28, 36, 21)",
+            "color": "rgb(207, 216, 194)",
+            "borderColor": "rgb(207, 216, 194)",
+            "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+            "backgroundImage": ""
+          },
+          "buttons": [
+            {
+              "text": "Minta Penawaran",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "Masuk",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "🛒 Keranjang",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "☰",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "Belanja per Ikat",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "⤓ Ekspor",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "♡ 0",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "🛒 Lihat keranjang",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "Ubah",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "color": "rgb(79, 127, 43)",
+              "borderColor": "rgb(79, 127, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "▦",
+              "backgroundColor": "rgb(34, 38, 43)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(34, 38, 43)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "☰",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            },
+            {
+              "text": "‹ Prev",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "color": "rgb(34, 38, 43)",
+              "borderColor": "rgb(217, 212, 200)",
+              "fontFamily": "Inter, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+              "backgroundImage": ""
+            }
+          ]
+        },
+        "motion": {
+          "htmlScrollBehavior": "smooth",
+          "scrollSnapRules": 0,
+          "smoothScrollRules": 1,
+          "stickyOrFixedCount": 5
+        },
+        "fonts": [],
+        "fontFaces": [],
+        "resources": {
+          "images": [
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/33366d30ffbd0b9304731257f074f57d-480-146fdb3e85.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/2cb852255ecf8884a12469fd1f89eb78-800-9c63fa88d8.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/831fd0b98e08fe217a7e37f4f54c445d-249-e6dc7924b5.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/73e7f8d2edb3395bae17a4be4f8b4975-240-7913d5576d.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/7765fbdaac48650bf283a3ff81a126dc-450-a0ccac80a9.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/03c895f62509a1802afade74dde839b2-480-bf5e4a9f9a.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/9caffa42f100ae8ff1e3d86dc3f07c0a-244-cbc225d9a6.webp",
+            "http://127.0.0.1:5179/assets/images/flowermarketplace.com/8d84fb2861423d27749f14c711d40c4f-480-c7aa10aa9b.webp"
+          ],
+          "fonts": [],
+          "media": []
+        },
+        "images": [
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/33366d30ffbd0b9304731257f074f57d-480-146fdb3e85.webp",
+            "srcset": "",
+            "alt": "MAWAR FREEDOM MERAH",
+            "width": 480,
+            "height": 480
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/831fd0b98e08fe217a7e37f4f54c445d-249-e6dc7924b5.webp",
+            "srcset": "",
+            "alt": "GARDEN ROSE JULIET PEACH",
+            "width": 249,
+            "height": 235
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/2cb852255ecf8884a12469fd1f89eb78-800-9c63fa88d8.webp",
+            "srcset": "",
+            "alt": "GARDEN ROSE SOUTH PARK",
+            "width": 800,
+            "height": 678
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/73e7f8d2edb3395bae17a4be4f8b4975-240-7913d5576d.webp",
+            "srcset": "",
+            "alt": "HORTENSIA PUTIH",
+            "width": 240,
+            "height": 240
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/7765fbdaac48650bf283a3ff81a126dc-450-a0ccac80a9.webp",
+            "srcset": "",
+            "alt": "TULIP DOUBLE PINK",
+            "width": 450,
+            "height": 450
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/03c895f62509a1802afade74dde839b2-480-bf5e4a9f9a.webp",
+            "srcset": "",
+            "alt": "PEONY SARAH BERNHARDT",
+            "width": 480,
+            "height": 482
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/9caffa42f100ae8ff1e3d86dc3f07c0a-244-cbc225d9a6.webp",
+            "srcset": "",
+            "alt": "EUCALYPTUS SILVER DOLLAR",
+            "width": 244,
+            "height": 247
+          },
+          {
+            "src": "http://127.0.0.1:5179/assets/images/flowermarketplace.com/8d84fb2861423d27749f14c711d40c4f-480-c7aa10aa9b.webp",
+            "srcset": "",
+            "alt": "ANTHURIUM MERAH",
+            "width": 480,
+            "height": 454
+          }
+        ],
+        "canvases": []
+      }
+    }
+  ]
+}

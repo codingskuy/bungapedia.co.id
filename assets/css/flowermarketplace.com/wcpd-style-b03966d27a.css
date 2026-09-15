@@ -1,0 +1,171 @@
+/* The regModal (background) */
+.wcpdregmodal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  z-index: 99;
+}
+
+/* regModal Content */
+.wcpdregmodal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  max-width:768px;
+  position: relative;
+}
+
+/* The regClose Button */
+.regclose {
+      color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    line-height: 23px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    text-align: center;
+    background: #fff;
+}
+
+.regclose:hover,
+.regclose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+#wcpd_country_field span.select2.select2-container.select2-container--default {
+    width: 100% !important;
+}
+
+
+
+.wcpd-reg-form .custom-row .block-wrap{ width:48%; display:inline-block; vertical-align:top; margin: 0 5px }
+.wcpd-reg-form .custom-row .block-wrap .error{ color:red; border-color:red; margin-bottom:0; }
+.wcpd-reg-form .custom-row .block-wrap label.error { font-size:12px; line-height:14px; padding:0; margin:2px 0 10px 0; }
+.wcpd-reg-form .custom-row span.billing-title{ display:block; padding:0; margin:0 0 0 5px; }
+.block-wrap-btn { text-align:center; }
+.create-customer{ cursor:pointer; margin-bottom:15px; transition:all 300ms ease-in-out; }
+.create-customer:hover{ color: #70af02; }
+.customer-wrap [type="submit"]{  margin-top:15px; }
+.wcpd-reg-form .block-wrap-btn{ margin-top:30px; }
+.wcpd-reg-form #pswd_info ul li.valid{ padding-left: 0; list-style:inside; }
+.wcpd-reg-form .block-wrap-full{ margin:0 5px; }
+.wcpd-reg-form  .wpcd_msg {color: #ffb900; font-weight: bold;}
+
+.back_to_admin {
+    position: fixed;
+    bottom:50px;
+    left: 40px;
+    padding:0;
+    margin:0;
+    cursor:pointer;
+}
+
+.back-to-admin {
+    text-align: center;
+    padding: 0;
+    margin:0;
+    transition: all 300ms ease-in-out;
+    position:relative;
+    transition: all 300ms ease-in-out
+}
+
+.back-to-admin:hover .submit-block{ 
+  opacity:1;
+  display:block;
+  height:100%;
+ }
+
+
+.back-to-admin .user-icon{ 
+width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background:none;
+    margin: 0 auto;
+    padding: 6px 0 0 0;
+    border: 2px solid currentColor;
+    transition: all 300ms ease-in-out;
+ }
+
+ .back-to-admin .user-icon:hover{ background: #70af02; border-color:#70af02; }
+
+
+.back-to-admin .user-icon i{ font-size: 30px;
+    color: currentColor;
+    line-height: 32px;
+    transition:all 300ms ease-in-out;
+}
+
+.back-to-admin .user-icon:hover i{ color:#fff; }
+
+.back-to-admin .submit-block{ 
+ opacity:0;
+ display:none;
+ transition: all 300ms ease-in-out;
+ position: absolute;
+  left: -28px;
+  bottom: -45px;
+  height: 0%;
+ }
+
+
+
+.back_to_admin .submit-block [type="submit"]{ margin:0; /*background:url(../img/user.png) no-repeat 10px 50%, #70af02;*/  padding:0;
+    /*background-size: 18px;*/
+    background:none;
+    font-size: 14px;
+    line-height: 16px;
+    background-color: transparent !important;
+    color: currentColor;
+    border: none;
+    }
+.back_to_admin .submit-block [type="submit"]:hover{ color: currentColor; padding:0; background-color:transparent !important; box-shadow:none; }
+
+a.showcharges{
+      margin: 0 0 10px;
+      background: #70af02;
+        color: #fff;
+        position: relative;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: .97em;
+        letter-spacing: .03em;
+        touch-action: none;
+        cursor: pointer;
+        font-weight: bolder;
+        text-align: center;
+        text-decoration: none;
+        border: 1px solid transparent;
+        vertical-align: middle;
+        border-radius: 0;
+        text-shadow: none;
+        line-height: 2.4em;
+        min-height: 2.5em;
+        padding: 0 1.2em;
+        max-width: 100%;
+        transition: transform .3s, border .3s, background .3s, box-shadow .3s, opacity .3s, color .3s;
+        text-rendering: optimizeLegibility;
+        box-sizing: border-box;
+    }
+
+@media screen and (max-width:767px){
+.wcpdregmodal-content{ max-width:90%; }
+.wcpd-reg-form .custom-row .block-wrap{ width:100%; }
+
+}

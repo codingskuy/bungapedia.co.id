@@ -1,0 +1,229 @@
+/* ==========================================================================
+   FMI auth card — sign-in / create-account (2026-08-10)
+   Self-contained + scoped to .fmi-auth-card so it renders identically inside
+   the homepage modal and standalone on /my-account/.
+   ========================================================================== */
+.fmi-auth-card{
+  --fa-green:#69A63C; --fa-green-deep:#54872E; --fa-green-ink:#2F6B2F;
+  --fa-terra:#C24A22; --fa-cream:#FAF8F2; --fa-field:#F2F0E9;
+  --fa-ink:#22262B; --fa-muted:#6B7280; --fa-line:#E8E4DB; --fa-line-2:#D9D4C8;
+  display:grid; grid-template-columns:1fr .85fr;
+  background:#fff; border-radius:22px; overflow:hidden;
+  font-family:'Inter',system-ui,-apple-system,sans-serif; color:var(--fa-ink);
+  -webkit-font-smoothing:antialiased; text-align:left;
+}
+.fmi-auth-card *{box-sizing:border-box}
+.fmi-auth-card h2{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.15;color:var(--fa-ink);margin:0}
+.fmi-auth-card a{text-decoration:none}
+
+/* ---------- left: sign in ---------- */
+.fmi-auth-card .fmi-auth-side{padding:40px 40px 34px;min-width:0}
+.fmi-auth-brand{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.fmi-auth-brand img{height:34px;width:auto;display:block}
+.fmi-auth-card .fmi-auth-side h2{font-size:26px;margin-bottom:5px}
+.fmi-auth-sub{font-size:13.5px;color:var(--fa-muted);margin:0 0 24px;line-height:1.5}
+
+.fmi-auth-field{margin-bottom:16px}
+.fmi-auth-field label{display:block;font-size:12.5px;font-weight:700;color:var(--fa-ink);margin-bottom:7px}
+.fmi-auth-field label .req{color:var(--fa-terra)}
+.fmi-auth-card input[type=text],
+.fmi-auth-card input[type=email],
+.fmi-auth-card input[type=password]{
+  width:100%;border:1.5px solid var(--fa-line-2);border-radius:11px;background:var(--fa-field);
+  padding:13px 14px;font:inherit;font-size:14.5px;color:var(--fa-ink);transition:.15s;height:auto;margin:0;
+}
+.fmi-auth-card input[type=text]:focus,
+.fmi-auth-card input[type=email]:focus,
+.fmi-auth-card input[type=password]:focus{outline:none;background:#fff;border-color:var(--fa-green-deep);box-shadow:0 0 0 4px rgba(105,166,60,.13)}
+.fmi-pwwrap{position:relative}
+.fmi-pwwrap input{padding-right:52px!important}
+.fmi-pwtoggle{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:38px;height:38px;border:0;background:none;border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--fa-muted);cursor:pointer;padding:0}
+.fmi-pwtoggle:hover{color:var(--fa-green-deep);background:rgba(105,166,60,.08)}
+.fmi-pwtoggle.is-on{color:var(--fa-green-deep)}
+
+.fmi-auth-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:4px 0 20px;flex-wrap:wrap}
+.fmi-remember{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:var(--fa-muted);cursor:pointer;user-select:none;margin:0}
+.fmi-remember input{position:absolute;opacity:0;width:0;height:0}
+.fmi-remember .box{width:19px;height:19px;border-radius:6px;border:1.7px solid var(--fa-line-2);background:#fff;display:flex;align-items:center;justify-content:center;transition:.15s;color:#fff;flex:0 0 auto}
+.fmi-remember input:checked + .box{background:var(--fa-green);border-color:var(--fa-green)}
+.fmi-remember .box svg{opacity:0;transition:.1s}
+.fmi-remember input:checked + .box svg{opacity:1}
+.fmi-remember input:focus-visible + .box{box-shadow:0 0 0 3px rgba(105,166,60,.25)}
+.fmi-forgot{font-size:13px;font-weight:700;color:var(--fa-green-deep)}
+.fmi-forgot:hover{text-decoration:underline}
+
+/* primary button — high specificity so the old theme rules can't shrink it */
+.fmi-auth-card button.fmi-btn-primary,
+.fmi-auth-card .fmi-btn-primary{
+  width:100%!important;max-width:none!important;display:flex!important;align-items:center;justify-content:center;gap:9px;
+  font-family:inherit;font-weight:800;font-size:15px;line-height:1;padding:15px 18px!important;min-height:50px;height:auto!important;
+  border:0!important;border-radius:11px!important;background:var(--fa-green)!important;color:#fff!important;
+  box-shadow:0 8px 20px rgba(105,166,60,.28);cursor:pointer;transition:.15s;text-transform:none;letter-spacing:0;
+}
+.fmi-auth-card button.fmi-btn-primary:hover{background:var(--fa-green-deep)!important}
+
+.fmi-auth-divider{display:flex;align-items:center;gap:14px;margin:20px 0;color:var(--fa-muted);font-size:12px;font-weight:700}
+.fmi-auth-divider::before,.fmi-auth-divider::after{content:"";flex:1;height:1px;background:var(--fa-line)}
+
+.fmi-auth-social{display:flex;flex-direction:column;gap:10px}
+.fmi-auth-card button.fmi-sbtn{
+  width:100%!important;max-width:none!important;display:flex!important;align-items:center;justify-content:center;gap:10px;
+  font-family:inherit;font-weight:700;font-size:14px;line-height:1;padding:13px!important;min-height:48px;height:auto!important;
+  border:1.5px solid var(--fa-line-2)!important;border-radius:11px!important;background:#fff!important;color:var(--fa-ink)!important;
+  cursor:pointer;transition:.15s;box-shadow:none!important;text-transform:none;letter-spacing:0;
+}
+.fmi-auth-card button.fmi-sbtn:hover{background:var(--fa-field)!important}
+.fmi-auth-card button.fmi-sbtn-apple{background:#000!important;color:#fff!important;border-color:#000!important}
+.fmi-auth-card button.fmi-sbtn-apple:hover{background:#1a1a1a!important}
+/* real provider widgets stay in the DOM (their JS matters) but out of sight */
+.fmi-auth-realsocial{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+
+/* ---------- right: create an account ---------- */
+.fmi-auth-card .fmi-auth-aside{
+  background:linear-gradient(165deg,#2F6B2F,#24501f);color:#fff;padding:40px 36px;
+  display:flex;flex-direction:column;position:relative;overflow:hidden;min-width:0;
+}
+.fmi-auth-card .fmi-auth-aside::before{content:"";position:absolute;right:30px;top:-40px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.05)}
+.fmi-auth-card .fmi-auth-aside::after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.05)}
+.fmi-auth-eyebrow{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#C9E3A8;position:relative}
+.fmi-auth-card .fmi-auth-aside h2{color:#fff;font-size:27px;margin:10px 0 8px;position:relative}
+.fmi-auth-intro{font-size:13.5px;color:rgba(255,255,255,.8);line-height:1.6;margin:0 0 22px;position:relative}
+.fmi-perks{list-style:none;display:flex;flex-direction:column;gap:14px;margin:0 0 26px;padding:0;position:relative}
+.fmi-perks li{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.92);margin:0}
+.fmi-perks .ic{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#C9E3A8}
+.fmi-perks b{color:#fff;font-weight:700}
+.fmi-auth-card .fmi-btn-new{
+  margin-top:auto;position:relative;width:100%;display:flex;align-items:center;justify-content:center;gap:9px;
+  font-weight:800;font-size:15px;padding:15px;border-radius:11px;background:#fff;color:var(--fa-green-ink);transition:.15s;
+}
+.fmi-auth-card .fmi-btn-new:hover{background:var(--fa-cream);transform:translateY(-1px)}
+.fmi-auth-fine{font-size:11.5px;color:rgba(255,255,255,.62);text-align:center;margin:12px 0 0;position:relative}
+
+.fmi-auth-card :focus-visible{outline:2.5px solid var(--fa-green-deep);outline-offset:2px;border-radius:8px}
+
+/* ---------- responsive ---------- */
+@media(max-width:760px){
+  .fmi-auth-card{grid-template-columns:1fr}
+  /* LOGIN first, "create an account" underneath (client request 2026-08-10) */
+  .fmi-auth-card .fmi-auth-side{order:0;padding:28px 24px 26px}
+  .fmi-auth-card .fmi-auth-aside{order:1;padding:28px 24px 26px}
+  .fmi-auth-card .fmi-auth-aside::before,.fmi-auth-card .fmi-auth-aside::after{display:none}
+  .fmi-auth-card .fmi-auth-side h2{font-size:23px}
+  .fmi-auth-card .fmi-auth-aside h2{font-size:23px}
+  .fmi-auth-brand{margin-bottom:16px}
+  .fmi-auth-brand img{height:30px}
+  .fmi-auth-sub{margin-bottom:18px}
+  .fmi-auth-card .fmi-btn-new{margin-top:18px}
+  .fmi-perks{gap:11px;margin-bottom:20px}
+}
+
+/* ---------- modal shell: let the card fill it edge-to-edge ---------- */
+/* the shell must keep scrolling — the stacked card is taller than the screen on
+   phones, and overflow:visible made the bottom (Google / Create account) unreachable */
+/* The SHELL stays put (so the close button never scrolls away) and the INNER body
+   scrolls — the stacked card is taller than a phone screen. */
+.fmi-home .fmi-auth:has(.fmi-auth-card){
+  padding:0;background:transparent;border:0;width:min(880px,94vw);
+  max-height:92vh;overflow:hidden;
+  border-radius:22px;box-shadow:0 30px 80px rgba(20,30,15,.28);
+}
+.fmi-home .fmi-auth:has(.fmi-auth-card) .fmi-auth-body{
+  border-radius:22px;box-shadow:none;
+  max-height:92vh;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
+}
+.fmi-home .fmi-auth:has(.fmi-auth-card) .fmi-auth-body::-webkit-scrollbar{width:0;background:transparent}
+/* close button sits on the non-scrolling shell -> always reachable */
+.fmi-home .fmi-auth:has(.fmi-auth-card) .fmi-auth-x{z-index:10}
+.fmi-home .fmi-auth:has(.fmi-auth-card) .fmi-auth-x{top:16px;right:16px;background:#fff;border:1px solid var(--fa-line,#E8E4DB);color:#6B7280}
+.fmi-home .fmi-auth:has(.fmi-auth-card) .fmi-auth-x:hover{background:#F2F0E9;color:#22262B;transform:rotate(90deg)}
+
+/* standalone (/my-account/) — give the card a shadow + sane max width */
+body:not(.fmi-home-body) .fmi-auth-card{max-width:880px;margin:32px auto;box-shadow:0 18px 50px rgba(20,30,15,.14);border:1px solid var(--fa-line)}
+
+/* ==========================================================================
+   HARDENING (2026-08-10) — on /my-account/ the homepage stylesheet isn't loaded,
+   so the theme's own button rules win and wreck the card:
+     [type="button"]:hover/:focus { color:#fff; background:#cc3366 }
+     .elementor-kit-… button:hover { color:#fff; background:#271d19 }
+     flatsome .button { float:left }  -> collapsed the social buttons to ~29px
+   Everything below re-asserts the card's own look regardless of page context.
+   ========================================================================== */
+.fmi-auth-card form,
+.fmi-auth-card .woocommerce-form-login{width:100%!important;max-width:none!important;margin:0!important;padding:0!important;float:none!important;border:0!important;background:none!important;box-shadow:none!important}
+.fmi-auth-card .fmi-auth-social,
+.fmi-auth-card .fmi-auth-field,
+.fmi-auth-card .fmi-auth-row,
+.fmi-auth-card .fmi-auth-divider{width:100%!important;max-width:none!important;float:none!important}
+.fmi-auth-card button{float:none!important;text-transform:none!important;letter-spacing:0!important}
+
+/* password eye toggle — was rendering as a dark filled square */
+.fmi-auth-card button.fmi-pwtoggle,
+.fmi-auth-card button.fmi-pwtoggle:hover,
+.fmi-auth-card button.fmi-pwtoggle:focus,
+.fmi-auth-card button.fmi-pwtoggle:active{
+  width:38px!important;height:38px!important;min-width:0!important;min-height:0!important;padding:0!important;
+  border:0!important;box-shadow:none!important;border-radius:9px!important;
+  background:transparent!important;background-color:transparent!important;
+  color:var(--fa-muted)!important;-webkit-text-fill-color:var(--fa-muted)!important;
+}
+.fmi-auth-card button.fmi-pwtoggle:hover{background:rgba(105,166,60,.08)!important;color:var(--fa-green-deep)!important;-webkit-text-fill-color:var(--fa-green-deep)!important}
+
+/* social buttons — keep their colours in every state */
+.fmi-auth-card button.fmi-sbtn,
+.fmi-auth-card button.fmi-sbtn:hover,
+.fmi-auth-card button.fmi-sbtn:focus,
+.fmi-auth-card button.fmi-sbtn:active{
+  background:#fff!important;color:var(--fa-ink)!important;-webkit-text-fill-color:var(--fa-ink)!important;
+  border:1.5px solid var(--fa-line-2)!important;
+}
+.fmi-auth-card button.fmi-sbtn:hover{background:var(--fa-field)!important}
+.fmi-auth-card button.fmi-sbtn-apple,
+.fmi-auth-card button.fmi-sbtn-apple:hover,
+.fmi-auth-card button.fmi-sbtn-apple:focus,
+.fmi-auth-card button.fmi-sbtn-apple:active{
+  background:#000!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border-color:#000!important;
+}
+.fmi-auth-card button.fmi-sbtn-apple:hover{background:#1a1a1a!important}
+
+/* primary submit — theme floats it left and repaints it on hover */
+.fmi-auth-card button.fmi-btn-primary,
+.fmi-auth-card button.fmi-btn-primary:hover,
+.fmi-auth-card button.fmi-btn-primary:focus,
+.fmi-auth-card button.fmi-btn-primary:active{
+  background:var(--fa-green)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border:0!important;
+}
+.fmi-auth-card button.fmi-btn-primary:hover{background:var(--fa-green-deep)!important}
+
+/* ==========================================================================
+   Account pages: Lost password / Reset password — were rendering completely raw
+   ========================================================================== */
+.woocommerce-account .woocommerce-ResetPassword.lost_reset_password{
+  max-width:520px;margin:34px auto;padding:34px 32px 30px;background:#fff;
+  border:1px solid #E8E4DB;border-radius:18px;box-shadow:0 14px 40px rgba(20,30,15,.08);
+  font-family:'Inter',system-ui,sans-serif;color:#22262B;
+}
+.woocommerce-account .woocommerce-ResetPassword.lost_reset_password > p:first-of-type{
+  font-size:14px;line-height:1.6;color:#6B7280;margin:0 0 20px;
+}
+.woocommerce-account .woocommerce-ResetPassword .woocommerce-form-row{width:100%!important;float:none!important;padding:0!important;margin:0 0 18px!important}
+.woocommerce-account .woocommerce-ResetPassword label{display:block;font-size:12.5px;font-weight:700;color:#22262B;margin-bottom:7px}
+.woocommerce-account .woocommerce-ResetPassword .required{color:#C24A22;border:0;text-decoration:none}
+.woocommerce-account .woocommerce-ResetPassword input[type=text],
+.woocommerce-account .woocommerce-ResetPassword input[type=email],
+.woocommerce-account .woocommerce-ResetPassword input[type=password]{
+  width:100%!important;border:1.5px solid #D9D4C8!important;border-radius:11px!important;background:#F2F0E9!important;
+  padding:13px 14px!important;font:inherit;font-size:14.5px;color:#22262B;height:auto!important;box-shadow:none!important;
+}
+.woocommerce-account .woocommerce-ResetPassword input:focus{outline:none;background:#fff!important;border-color:#54872E!important;box-shadow:0 0 0 4px rgba(105,166,60,.13)!important}
+.woocommerce-account .woocommerce-ResetPassword .woocommerce-form-row--first{width:100%!important}
+.woocommerce-account .woocommerce-ResetPassword button[type=submit],
+.woocommerce-account .woocommerce-ResetPassword button[type=submit]:hover,
+.woocommerce-account .woocommerce-ResetPassword button[type=submit]:focus{
+  width:100%!important;display:flex!important;align-items:center;justify-content:center;
+  min-height:50px;padding:15px 18px!important;margin:2px 0 0!important;float:none!important;
+  background:#69A63C!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+  border:0!important;border-radius:11px!important;box-shadow:0 8px 20px rgba(105,166,60,.28)!important;
+  font-weight:800!important;font-size:15px!important;line-height:1!important;text-transform:none!important;letter-spacing:0!important;
+}
+.woocommerce-account .woocommerce-ResetPassword button[type=submit]:hover{background:#54872E!important}
+.woocommerce-account .woocommerce-ResetPassword .clear{display:none}

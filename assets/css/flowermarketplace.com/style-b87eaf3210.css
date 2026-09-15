@@ -1,0 +1,573 @@
+
+
+.currencyinput {
+    border: 1px inset #ccc;
+}
+.currencyinput input {
+    border: 0;
+}
+
+#payment-form .select2-container .select2-selection {
+	
+	border-radius:5px;
+}
+
+
+#payment-form .valid{
+
+	background: none !important;
+    padding-left: 22px;
+    line-height: 24px;
+    color: #3a7d34;
+}
+
+#payment-formnew .valid{
+
+    background: none !important; 
+}
+
+.entry_form_only {
+    padding-left: 15px;
+    margin-top: 35px;
+}
+.entry_form_only .woocommerce-Button
+{
+  margin-top: 15px;
+}
+.pay_form_area h2.pay_title
+{
+	color: #000;
+	font-size: 20px;
+}
+.pay_form_area .form_code_left
+{
+	padding-right: 2%;
+}
+.pay_form_area .form_code
+{
+	padding-left: 2%;
+}
+.pay_form_area label
+{
+
+}
+.pay_form_area .input-text 
+{
+	border-radius: 4px;
+  margin-bottom: 5px;
+}
+.field.card_masking
+{
+  position: relative;
+}
+/*.field.card_masking:before {
+    content: "************";
+    background-color: #fff;
+    width: 118px;
+    height: 30px;
+    position: absolute;
+    left: 2px;
+    top: 5px;
+    line-height: 37px;
+    padding-left: 10px;
+    color: #000;
+    letter-spacing: 1.6px;
+    font-size: 17px;
+}*/
+.card_masking #test-card-number_lbl {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 10px;
+    height: 39px;
+    line-height: 1;
+    font-size: .97em;
+    -webkit-box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+    -webkit-transition: color .3s,border .3s,background .3s,opacity .3s;
+    -o-transition: color .3s,border .3s,background .3s,opacity .3s;
+    transition: color .3s,border .3s,background .3s,opacity .3s;
+}
+.pay_form_area .set_primary_card
+{
+	padding-top: 29px;
+}
+.pay_form_area .woocommerce-Button {
+    text-transform: inherit;
+    font-weight: normal;
+    letter-spacing: 0.6px;
+    background-color: #53A700;
+    font-weight: 800;
+    border-radius: 8px;
+}
+.card_pay_box
+{
+	margin-bottom: 20px;
+}
+.card_pay_box .card_pay_inner {
+    border: 2px solid #d7d1d1;
+    padding: 10px;
+    border-radius: 4px;
+    height: 100%;
+}
+
+.card_pay_box .pay_card_name
+{
+
+}
+.card_pay_box .pay_card_name h4 {
+    color: #8d8a8a;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0 0 0 0;
+}
+.pay_card_bottom
+{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-top: 15px;
+}
+.pay_card_bottom .pcb_left p
+{
+	margin: 0;
+	line-height: 1.1;
+  color: #494949 !important;
+}
+.card_pay_box .pay_card_name p
+{
+	margin: 0 0 6px 0;
+}
+.big_icon i
+{
+  font-style: normal;
+}
+.card_ribban {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    min-height: 21px;
+}
+.card_ribban .card_ribban_inner {
+    background-color: #53A700;
+    padding: 4px 6px;
+    display: inline-block;
+    position: relative;
+    right: -10px;
+}
+.card_ribban .card_ribban_inner:before {
+    content: "";
+    height: 100%;
+    width: 0;
+    border: solid 11px #53A700;
+    border-right-width: 0;
+    border-left-color: transparent;
+    top: 0;
+    left: -10px;
+    position: absolute;
+}
+.card_ribban .card_ribban_inner h6
+{
+	color: #fff;
+	margin: 0;
+	font-size: 14px;
+	text-transform: capitalize;
+}
+
+.cvv_side
+{
+    position: relative;
+}
+.cvv_side .cvv_inp
+{
+
+}
+.cvv_side .cvv_inp .input-text
+{
+    width: 110px;
+}
+.cvv_side .tooltip 
+{
+    position: absolute;
+    left: 130px;
+    top: 37px;
+}
+.cvv_side .tooltip i
+{
+    font-size: 21px;
+}
+/*=== tooltip ===*/
+.cvv_side .tooltip {
+  /*position: relative;*/
+  display: inline-block;
+  border-bottom: none;
+}
+
+.cvv_side .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: #fff;
+    color: #686666;
+    
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    left: 50%;
+    margin-left: 30px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border: 1px solid #fafafa;
+    box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.28);
+-webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.28);
+-moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.28);
+}
+.cvv_side .tooltip .tooltiptext p {
+    font-size: 12px;
+    color: #3e3e3e;
+    line-height: 1.3;
+}
+
+.cvv_side .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+    margin-left: -14px;
+    /*border-width: 8px;
+    border-style: solid;
+    border-color: #d7d2d2 transparent transparent transparent;
+    transform: rotate(90deg);*/
+
+    background-image: url('../images/tooltip_arrow.png');
+    width: 18px;
+    height: 29px;
+    background-repeat: no-repeat;
+}
+
+.cvv_side .tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*===   ====*/
+.card_payment_form .form-control
+{
+  width: 100%;
+}
+.card_payment_form .ui.input
+{
+  position: relative;
+}
+
+.card_payment_form .ui.icon i.icon:before {
+    position: absolute;
+    right: 15px;
+    top: 0px;
+    color: #666;
+    font-size: 20px;
+    font-style: normal;
+    width: 68px;
+    height: 40px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.card_payment_form .ui_pay_btn {
+    background-color: #05b107;
+    padding: 10px 20px;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 16px;
+}
+.pay_form_area .ui.field.error .input-text
+{
+    border: 1px solid #C10000;
+}
+.ui.icon i.icon:before,
+.big_icon .icon:before
+{
+  font-family: 'FontAwesome';
+  font-display: swap;
+}
+i.icon.credit.card.alternative:before {
+    content: "\f283";
+    
+}
+.big_icon .icon:before
+{
+  font-size: 20px;
+      width: 50px;
+    height: 35px;
+    background-size: 44px;
+    background-repeat: no-repeat;
+    background-position: right;
+    display: block;
+}
+
+
+/* Payment Options */
+
+i.icon.paypal:before {
+  content: "\f1ed";
+}
+
+i.icon.google.wallet:before {
+  content: "\f1ee";
+}
+
+i.icon.visa:before ,.big_icon i.icon.visa:before  {
+  /*content: "\f1f0";*/
+  content: "";
+  background-image: url('../images/VisaCard.svg');
+}
+
+i.icon.mastercard:before {
+  /*content: "\f1f1";*/
+  content: "";
+  background-image: url('../images/MasterCard.svg');
+}
+
+i.icon.discover:before {
+  /*content: "\f1f2";*/
+  content: "";
+  background-image: url('../images/DiscoverCard.svg');
+}
+
+i.icon.american.express:before {
+  /*content: "\f1f3";*/
+  content: "";
+  background-image: url('../images/AmexCard.svg');
+}
+
+i.icon.paypal.card:before {
+  content: "\f1f4";
+}
+
+i.icon.stripe:before {
+  content: "\f1f5";
+}
+
+i.icon.japan.credit.bureau:before {
+  /*content: "\f24b";*/
+  content: "";
+  background-image: url('../images/JCBCard.svg');
+}
+
+i.icon.diners.club:before {
+  /*content: "\f24c";*/
+  content: "";
+  background-image: url('../images/DinersCard.svg');
+}
+
+i.icon.credit.card.alternative:before {
+  /*content: "\f283";*/
+  content: "";
+  background-image: url('../images/UnionPayCard.svg');
+}
+
+
+
+
+.form_code
+{
+    
+}
+.ui.error .ui.pointing, .ui.error label.error {
+    display: inline-block;
+    color: #C10000;
+    font-weight: 600;
+    font-size: 14px;
+}
+.cvv_side .ui.error .ui.pointing
+{
+	width: 342px;
+}
+.user-card-wrap p .card_add {
+    margin-right: 0;
+    border-radius: 4px;
+    background-color: #53A700;
+    border-radius: 8px !important;
+    font-weight: bold;
+    color: #fff !important;
+}
+
+.error_highlight
+{
+  margin-bottom: 15px;
+}
+.error_highlight p
+{
+  color: #d30000;
+  font-size: 18px;
+  font-weight: 700;
+}
+.error_highlight p span {
+    color: #fff;
+    background-color: #C10000;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center; 
+    align-items: center;
+    margin-right: 4px;
+}
+
+.card-vault-body .button{
+    border-radius: 8px !important;
+    text-transform: none !important;
+    background-color: #53A700;
+    font-weight: 800;
+}
+.card-vault-body .button.btn-red
+{
+  background-color: #C10000;
+}
+
+/*=== alert popup ===*/
+.jconfirm .jconfirm-box
+{
+  padding: 0 !important;
+}
+.jconfirm-box
+{
+  max-width: 600px !important;
+  width: 100% !important;
+}
+.jconfirm .jconfirm-box.jconfirm-type-red
+{
+      border-top: solid 7px #C10000 !important;
+}
+.jconfirm .jconfirm-box .jconfirm-buttons button.btn-red
+{
+  background-color: #C10000;
+}
+.jconfirm-content div
+{
+  position: relative;
+  color: #d30000;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.jconfirm-content div:before
+{
+  content: "\f06a";
+  font-family: 'FontAwesome';
+    color: #C10000;
+    /*background-color: #C10000;*/
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 4px;
+    font-size: 27px;
+    font-display: swap;
+}
+.jconfirm .jconfirm-box div.jconfirm-content-pane .jconfirm-content
+{
+  overflow: hidden;
+}
+.jconfirm .jconfirm-box div.jconfirm-content-pane {
+    border-bottom: 1px solid #ccc;
+    padding:30px 25px 21px 25px;
+ 
+    max-height: auto !important;
+    margin-bottom: 0 !important;
+}
+.jconfirm .jconfirm-box .jconfirm-buttons button.btn-default
+{
+    background-color: #a2a2a2 !important;
+    margin-right: 20px;
+    color: #fff !important;
+    width: 145px;
+}
+.jconfirm .jconfirm-box .jconfirm-buttons {
+    padding: 6px 25px 8px 25px !important;
+}
+.jconfirm .jconfirm-box .jconfirm-buttons button
+{
+    padding: 10px 35px;
+    text-transform: initial !important;
+    font-size: 15px;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+}
+.success_highlight p {
+    color: #7eb51e;
+    font-size: 19px;
+}
+.user-card-wrap .card-vault-form .select2-container
+{
+  margin-bottom: 20px;
+}
+.user-card-wrap .card-vault-form p
+{
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 7px 0;
+}
+.user-card-wrap .card-vault-form p .existing_card
+{
+  margin-bottom: 0;
+}
+/*===== responsive ======*/
+
+@media (min-width: 550px){
+
+  p.form-row-first {
+    margin-right: 4% !important;
+  }
+}
+
+
+
+@media only screen and (min-width:320px) and (max-width:767px) {
+    .card-vault-form .form_code .row .cvv_side
+    {
+        width: 50% !important;
+        padding-left: 5px;
+    }
+    .card-vault-form .form_code .row .card_primary   
+    {
+        width: 50% !important;
+    }
+
+
+}
+
+@media only screen and (min-width:320px) and (max-width:575px)
+{
+    .pay_form_area label
+    {
+      font-size: 13px;
+    }
+    .cvv_side .tooltip .tooltiptext
+    {
+      bottom: 165%;
+      left: -118px;
+    }
+    .cvv_side .tooltip .tooltiptext::after
+    {
+      top: auto;
+      bottom: -20px;
+      left: 50%;
+      margin-left: -27px;
+      transform: rotate(-90deg);
+    }
+    
+
+}
+
+.authnet_paymet_entry .disabled{
+  opacity: 0.6;
+  pointer-events: none;
+}

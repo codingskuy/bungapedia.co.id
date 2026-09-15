@@ -1,0 +1,57 @@
+/* =====================================================================
+   FMI site footer — deep-plum skin per fmi-product-detail (1).html.
+   CSS-only re-skin of the existing Elementor footer template (2281795):
+   every widget/link/menu stays, only the look changes.
+   ===================================================================== */
+.elementor-location-footer{background:#241430!important;color:#D8CFE0;font-family:'Inter',system-ui,sans-serif}
+.elementor-location-footer .e-con,
+.elementor-location-footer .e-con-inner,
+.elementor-location-footer .elementor-element{background-color:transparent!important}
+.elementor-location-footer{padding:20px 0 0}
+
+/* column headings */
+.elementor-location-footer .elementor-heading-title{color:#fff!important;font-size:11.5px!important;font-weight:800!important;letter-spacing:.1em!important;text-transform:uppercase!important}
+
+/* nav menu links */
+.elementor-location-footer .elementor-nav-menu a,
+.elementor-location-footer .elementor-nav-menu .elementor-item{color:#D8CFE0!important;opacity:.82;font-size:13px!important;font-weight:500!important;padding:4px 0!important;background:none!important}
+.elementor-location-footer .elementor-nav-menu a:hover,
+.elementor-location-footer .elementor-nav-menu .elementor-item:hover{color:#fff!important;opacity:1}
+.elementor-location-footer .elementor-nav-menu{line-height:1.5}
+.elementor-location-footer ul.elementor-nav-menu li{margin:0!important}
+
+/* icon list (contact) */
+.elementor-location-footer .elementor-icon-list-text{color:#D8CFE0!important;opacity:.88;font-size:13px!important}
+.elementor-location-footer .elementor-icon-list-icon i,
+.elementor-location-footer .elementor-icon-list-icon svg{color:#B79ACB!important;fill:#B79ACB!important}
+
+/* socials */
+.elementor-location-footer .elementor-social-icon{background-color:rgba(255,255,255,.1)!important;border-radius:9px!important}
+.elementor-location-footer .elementor-social-icon i,
+.elementor-location-footer .elementor-social-icon svg{color:#fff!important;fill:#fff!important}
+.elementor-location-footer .elementor-social-icon:hover{background-color:#6A2C8F!important}
+
+/* logo on a white plate */
+.elementor-location-footer img[src*="LOGO"],
+.elementor-location-footer img[src*="logo"]{background:#fff;padding:10px 14px;border-radius:12px;height:auto;max-height:56px;width:auto}
+
+/* payment card images: white chips */
+.elementor-location-footer .elementor-widget-image img:not([src*="logo"]):not([src*="LOGO"]){background:#fff;padding:2px;border-radius:4px;max-height:26px;width:auto}
+
+/* generic text + copyright bar */
+.elementor-location-footer, .elementor-location-footer p,
+.elementor-location-footer .elementor-widget-text-editor{color:#D8CFE0}
+.elementor-location-footer p{opacity:.75;font-size:12.5px}
+.elementor-location-footer a{color:inherit}
+.elementor-location-footer a:hover{color:#fff}
+
+/* newsletter / gravity form inside the footer */
+.elementor-location-footer .gform_title{color:#fff!important;font-size:13px!important;font-weight:800!important;letter-spacing:.06em;text-transform:uppercase}
+.elementor-location-footer .gform_wrapper input:not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),
+.elementor-location-footer .gform_wrapper select,
+.elementor-location-footer .gform_wrapper textarea{background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.18)!important;border-radius:10px!important;color:#fff!important;padding:10px 13px!important;font-size:13px!important}
+.elementor-location-footer .gform_wrapper input::placeholder{color:rgba(255,255,255,.45)}
+.elementor-location-footer .gform_wrapper .gform_button{background:#6FA539!important;border:none!important;border-radius:10px!important;color:#fff!important;font-weight:800!important;font-size:13px!important;padding:10px 20px!important;cursor:pointer}
+.elementor-location-footer .gform_wrapper .gform_button:hover{background:#5A8A2C!important}
+.elementor-location-footer .gfield_label{color:#D8CFE0!important;font-size:12px!important}
+.elementor-location-footer .gfield_required{color:#B79ACB!important}

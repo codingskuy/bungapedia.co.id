@@ -1,0 +1,401 @@
+/* FMI Home (Task 13) — ported verbatim from fmi-home-carolina-final.html,
+   scoped under .fmi-home. Loads ONLY on the front page. */
+.fmi-home{margin:0;padding:0;font-family:'Inter',sans-serif}
+.fmi-home{
+    --green:#69A63C; --green-deep:#54872E; --green-ink:#2F6B2F;
+    --green-soft:#EDF4E3; --green-line:#D9E8C6;
+    --terra:#C24A22; --terra-soft:#FBEDE6;
+    --cream:#FAF8F2; --card:#FFFFFF; --field:#F2F0E9;
+    --ink:#22262B; --muted:#6B7280; --line:#E8E4DB; --line-2:#D9D4C8;
+    --shadow:0 1px 2px rgba(30,35,25,.05),0 10px 28px rgba(30,35,25,.07);
+    --shadow-pop:0 16px 44px rgba(30,35,25,.14);
+  }
+.fmi-home *{box-sizing:border-box;margin:0;padding:0}
+.fmi-home{background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55}
+.fmi-home a{color:inherit;text-decoration:none}
+.fmi-home button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.fmi-home img{display:block;max-width:100%}
+.fmi-home h1, .fmi-home h2, .fmi-home h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.1;letter-spacing:-.012em;color:var(--ink)}
+.fmi-home .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.fmi-home .eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--green-deep)}
+.fmi-home .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:10px;transition:.15s;white-space:nowrap}
+.fmi-home .btn.primary{background:var(--green);color:#fff}
+.fmi-home .btn.primary:hover{background:var(--green-deep)}
+.fmi-home .btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line-2)}
+.fmi-home .btn.ghost:hover{border-color:var(--green-deep);color:var(--green-deep)}
+.fmi-home section{padding:60px 0}
+.fmi-home .shead{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:32px}
+.fmi-home .shead h2{font-size:clamp(24px,3vw,34px)}
+.fmi-home .shead p{color:var(--muted);font-size:14.5px;margin-top:8px;max-width:560px}
+.fmi-home .shead .more{font-size:13.5px;font-weight:800;color:var(--green-deep);white-space:nowrap}
+.fmi-home .util{background:#1F2A1A;color:#E7EEDD;font-size:12px;font-weight:600;padding:7px 0}
+.fmi-home .util .in{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.fmi-home .util b{color:#fff;font-weight:700}
+.fmi-home .util .right{margin-left:auto;display:flex;gap:16px;align-items:center}
+.fmi-home .util a:hover{color:#fff}
+.fmi-home header.site{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.fmi-home .t1{display:flex;align-items:center;gap:14px;padding:12px 0}
+.fmi-home .logo{display:flex;align-items:center;gap:10px}
+.fmi-home .logo img{height:54px;width:auto}
+.fmi-home .logo .tag{font-size:11px;font-weight:700;color:var(--muted);line-height:1.2;max-width:110px}
+.fmi-home .searchgrp{flex:1;max-width:520px;height:46px;display:flex;align-items:stretch;border:1.5px solid var(--line-2);border-radius:11px;overflow:hidden;background:#fff}
+/* no green glow just from focusing the category dropdown; green only when typing in the field */
+.fmi-home .searchgrp:focus-within{border-color:var(--line-2);box-shadow:none}
+.fmi-home .searchgrp:has(input:focus){border-color:var(--green-deep)}
+.fmi-home .allbtn-sel:focus,.fmi-home .allbtn-sel:focus-visible{outline:none;box-shadow:none}
+.fmi-home .allbtn{display:flex;align-items:center;gap:7px;background:var(--field);padding:0 14px;font-size:13px;font-weight:700;color:var(--ink);border-right:1.5px solid var(--line-2);white-space:nowrap}
+/* category dropdown replacing the old "All Flowers" button */
+.fmi-home .allbtn-sel{-webkit-appearance:none;appearance:none;height:100%;background:var(--field) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%232A1733" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>') no-repeat right 9px center;background-size:11px;padding:0 28px 0 14px;font-size:13px;font-weight:700;color:var(--ink);border:0;border-right:1.5px solid var(--line-2);border-radius:0;cursor:pointer;max-width:148px;text-overflow:ellipsis}
+.fmi-home .searchgrp input{flex:1;border:none;font:inherit;font-size:14px;line-height:42px;padding:0 13px;outline:none;color:var(--ink);min-width:60px}
+.fmi-home .searchgrp .go{width:46px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center}
+.fmi-home .searchgrp .go:hover{background:var(--green-deep)}
+.fmi-home .quotebtn{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--line-2);border-radius:11px;padding:10px 16px;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap}
+.fmi-home .quotebtn:hover{border-color:var(--green-deep);color:var(--green-deep)}
+.fmi-home .t1right{margin-left:auto;display:flex;align-items:center;gap:13px}
+.fmi-home .acct{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:var(--ink)}
+/* logged-in account dropdown (parity with the product-listing header) */
+.fmi-home .fmi-acct{position:relative}
+/* The theme's global button rules ([type=button]:hover/:focus and the Elementor kit)
+   force white text on a coloured background — which made this button render as an
+   empty white box once clicked. Pin every state. */
+.fmi-home button.fmi-acct-btn,
+.fmi-home button.fmi-acct-btn:hover,
+.fmi-home button.fmi-acct-btn:focus,
+.fmi-home button.fmi-acct-btn:active,
+.fmi-home button.fmi-acct-btn[aria-expanded="true"]{
+  -webkit-appearance:none;appearance:none;cursor:pointer;padding:6px 4px;font-family:inherit;white-space:nowrap;
+  background:transparent!important;background-color:transparent!important;
+  border:0!important;box-shadow:none!important;text-decoration:none!important;
+  color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;
+}
+.fmi-home button.fmi-acct-btn:hover,
+.fmi-home button.fmi-acct-btn[aria-expanded="true"]{color:var(--green-deep)!important;-webkit-text-fill-color:var(--green-deep)!important}
+.fmi-home button.fmi-acct-btn svg{stroke:currentColor}
+/* no focus ring for mouse clicks; keep a clean one for keyboard users */
+.fmi-home button.fmi-acct-btn:focus{outline:none!important}
+.fmi-home button.fmi-acct-btn:focus-visible{outline:2px solid var(--green-deep)!important;outline-offset:3px}
+.fmi-home .fmi-acct-name{max-width:130px;overflow:hidden;text-overflow:ellipsis}
+.fmi-home .fmi-acct-caret{transition:transform .18s ease;flex:0 0 auto}
+.fmi-home .fmi-acct-btn[aria-expanded="true"] .fmi-acct-caret{transform:rotate(180deg)}
+.fmi-home .fmi-acct-menu{position:absolute;top:calc(100% + 8px);right:0;z-index:120;min-width:212px;list-style:none;margin:0;padding:6px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 38px rgba(30,35,25,.16)}
+.fmi-home .fmi-acct-menu[hidden]{display:none}
+.fmi-home .fmi-acct-menu li{margin:0}
+.fmi-home .fmi-acct-menu a{display:block;padding:9px 12px;border-radius:8px;font-size:13.5px;font-weight:600;color:var(--ink);white-space:nowrap}
+.fmi-home .fmi-acct-menu a:hover{background:var(--green-soft);color:var(--green-deep)}
+.fmi-home .fmi-acct-menu .fmi-acct-out{margin-top:4px;padding-top:5px;border-top:1px solid var(--line)}
+.fmi-home .fmi-acct-menu .fmi-acct-out a{color:var(--terra)}
+.fmi-home .fmi-acct-menu .fmi-acct-out a:hover{background:#FBEDE6;color:var(--terra)}
+.fmi-home .acct:hover{color:var(--green-deep)}
+.fmi-home .iconbtn{position:relative;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+/* keep header icons square — flex was crushing their width */
+.fmi-home .iconbtn svg{width:23px;height:23px;flex:0 0 auto}
+.fmi-home .searchgrp .go svg{width:20px;height:20px;flex:0 0 auto}
+.fmi-home .acct svg{width:20px;height:20px;flex:0 0 auto}
+.fmi-home .iconbtn:hover{background:var(--field);color:var(--green-deep)}
+.fmi-home .cart{display:flex;align-items:center;gap:8px;background:var(--green);color:#fff;border-radius:11px;padding:9px 14px;font-size:13.5px;font-weight:800}
+.fmi-home .cart:hover{background:var(--green-deep)}
+.fmi-home .navrow{display:flex;align-items:center;gap:26px;padding:11px 0;border-top:1px solid var(--line);font-size:15px;font-weight:700;overflow-x:auto;scrollbar-width:none}
+.fmi-home .navrow::-webkit-scrollbar{display:none}
+.fmi-home .navrow a{color:var(--ink);white-space:nowrap}
+.fmi-home .navrow a:hover{color:var(--green-deep)}
+.fmi-home .navrow .cutstrip{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--terra);white-space:nowrap}
+.fmi-home .navrow .cutstrip b{font-variant-numeric:tabular-nums}
+/* mobile hamburger + slide-down menu (hidden on desktop) */
+.fmi-home .fmi-burger{display:none;flex-direction:column;justify-content:center;gap:4px;width:40px;height:40px;border-radius:10px;flex-shrink:0;cursor:pointer;padding:0;-webkit-appearance:none;appearance:none;background:transparent;border:0;box-shadow:none;-webkit-tap-highlight-color:transparent}
+.fmi-home .fmi-burger:hover,.fmi-home .fmi-burger:focus,.fmi-home .fmi-burger:active{background:transparent!important;box-shadow:none;outline:none}
+.fmi-home .fmi-burger:focus-visible{outline:2px solid var(--green-deep);outline-offset:2px}
+.fmi-home .fmi-burger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s,opacity .2s}
+.fmi-home .fmi-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.fmi-home .fmi-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.fmi-home .fmi-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.fmi-home .fmi-mobmenu{display:none;flex-direction:column;padding:4px 0 10px;border-top:1px solid var(--line)}
+.fmi-home .fmi-mobmenu a{padding:13px 4px;font-size:15px;font-weight:700;color:var(--ink);border-bottom:1px solid var(--line)}
+.fmi-home .fmi-mobmenu a:last-child{border-bottom:none}
+.fmi-home .fmi-mobmenu .mm-signin{color:var(--green-deep);font-weight:800}
+.fmi-home .hero{position:relative;background:var(--cream);overflow:hidden;padding:0}
+.fmi-home .hero .photo{position:absolute;top:0;right:0;bottom:0;width:62%;background:url("https://flowermarketplace.com/wp-content/uploads/2023/11/FMI-Farms-Flowermarketpalce-Wholesale.jpg") center/cover}
+.fmi-home .hero .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--cream) 0%,rgba(250,248,242,.96) 18%,rgba(250,248,242,.7) 45%,rgba(250,248,242,.25) 72%,rgba(250,248,242,.12) 100%)}
+.fmi-home .hero .inner{position:relative;z-index:1;padding:60px 0 52px;max-width:660px}
+.fmi-home .hero .kick{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:12px;font-weight:800;color:var(--green-deep);box-shadow:var(--shadow)}
+.fmi-home .hero h1{font-size:clamp(34px,4.6vw,54px);margin-top:18px}
+.fmi-home .hero h1 em{font-style:italic;font-weight:500}
+.fmi-home .hero p.lead{font-size:16px;color:var(--muted);max-width:560px;margin:16px 0 22px}
+.fmi-home .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.fmi-home .statbar{position:relative;z-index:1;display:inline-grid;grid-template-columns:auto auto auto;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin:30px 0 0;overflow:hidden}
+.fmi-home .statbar .cell{padding:16px 26px;border-right:1px solid var(--line)}
+.fmi-home .statbar .cell:last-child{border-right:none}
+.fmi-home .statbar small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fmi-home .statbar .v{font-family:'Fraunces',serif;font-size:27px;font-weight:600;color:var(--green-ink);line-height:1.15;font-variant-numeric:tabular-nums}
+.fmi-home .statbar .v .u{font-family:'Inter';font-size:13px;font-weight:700;color:var(--ink)}
+.fmi-home .statbar .cell.cut .v{color:var(--terra)}
+.fmi-home .statbar .cell.cut .u{color:var(--terra)}
+.fmi-home .trustrow{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0}
+.fmi-home .trustrow .in{display:grid;grid-template-columns:repeat(4,1fr)}
+.fmi-home .titem{display:flex;gap:12px;align-items:flex-start;padding:26px 22px;border-right:1px solid var(--line)}
+.fmi-home .titem:last-child{border-right:none}
+.fmi-home .titem .ic{width:44px;height:44px;border-radius:11px;background:var(--green-soft);color:var(--green-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fmi-home .titem b{font-size:14px;font-weight:800;color:var(--ink);display:block;margin-bottom:3px}
+.fmi-home .titem small{font-size:12.5px;color:var(--muted);font-weight:500;line-height:1.45}
+.fmi-home .titem a{text-decoration:underline;font-weight:700}
+.fmi-home .catgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.fmi-home .cat{position:relative;background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);padding:0 0 16px;transition:transform .16s,box-shadow .16s;display:block}
+.fmi-home .cat:hover{transform:translateY(-3px);box-shadow:var(--shadow-pop)}
+.fmi-home .cat .imgbox{display:flex;height:190px;align-items:center;justify-content:center;padding:18px 18px 8px}
+.fmi-home .cat .imgbox img{max-height:100%;max-width:100%;object-fit:contain}
+.fmi-home .cat .lb{display:block;padding:8px 16px 0;font-size:13px;color:var(--muted);font-weight:500;line-height:1.5;min-height:44px}
+.fmi-home .cat .lb b{color:var(--ink);font-weight:800;font-size:14.5px;margin-right:4px}
+.fmi-home .cat .season{position:absolute;top:11px;right:11px;z-index:1;font-size:10.5px;font-weight:800;border-radius:99px;padding:4px 11px;letter-spacing:.02em}
+.fmi-home .cat .season.hot{background:#C1441E;color:#fff}
+.fmi-home .cat .season.lav{background:#EFE7F8;color:#7C5EA8}
+.fmi-home .pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fmi-home .pcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .16s}
+.fmi-home .pcard:hover{transform:translateY(-3px)}
+.fmi-home .pcard .im{height:172px;max-height:172px;position:relative;overflow:hidden;background:#fff}
+.fmi-home .pcard .im img{position:absolute;inset:0;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;padding:8px;box-sizing:border-box;z-index:1}
+.fmi-home .pcard .origin{position:absolute;z-index:2;top:9px;left:9px;background:rgba(255,255,255,.95);font-size:10px;font-weight:800;color:var(--ink);padding:3px 9px;border-radius:99px}
+.fmi-home .pcard .off{position:absolute;z-index:2;top:9px;right:9px;background:var(--terra);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:99px}
+.fmi-home .pcard .bd{padding:13px 14px 15px;display:flex;flex-direction:column;flex:1}
+.fmi-home .pcard h4{font-size:13.5px;font-weight:800;color:var(--ink);line-height:1.3;font-family:'Inter'}
+.fmi-home .pcard .sub{font-size:11.5px;color:var(--muted);font-weight:600;margin-top:3px}
+.fmi-home .pcard .stockline{font-size:11px;font-weight:800;color:var(--green-deep);margin-top:7px}
+.fmi-home .pcard .stockline.low{color:var(--terra)}
+.fmi-home .pcard .pr{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:11px}
+.fmi-home .pcard .pr .was{font-size:11.5px;color:var(--muted);text-decoration:line-through;font-weight:600;margin-right:5px}
+.fmi-home .pcard .pr b{font-size:15.5px;font-weight:800;color:var(--ink)}
+.fmi-home .pcard .pr small{font-size:10px;color:var(--muted);font-weight:700}
+.fmi-home .pcard .add{background:var(--green);color:#fff;font-weight:800;font-size:12px;padding:8px 13px;border-radius:9px}
+.fmi-home .pcard .add:hover{background:var(--green-deep)}
+.fmi-home .events{background:#243318;color:#fff}
+.fmi-home .events .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+/* season cards hidden (no landing pages yet) -> let the copy use the full width
+   instead of leaving a lopsided empty half */
+.fmi-home .events .grid:not(:has(.season-grid)){grid-template-columns:1fr;max-width:780px}
+.fmi-home .events h2{color:#fff;font-size:clamp(24px,3vw,34px)}
+.fmi-home .events p{color:rgba(255,255,255,.8);font-size:15px;margin:14px 0 20px;max-width:500px}
+.fmi-home .leads{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.fmi-home .lead{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:11px 15px}
+.fmi-home .lead b{font-family:'Fraunces',serif;font-size:19px;font-weight:600;display:block;line-height:1}
+.fmi-home .lead small{font-size:11px;font-weight:700;opacity:.8;margin-top:4px;display:block}
+.fmi-home .events .disc{font-size:13px;opacity:.85;margin-bottom:20px;max-width:480px}
+.fmi-home .events .disc b{color:#C9E3A8}
+.fmi-home .events .btn.primary{background:var(--green)}
+.fmi-home .events .btn.primary:hover{background:#7DB84E}
+.fmi-home .season-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fmi-home .scard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px;transition:.15s}
+.fmi-home .scard:hover{background:rgba(255,255,255,.13)}
+.fmi-home .scard b{font-family:'Fraunces',serif;font-size:16.5px;font-weight:600;display:block}
+.fmi-home .scard small{font-size:12px;opacity:.78;font-weight:600;margin-top:5px;display:block}
+.fmi-home .how .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fmi-home .step{position:relative;background:#fff;border:1px solid var(--line);border-radius:15px;padding:26px 24px;box-shadow:var(--shadow)}
+.fmi-home .step .ic{width:46px;height:46px;border-radius:12px;background:var(--green-soft);color:var(--green-deep);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.fmi-home .step .num{position:absolute;top:16px;right:22px;font-family:'Fraunces',serif;font-size:62px;font-weight:600;color:#DCE7C8;line-height:1;user-select:none}
+.fmi-home .step h3{font-size:22px;margin-bottom:12px;color:var(--green-ink)}
+.fmi-home .step p{font-size:14px;color:var(--muted);line-height:1.6}
+.fmi-home .step p b{color:var(--ink)}
+.fmi-home .plan{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fmi-home .pbgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fmi-home .pb{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:17px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:transform .15s}
+.fmi-home .pb:hover{transform:translateY(-2px)}
+.fmi-home .pb .mo{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green-deep)}
+.fmi-home .pb b{font-family:'Fraunces',serif;font-size:16.5px;font-weight:600;color:var(--ink);display:block;margin-top:3px}
+.fmi-home .pb small{font-size:11.5px;color:var(--muted);font-weight:700;display:block;margin-top:3px}
+.fmi-home .pb small.hot{color:var(--terra)}
+.fmi-home .pb .go{background:var(--green-soft);color:var(--green-deep);font-size:11.5px;font-weight:800;border-radius:99px;padding:7px 13px;white-space:nowrap}
+.fmi-home .pb .go:hover{background:var(--green);color:#fff}
+.fmi-home /* ===== WORLD SOURCING MAP (hover origins, .fmi-home per Carolina) ===== */
+  .mapsec{background:#3A4A22;padding:60px 0}
+.fmi-home .mappanel{position:relative;border-radius:14px;overflow:visible;background:transparent;border:1px solid rgba(255,255,255,.1)}
+.fmi-home .mappanel svg.world{display:block;width:100%;height:auto}
+.fmi-home .opin{position:absolute;transform:translate(-50%,-50%);z-index:2}
+.fmi-home .opin .d{width:26px;height:26px;border-radius:50%;background:transparent;cursor:pointer;display:block}
+.fmi-home .opin:hover .d{box-shadow:0 0 0 6px rgba(242,201,165,.25);border-radius:50%}
+.fmi-home .opin .tip{position:absolute;bottom:calc(100% + 9px);left:50%;transform:translateX(-50%);background:#1F2A1A;color:#fff;border-radius:10px;padding:8px 12px;font-size:11.5px;font-weight:700;white-space:nowrap;opacity:0;pointer-events:none;transition:.15s;box-shadow:var(--shadow-pop)}
+.fmi-home .opin .tip small{display:block;font-weight:600;opacity:.75;font-size:10.5px;margin-top:1px}
+.fmi-home .opin .tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1F2A1A}
+.fmi-home .opin:hover .tip{opacity:1}
+.fmi-home .maplegend{display:flex;gap:16px;flex-wrap:wrap;padding:14px 18px;border-top:1px solid var(--green-line);font-size:12px;font-weight:700;color:var(--muted)}
+.fmi-home .maplegend span{display:flex;align-items:center;gap:6px}
+.fmi-home .maplegend .d1{width:9px;height:9px;border-radius:50%;background:var(--green-deep)}
+.fmi-home .press{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:46px 0}
+.fmi-home .press .ph{text-align:center}
+.fmi-home .press .ph .eyebrow{display:block}
+.fmi-home .press h2{text-align:center;font-size:clamp(22px,2.6vw,30px);margin:8px 0 26px}
+.fmi-home .logostrip{display:flex;justify-content:center;align-items:center;gap:clamp(22px,4vw,52px);flex-wrap:wrap}
+/* real press logos: equal optical height, capped width so a wide wordmark
+   (PartySlate) can't dominate the row */
+.fmi-home .plogo{display:inline-flex;align-items:center;justify-content:center}
+.fmi-home .plogo img{height:clamp(24px,2.5vw,32px);width:auto;max-width:clamp(120px,15vw,190px);object-fit:contain;opacity:.62;filter:grayscale(1);transition:opacity .18s ease}
+.fmi-home .plogo:hover img{opacity:1}
+@media(max-width:560px){
+  .fmi-home .logostrip{gap:22px 26px}
+  .fmi-home .plogo img{height:22px;max-width:110px}
+}
+.fmi-home .apply .card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:clamp(26px,4vw,42px);display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center}
+.fmi-home .apply h2{font-size:clamp(23px,2.8vw,31px)}
+.fmi-home .apply p{color:var(--muted);font-size:14.5px;margin:12px 0 20px}
+.fmi-home .asteps{display:flex;flex-direction:column;gap:14px}
+.fmi-home .astep{display:flex;gap:13px;align-items:flex-start}
+.fmi-home .astep .n{width:30px;height:30px;border-radius:50%;background:var(--green-soft);color:var(--green-deep);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fmi-home .astep b{font-size:14px;font-weight:800;color:var(--ink);display:block}
+.fmi-home .astep small{font-size:12.5px;color:var(--muted);font-weight:500}
+.fmi-home footer.site{background:#1C2415;color:#CFD8C2;padding:50px 0 24px}
+.fmi-home .fcols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:30px}
+.fmi-home .flogo{background:#fff;border-radius:11px;padding:9px 13px;display:inline-block}
+.fmi-home .flogo img{height:30px;width:auto;object-fit:contain}
+.fmi-home footer p.blurb{font-size:12.5px;opacity:.72;margin-top:13px;max-width:260px;line-height:1.6}
+.fmi-home footer h4{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:13px}
+.fmi-home footer ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fmi-home footer a{font-size:13px;opacity:.82}
+.fmi-home footer a:hover{opacity:1;color:#fff}
+.fmi-home .socials{display:flex;gap:8px;margin-top:12px}
+.fmi-home .socials a{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;opacity:1}
+.fmi-home .socials a:hover{background:var(--green)}
+.fmi-home .pays{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap}
+.fmi-home .pays{align-items:center}
+.fmi-home .pays img{height:22px;border-radius:4px;background:#fff;padding:2px}
+.fmi-home .pays span{background:#fff;color:#1C2415;font-size:10px;font-weight:800;border-radius:4px;padding:5px 8px;letter-spacing:.03em}
+.fmi-home .fbar{border-top:1px solid rgba(255,255,255,.12);margin-top:36px;padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;opacity:.6}
+/* ---- Mobile header: burger menu + full-width search, condensed top bar ---- */
+@media(max-width:760px){
+  .fmi-home .fmi-burger{display:flex}
+  .fmi-home .t1{flex-wrap:wrap;gap:10px 10px;padding:10px 0}
+  .fmi-home .logo{margin-right:auto}
+  .fmi-home .logo img{height:46px}
+  .fmi-home .logo .tag{display:none}
+  /* condense the dark-green utility bar on mobile (was ~106px / 3 lines) */
+  .fmi-home .util{padding:5px 0;font-size:11px}
+  .fmi-home .util .in{gap:2px 12px}
+  .fmi-home .util-tail{display:none}
+  .fmi-home .util-skus{display:none}
+  .fmi-home .util .right{gap:12px}
+  .fmi-home .quotebtn{display:none}
+  .fmi-home .t1 .acct,.fmi-home .t1 .fmi-acct{display:none}
+  .fmi-home .t1right{margin-left:0;gap:8px}
+  .fmi-home .t1right .iconbtn{display:none}
+  .fmi-home .searchgrp{order:10;flex-basis:100%;width:100%;max-width:none}
+  .fmi-home .navrow{display:none}
+  .fmi-home .fmi-mobmenu:not([hidden]){display:flex}
+}
+@media(max-width:1000px){.fmi-home .hero .photo{width:100%;opacity:.28}
+.fmi-home .hero .inner{max-width:none}
+.fmi-home .statbar{grid-template-columns:1fr;width:100%}
+.fmi-home .statbar .cell{border-right:none;border-bottom:1px solid var(--line)}
+.fmi-home .statbar .cell:last-child{border-bottom:none}
+.fmi-home .trustrow .in{grid-template-columns:1fr 1fr}
+.fmi-home .titem{border-bottom:1px solid var(--line)}
+.fmi-home .catgrid, .fmi-home .pgrid{grid-template-columns:repeat(2,1fr)}
+.fmi-home .events .grid{grid-template-columns:1fr;gap:26px}
+.fmi-home .how .steps{grid-template-columns:1fr}
+.fmi-home .pbgrid{grid-template-columns:1fr 1fr}
+.fmi-home .apply .card{grid-template-columns:1fr;gap:24px}
+.fmi-home .fcols{grid-template-columns:1fr 1fr;gap:26px}
+.fmi-home .searchgrp{max-width:none}
+.fmi-home .quotebtn span{display:none}
+.fmi-home .logo .tag{display:none}}
+@media(max-width:560px){.fmi-home .wrap{padding:0 16px}
+.fmi-home section{padding:44px 0}
+.fmi-home .catgrid{grid-template-columns:1fr 1fr}
+.fmi-home .pgrid{grid-template-columns:1fr}
+.fmi-home .pbgrid{grid-template-columns:1fr}
+.fmi-home .fcols{grid-template-columns:1fr}
+.fmi-home .allbtn span{display:none}
+.fmi-home .opin .tip{display:none}}
+.fmi-home :focus-visible{outline:2.5px solid var(--green-deep);outline-offset:2px;border-radius:6px}
+
+/* Task 13: cart item-count badge */
+.fmi-home a.cart .cart-ic{position:relative;display:inline-flex;align-items:center;justify-content:center}
+.fmi-home a.cart .cartbadge{position:absolute;top:-8px;right:-9px;min-width:16px;height:16px;padding:0 4px;border-radius:9px;background:#C4622D;color:#fff;font:800 10px/16px Inter,system-ui,sans-serif;text-align:center;box-shadow:0 1px 3px rgba(42,23,51,.25)}
+
+/* Task 13: sign-in modal — renders the site's real form-login.php (Apple/Google/
+   NEW CUSTOMER/lost-password) inside a lightbox restyled to the new aesthetic. */
+.fmi-home a.pcard{text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.fmi-home a.pcard .add{cursor:pointer}
+.fmi-home .fmi-auth-scrim{position:fixed;inset:0;z-index:9998;background:rgba(31,26,18,.5);backdrop-filter:blur(3px)}
+.fmi-home .fmi-auth{position:fixed;z-index:9999;top:50%;left:50%;transform:translate(-50%,-50%);width:min(760px,94vw);max-height:92vh;overflow:auto;background:var(--cream,#FAF8F2);border:1px solid var(--line,#E7E2D6);border-radius:20px;box-shadow:0 24px 60px rgba(31,26,18,.28);padding:34px 34px 28px}
+.fmi-home .fmi-auth-x{position:absolute;top:14px;right:14px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:50%;background:#fff;color:#5b5347;font-size:26px;line-height:1;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.08);z-index:2}
+.fmi-home .fmi-auth-x:hover{background:#f0ece2}
+/* two-column WC layout */
+.fmi-home .fmi-auth .col2-set,.fmi-home .fmi-auth #customer_login{display:grid;grid-template-columns:1fr 1px 1fr;gap:0 30px;align-items:start}
+.fmi-home .fmi-auth .col2-set::before{content:"";grid-column:2;align-self:stretch;background:var(--line,#E7E2D6)}
+.fmi-home .fmi-auth .col-1{grid-column:1}
+.fmi-home .fmi-auth .col-2{grid-column:3}
+.fmi-home .fmi-auth h3{font-family:Fraunces,Georgia,serif;font-size:26px;font-weight:600;color:var(--brand-ink,#2A2118);margin:0 0 18px}
+.fmi-home .fmi-auth .form-row{margin:0 0 14px}
+.fmi-home .fmi-auth label{font-size:12.5px;font-weight:700;color:var(--brand-ink,#2A2118)}
+.fmi-home .fmi-auth .required{color:#b3261e}
+.fmi-home .fmi-auth input.input-text{width:100%;box-sizing:border-box;height:44px;margin-top:6px;padding:0 13px;border:1.5px solid var(--line-2,#DCD6CC);border-radius:11px;background:#fff;font-size:14px;font-family:Inter,system-ui,sans-serif;color:#2A2118;outline:none}
+.fmi-home .fmi-auth input.input-text:focus{border-color:var(--green,#6FA539);box-shadow:0 0 0 3px rgba(111,165,57,.15)}
+.fmi-home .fmi-auth .woocommerce-form-login__rememberme{display:flex;align-items:center;gap:8px;font-weight:600;color:var(--muted,#7c7468);font-size:13px;margin:2px 0 12px}
+.fmi-home .fmi-auth .woocommerce-form-login__rememberme input{width:16px;height:16px;accent-color:var(--green,#6FA539)}
+.fmi-home .fmi-auth .sign-wrap{display:flex;flex-direction:column;gap:10px;margin-top:4px;align-items:stretch}
+.fmi-home .fmi-auth .woocommerce-form-login__submit{width:100%;height:46px;display:flex;align-items:center;justify-content:center;line-height:1;padding:0;border:0;border-radius:12px;background:var(--green,#6FA539);color:#fff;font-size:14.5px;font-weight:800;font-family:Inter,sans-serif;cursor:pointer}
+.fmi-home .fmi-auth .woocommerce-form-login__submit:hover{background:var(--green-deep,#5A8A2C)}
+/* Social sign-in buttons: force Apple + Google to the same full width & height as
+   the green "Log in" button, aligned in the stack, and stop the Google (Nextend)
+   label from being clipped ("Continue with G…" bug). */
+.fmi-home .fmi-auth .social-login{margin:0;width:100%;text-align:center}
+.fmi-home .fmi-auth .apple-login-button,
+.fmi-home .fmi-auth #appleid-signin{width:100%!important;min-height:46px;border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:none}
+.fmi-home .fmi-auth #appleid-signin > div,
+.fmi-home .fmi-auth #appleid-signin iframe{width:100%!important;min-width:100%!important;max-width:100%!important;height:46px!important}
+.fmi-home .fmi-auth .nsl-container{width:100%!important;margin:0!important;padding:0!important;text-align:center}
+.fmi-home .fmi-auth .nsl-container .nsl-button{width:100%!important;max-width:100%!important;height:46px!important;min-height:46px!important;margin:0!important;border-radius:12px!important;box-shadow:none!important;overflow:visible!important;display:flex!important;align-items:center!important;justify-content:center!important}
+.fmi-home .fmi-auth .nsl-container .nsl-button-svg-container{flex:0 0 auto!important;padding:0!important;margin:0!important}
+.fmi-home .fmi-auth .nsl-container .nsl-button-label-container{width:auto!important;max-width:none!important;margin:0 0 0 10px!important;padding:0!important;overflow:visible!important;text-overflow:clip!important;white-space:nowrap!important;font-family:Inter,system-ui,sans-serif!important;font-weight:700!important;font-size:14px!important}
+.fmi-home .fmi-auth .lost_password{margin:12px 0 0;font-size:13px}
+.fmi-home .fmi-auth .lost_password a{color:var(--green-deep,#5A8A2C);font-weight:700;text-decoration:none}
+.fmi-home .fmi-auth .lost_password a:hover{text-decoration:underline}
+.fmi-home .fmi-auth .cus-register-title{font-family:Fraunces,Georgia,serif}
+.fmi-home .fmi-auth .cus-register-btn{display:inline-block;width:100%;margin:6px 0;padding:12px 18px;border:1.5px solid var(--green,#6FA539);border-radius:12px;background:#fff;color:var(--green-deep,#5A8A2C);font-size:13.5px;font-weight:800;letter-spacing:.02em;cursor:pointer;transition:.15s}
+.fmi-home .fmi-auth .cus-register-btn:hover{background:var(--green,#6FA539);color:#fff}
+@media(max-width:640px){
+  .fmi-home .fmi-auth{padding:28px 20px 22px}
+  .fmi-home .fmi-auth .col2-set,.fmi-home .fmi-auth #customer_login{grid-template-columns:1fr;gap:22px}
+  .fmi-home .fmi-auth .col2-set::before{display:none}
+  .fmi-home .fmi-auth .col-1,.fmi-home .fmi-auth .col-2{grid-column:1}
+}
+
+/* ---- Quote Request page: match the Gravity Forms submit button to the new style
+   (Daniel 2026-08-06). Scoped to .fmi-quote-page so no other form is affected. ---- */
+.fmi-quote-page .gform_wrapper .gform_footer input[type="submit"],
+.fmi-quote-page .gform_wrapper .gform_footer button[type="submit"],
+.fmi-quote-page .gform_wrapper .gform_page_footer input[type="submit"],
+.fmi-quote-page .gform_wrapper .gform_button{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:48px!important;height:auto!important;padding:14px 26px!important;width:auto!important;
+  background:#69A63C!important;border:0!important;border-radius:11px!important;
+  color:#fff!important;font-family:Inter,system-ui,sans-serif!important;
+  font-size:15px!important;font-weight:800!important;letter-spacing:.01em;
+  line-height:1!important;cursor:pointer;box-shadow:none!important;
+  transition:background .15s ease;-webkit-appearance:none;appearance:none;
+}
+.fmi-quote-page .gform_wrapper .gform_footer input[type="submit"]:hover,
+.fmi-quote-page .gform_wrapper .gform_footer button[type="submit"]:hover,
+.fmi-quote-page .gform_wrapper .gform_button:hover{background:#54872E!important}
+.fmi-quote-page .gform_wrapper .gform_footer input[type="submit"]:focus-visible,
+.fmi-quote-page .gform_wrapper .gform_button:focus-visible{outline:2.5px solid #54872E;outline-offset:2px}
+
+/* ---- wishlist heart: badge + link (2026-08-10) ---- */
+.fmi-home a.iconbtn.fmi-wish{position:relative;text-decoration:none}
+.fmi-home .wishbadge{position:absolute;top:2px;right:2px;min-width:16px;height:16px;padding:0 4px;border-radius:9px;background:#C4622D;color:#fff;font:800 10px/16px Inter,system-ui,sans-serif;text-align:center;box-shadow:0 1px 3px rgba(42,23,51,.25)}
+.fmi-home .wishbadge[hidden]{display:none}
+
+/* ---- Wholesale registration page: the "already signed in" notice was raw text ---- */
+.fmi-reg-loggedin .page-content,
+.fmi-reg-loggedin .entry-content,
+.fmi-reg-loggedin main .woocommerce{max-width:560px;margin:40px auto;padding:0 20px}
+.fmi-reg-loggedin .page-content > p,
+.fmi-reg-loggedin .entry-content > p{
+  background:#fff;border:1px solid #E8E4DB;border-radius:16px;box-shadow:0 14px 40px rgba(20,30,15,.08);
+  margin:0 0 14px;padding:26px 28px;font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.6;color:#22262B;text-align:center;
+}
+.fmi-reg-loggedin .page-content > p + p,
+.fmi-reg-loggedin .entry-content > p + p{margin-top:0;padding-top:20px}
+.fmi-reg-loggedin .page-content > p a,
+.fmi-reg-loggedin .entry-content > p a{
+  display:inline-flex;align-items:center;justify-content:center;margin-top:6px;
+  background:#69A63C;color:#fff!important;font-weight:800;font-size:14.5px;
+  padding:13px 24px;border-radius:11px;text-decoration:none;box-shadow:0 8px 20px rgba(105,166,60,.28);
+}
+.fmi-reg-loggedin .page-content > p a:hover,
+.fmi-reg-loggedin .entry-content > p a:hover{background:#54872E}
