@@ -12,6 +12,8 @@
   import Login from './pages/Login.svelte';
   import AccountView from './pages/AccountView.svelte';
   import WishlistView from './pages/WishlistView.svelte';
+  import ChatList from './pages/ChatList.svelte';
+  import ChatRoom from './pages/ChatRoom.svelte';
   import { catalog } from './ops-store';
   import { productById } from './market-data';
 
@@ -33,7 +35,7 @@
     rawHash = location.hash;
     mobileNav = false;
     clearError();
-    if ((rawHash === '#/checkout' || rawHash === '#/akun') && !logged) loginReturn = rawHash;
+    if ((rawHash === '#/checkout' || rawHash === '#/akun' || rawHash.startsWith('#/pesan')) && !logged) loginReturn = rawHash;
     if (rawHash.startsWith('#/')) window.scrollTo(0, 0);
   }
   onMount(() => {
@@ -106,6 +108,7 @@
       <a href="#/checkout" on:click={() => (mobileNav = false)}>Checkout</a>
       {#if $sessionCustomer}
         <a href="#/akun" on:click={() => (mobileNav = false)}>Akun saya</a>
+        <a href="#/pesan" on:click={() => (mobileNav = false)}>Pesan</a>
         <a href="#/wishlist" on:click={() => (mobileNav = false)}>Wishlist</a>
       {:else}
         <a href="#/masuk" on:click={() => (mobileNav = false)}>Masuk / Daftar</a>
@@ -153,13 +156,29 @@
     {/if}
   {:else if page === 'wishlist'}
     <WishlistView />
+  {:else if page === 'pesan' && param}
+    {#if $sessionCustomer}
+      <ChatRoom threadId={param} me={{ role: 'customer', id: $sessionCustomer.customerId, name: $sessionCustomer.name }} />
+    {:else}
+      <Login role="customer" title="Masuk dulu" subtitle="Pesan butuh login" on:success={onLoginSuccess} />
+    {/if}
+  {:else if page === 'pesan'}
+    {#if $sessionCustomer}
+      <div class="container wrap">
+        <p class="eyebrow">Pesan · admin & partner</p>
+        <h1 class="ptitle">Kotak masuk</h1>
+        <ChatList me={{ role: 'customer', id: $sessionCustomer.customerId, name: $sessionCustomer.name }} emptyHint="Belum ada percakapan. Buka dari halaman tracking via tombol Chat." />
+      </div>
+    {:else}
+      <Login role="customer" title="Masuk dulu" subtitle="Pesan butuh login" on:success={onLoginSuccess} />
+    {/if}
   {:else if page === 'bayar'}
     <MarketOrder orderId={param} />
   {:else if page === 'lacak'}
     <MarketOrder orderId={param} />
   {:else if page === 'pesanan'}
     <MarketOrder listMode />
-  {:else if page !== 'home' && !['produk','partner','checkout','masuk','akun','wishlist','bayar','lacak','pesanan'].includes(page)}
+  {:else if page !== 'home' && !['produk','partner','checkout','masuk','akun','wishlist','pesan','bayar','lacak','pesanan'].includes(page)}
     <div class="container soon" data-od-id="404">
       <p class="eyebrow">404 · rute tidak dikenal</p>
       <h1>Halaman “/{page}” tidak ada</h1>
@@ -294,7 +313,7 @@
       </div>
       <div><h4>Customer</h4><a href="#/produk">Katalog</a><a href="#/partner">Partner</a><a href="#/pesanan">Lacak pesanan</a><a href="#/akun">Akun saya</a><a href="#/wishlist">Wishlist</a></div>
       <div><h4>Partner</h4><a href={base + 'partner/'}>Gabung sebagai partner</a><a href="#/partner">Direktori partner</a></div>
-      <div><h4>Bantuan</h4><a href="#/pesanan">Lacak pesanan</a><a href="#/masuk">Masuk / Daftar</a><a href="#/">Beranda</a></div>
+      <div><h4>Bantuan</h4><a href="#/pesan">Pesan & bantuan</a><a href="#/pesanan">Lacak pesanan</a><a href="#/masuk">Masuk / Daftar</a><a href="#/">Beranda</a></div>
     </div>
     <div class="footer-bottom"><span>© 2026 Bungapedia · Prototype validasi — mock data, pembayaran & settlement disimulasikan.</span></div>
   </div>
@@ -306,6 +325,8 @@
   .main-nav a.on { border-bottom-color: var(--accent); color: var(--accent-dark); }
   .errbar { max-width: 1180px; margin: 14px auto 0; background: #fdeee9; border: 1px solid #f3c4b5; color: #7c2d12; border-radius: 12px; padding: 14px 18px; display: flex; gap: 14px; align-items: center; justify-content: space-between; font-family: var(--font-ui); font-size: 14px; }
   .soon { padding: 48px 24px 64px; max-width: 820px; margin: 0 auto; font-family: var(--font-ui); }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 24px 48px; }
+  .ptitle { font-family: var(--font-display); color: var(--ink); margin: 6px 0 16px; font-size: clamp(26px,3.4vw,36px); }
   .soon h1 { font-family: var(--font-display); color: var(--ink); font-size: clamp(30px,4vw,44px); margin: 6px 0 10px; }
   .hero-search { display: flex; gap: 10px; margin-bottom: 14px; }
   .hero-search input { flex: 1; border: 1px solid var(--border-strong); border-radius: 999px; padding: 13px 18px; font-size: 15px; font-family: var(--font-ui); }

@@ -1,7 +1,9 @@
 <!-- Pembayaran simulasi + tracking timeline + daftar pesanan -->
 <script lang="ts">
   import { STATUS_LABEL, partnerById, rp } from '../market-data';
-  import { confirmReceived, fileDispute, orderById, orders, payState, simulatePayment } from '../market-store';
+  import { confirmReceived, fileDispute, orderById, orders, payState, showToast, simulatePayment } from '../market-store';
+  import { sessionCustomer } from '../auth';
+  import { ensureOrderThread } from '../chat-store';
   import type { Order } from '../market-types';
   export let order: Order | undefined = undefined;
   export let orderId = '';
@@ -18,6 +20,18 @@
   async function pay() { if (live) { const ok = await simulatePayment(live.id, failNext); if (ok) location.hash = `#/lacak/${live.id}`; } }
   function confirm() { if (live && confirm('Pesanan sudah diterima dengan baik?')) confirmReceived(live.id); }
   function sendDispute() { if (live && fileDispute(live.id, disputeText)) { disputeOpen = false; disputeText = ''; } }
+  function chatWith(target: 'admin' | 'partner') {
+    if (!live) return;
+    let s: import('../auth').Session | null = null;
+    sessionCustomer.subscribe((v) => (s = v))();
+    if (!s) {
+      showToast('Masuk dulu untuk chat dengan admin / partner.');
+      location.hash = '#/masuk';
+      return;
+    }
+    const id = ensureOrderThread(live, target, { role: 'customer', id: s.customerId, name: s.name });
+    location.hash = `#/pesan/${id}`;
+  }
 </script>
 
 {#if listMode}
@@ -104,6 +118,10 @@
           <p><b>{live.items[0].name}</b><br /><small>{live.recipient.name} · {live.recipient.address}<br />{live.delivery.date} {live.delivery.time}<br />“{live.message}”</small></p>
           <div class="trow"><span>Dibayar</span><span>{rp(live.total)} ✓</span></div>
           <div class="trow"><span>Settlement</span><span>{live.settlement.toUpperCase()}</span></div>
+          <div class="chat-row">
+            <button class="btn btn-sm" style="flex:1;justify-content:center" on:click={() => chatWith('partner')}>💬 Chat partner</button>
+            <button class="btn btn-sm" style="flex:1;justify-content:center" on:click={() => chatWith('admin')}>🛡 Chat admin</button>
+          </div>
           <p><a class="btn" style="width:100%;justify-content:center" href="#/partner/{live.partnerId}">Lihat profil partner →</a></p>
         </aside>
       </div>
@@ -127,6 +145,7 @@
   .big { width: 100%; justify-content: center; padding: 14px; } .hint { font-size: 12.5px; color: var(--muted); }
   .line { display: flex; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); } .line img { width: 48px; height: 48px; border-radius: 8px; object-fit: cover; } .line small { color: var(--muted); display: block; } .line b:last-child { margin-left: auto; }
   .trow { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; }
+  .chat-row { display: flex; gap: 8px; margin: 10px 0; }
   .tl { list-style: none; margin: 0; padding: 0; } .tl li { display: flex; gap: 12px; padding: 9px 0; color: var(--muted); } .tl .dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--border-strong); margin-top: 3px; flex: none; }
   .tl li.done { color: var(--ink); } .tl li.done .dot { background: var(--accent); border-color: var(--accent); }
   .tl li.now .dot { box-shadow: 0 0 0 4px var(--accent-soft); } .tl small { display: block; font-size: 12px; }

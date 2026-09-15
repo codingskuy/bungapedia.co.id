@@ -46,6 +46,7 @@
     {/if}
   </div>
   <div class="row2">
+    <a class="btn" style="flex:1;justify-content:center" href="#/pesan">💬 Pesan saya</a>
     <a class="btn" style="flex:1;justify-content:center" href="#/wishlist">♥ Wishlist saya</a>
     <a class="btn" style="flex:1;justify-content:center" href="#/produk">+ Belanja lagi</a>
   </div>

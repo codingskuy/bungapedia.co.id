@@ -80,6 +80,37 @@ export function toggleAvailable(id: string) {
   catalog.update((cs) => cs.map((x) => (x.id === id ? { ...x, available: !x.available } : x)));
 }
 
+// ---------- pengajuan registrasi partner (PRD §13 — diverifikasi admin) ----------
+export interface PartnerApplication {
+  id: string;
+  business: string;
+  owner: string;
+  email: string;
+  phone: string;
+  city: string;
+  areas: string;
+  categories: string[];
+  description: string;
+  status: 'pending' | 'approved' | 'rejected';
+  at: string;
+}
+
+export const applications = writable<PartnerApplication[]>(restore('bp-applications', []));
+persist('bp-applications', applications);
+
+export function submitApplication(a: Omit<PartnerApplication, 'id' | 'status' | 'at'>): string {
+  const id = `REG-${Date.now().toString(36).toUpperCase()}`;
+  applications.update((list) => [
+    { ...a, id, status: 'pending', at: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }) },
+    ...list,
+  ]);
+  return id;
+}
+export function reviewApplication(id: string, status: 'approved' | 'rejected') {
+  applications.update((list) => list.map((a) => (a.id === id ? { ...a, status } : a)));
+  showToast(status === 'approved' ? 'Pengajuan disetujui — jadwalkan onboarding & verifikasi dokumen.' : 'Pengajuan ditolak (simulasi).');
+}
+
 // ---------- angka bisnis (satu sumber kebenaran dari orders) ----------
 export const netOf = (productTotal: number): number => Math.round(productTotal * 0.9);
 

@@ -10,7 +10,10 @@
     withdrawSettlement,
   } from '../market-store';
   import { catalog, flagOf, netOf, partnerFlags, partnerKpis, removeProduct, toggleAvailable, upsertProduct } from '../ops-store';
+  import { ensureOrderThread } from '../chat-store';
   import type { MarketProduct } from '../market-types';
+
+  const base = import.meta.env.BASE_URL;
 
   export let fixedId: string | null = null;
   let selPid = 'pt-flower-house';
@@ -53,6 +56,14 @@
     formReset();
   }
   $: flag = (() => { let f = { verified: false, suspended: false }; partnerFlags.subscribe((m) => { f = m[pid] ?? f; })(); return f; })();
+
+  function chatAdmin(orderId: string) {
+    let o: import('../market-types').Order | undefined;
+    orders.subscribe((v) => (o = v.find((x) => x.id === orderId)))();
+    if (!o) return;
+    const id = ensureOrderThread(o, 'admin', { role: 'partner', id: pid, name: pt.name });
+    location.hash = `#/pesan/${id}`;
+  }
 </script>
 
 <div class="container dash" data-od-id="partner-dash">
@@ -111,7 +122,8 @@
               {#if o.status === 'paid'}<button class="btn btn-primary btn-sm" on:click={() => partnerAccept(o.id)}>Accept</button>{/if}
               {#if NEXT_LABEL[o.status]}<button class="btn btn-primary btn-sm" on:click={() => advanceOrder(o.id)}>{NEXT_LABEL[o.status]}</button>{/if}
               {#if !['completed', 'cancelled'].includes(o.status)}<button class="btn btn-sm" on:click={() => cancelOrder(o.id)}>Batalkan</button>{/if}
-              <a class="btn btn-sm" href="#/lacak/{o.id}">Lihat tracking</a>
+              <button class="btn btn-sm" on:click={() => chatAdmin(o.id)}>💬 Admin</button>
+              <a class="btn btn-sm" href={base + '#/lacak/' + o.id} target="_blank" rel="noreferrer">Tracking ↗</a>
             </div>
           </div>
         {/each}

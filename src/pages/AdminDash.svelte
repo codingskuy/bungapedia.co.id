@@ -2,8 +2,12 @@
 <script lang="ts">
   import { CUSTOMERS, PARTNERS, STATUS_LABEL, partnerById, rp } from '../market-data';
   import { orders, resolveDispute } from '../market-store';
-  import { adminStats, catalog, netOf, partnerFlags, resetOps, setSuspended, setVerified } from '../ops-store';
+  import { sessionAdmin } from '../auth';
+  import { ensureOrderThread } from '../chat-store';
+  import { adminStats, applications, catalog, netOf, partnerFlags, resetOps, reviewApplication, setSuspended, setVerified } from '../ops-store';
   import type { Order } from '../market-types';
+
+  const base = import.meta.env.BASE_URL;
 
   let tab: 'ringkas' | 'transaksi' | 'partner' | 'settlement' | 'komplain' = 'ringkas';
   $: os = [] as Order[];
@@ -18,6 +22,17 @@
   }));
   $: flags = {} as Record<string, { verified: boolean; suspended: boolean }>;
   $: partnerFlags.subscribe((v) => (flags = v))();
+  $: pendingApps = $applications.filter((a) => a.status === 'pending');
+
+  /** Dari detail transaksi langsung ke ruang mediasi — inti lapisan chat. */
+  function chatOrder(o: Order, target: 'customer' | 'partner') {
+    let nm = 'Admin Bungapedia';
+    sessionAdmin.subscribe((v) => {
+      if (v) nm = v.name;
+    })();
+    const id = ensureOrderThread(o, target, { role: 'admin', name: nm });
+    location.hash = `#/pesan/${id}`;
+  }
 </script>
 
 <div class="container dash" data-od-id="admin-dash">
@@ -75,11 +90,34 @@
             <div><dt>Settlement</dt><dd>{detail.settlement.toUpperCase()} · bersih partner {rp(netOf(detail.productTotal))}</dd></div>
             <div><dt>Pesan</dt><dd>“{detail.message}”</dd></div>
           </dl>
-          <a class="btn btn-sm" href="#/lacak/{detail.id}">Buka tracking customer →</a>
+          <div class="acts" style="margin:10px 0">
+            <button class="btn btn-sm" on:click={() => detail && chatOrder(detail, 'customer')}>💬 Chat customer</button>
+            <button class="btn btn-sm" on:click={() => detail && chatOrder(detail, 'partner')}>💬 Chat partner</button>
+          </div>
+          <a class="btn btn-sm" href={base + '#/lacak/' + detail.id} target="_blank" rel="noreferrer">Buka tracking customer →</a>
         {:else}<p class="mut">Pilih transaksi untuk melihat detail.</p>{/if}
       </div>
     </div>
   {:else if tab === 'partner'}
+    <div class="card"><h3>Pengajuan registrasi ({$applications.length})</h3>
+      {#if $applications.length === 0}
+        <p class="mut">Belum ada pengajuan. Formulir ada di portal partner → Daftar. Coba isi satu untuk demo alur ini.</p>
+      {:else}
+        {#each $applications as a}
+          <div class="orow big">
+            <div><b>{a.business}</b> <span class="pill" class:ok={a.status === 'approved'} class:hot={a.status === 'pending'} class:danger={a.status === 'rejected'}>{a.status.toUpperCase()}</span>
+            <small>{a.owner} · {a.email} · {a.phone} · {a.city}{a.areas ? ` · ${a.areas}` : ''} · {a.at}</small>
+            <small>{a.categories.join(', ')} — {a.description}</small></div>
+            {#if a.status === 'pending'}
+            <div class="acts">
+              <button class="btn btn-primary btn-sm" on:click={() => reviewApplication(a.id, 'approved')}>Setujui</button>
+              <button class="btn btn-sm danger" on:click={() => reviewApplication(a.id, 'rejected')}>Tolak</button>
+            </div>
+            {/if}
+          </div>
+        {/each}
+      {/if}
+    </div>
     <div class="card"><h3>Verifikasi & performa partner</h3>
       {#each revByPartner as { p, rev, n }}
         {@const f = flags[p.id] ?? { verified: false, suspended: false }}
@@ -92,7 +130,7 @@
             {:else}<button class="btn btn-sm" on:click={() => setVerified(p.id, false)}>Cabut</button>{/if}
             {#if !f.suspended}<button class="btn btn-sm danger" on:click={() => setSuspended(p.id, true)}>Suspend</button>
             {:else}<button class="btn btn-sm" on:click={() => setSuspended(p.id, false)}>Aktifkan</button>{/if}
-            <a class="btn btn-sm" href="#/partner/{p.id}">Profil →</a>
+            <a class="btn btn-sm" href={base + '#/partner/' + p.id} target="_blank" rel="noreferrer">Profil →</a>
           </div>
         </div>
       {/each}
@@ -126,6 +164,10 @@
             <button class="btn btn-sm" on:click={() => resolveDispute(detail.id, 'refund')}>Refund customer</button>
             <button class="btn btn-primary btn-sm" on:click={() => resolveDispute(detail.id, 'release')}>Release ke partner</button>
             <button class="btn btn-sm" on:click={() => resolveDispute(detail.id, 'reject')}>Tolak komplain</button>
+          </div>
+          <div class="acts" style="margin-top:10px">
+            <button class="btn btn-sm" on:click={() => detail && chatOrder(detail, 'customer')}>💬 Chat customer</button>
+            <button class="btn btn-sm" on:click={() => detail && chatOrder(detail, 'partner')}>💬 Chat partner</button>
           </div>
           <p class="mut">MVP: semua manual oleh admin. Keputusan menulis status order + settlement secara live.</p>
         {:else}<p class="mut">Pilih dispute untuk memediasi.</p>{/if}
