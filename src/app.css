@@ -18,6 +18,8 @@
   --footer-fg: #cfd8c2;
   --gold: #c9a227;
   --danger: #d6492f;
+  --brand-leaf: #8bc34a;
+  --brand-deep: #1e5c22;
   --radius: 14px;
   --font-body: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --font-ui: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -75,6 +77,21 @@ button { font-family: var(--font-ui); cursor: pointer; }
   display: grid; place-items: center;
   font-size: 20px; font-weight: 800;
 }
+/* Mark resmi Bungapedia (public/assets/brand/bungapedia-mark.png) — rute B */
+.logo-img {
+  width: 36px; height: 36px; border-radius: 10px;
+  object-fit: cover; flex: none; background: #fff;
+}
+.logo-img.sm { width: 28px; height: 28px; border-radius: 8px; }
+/* Wordmark gradasi hijau → gelap (identitas Bungapedia) */
+.logo-word .wm {
+  background: linear-gradient(120deg, var(--brand-leaf) 0%, var(--accent) 48%, var(--brand-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.logo-word small { -webkit-text-fill-color: var(--muted); }
 .logo-word { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; }
 .logo-word small { display: block; font-size: 10.5px; font-weight: 500; color: var(--muted); letter-spacing: 0.04em; }
 .main-nav { display: flex; gap: 20px; margin-left: 12px; }

@@ -79,8 +79,8 @@
 <header class="site-header" class:scrolled data-od-id="site-header">
   <div class="header-inner">
     <a class="logo" href="#/" aria-label="Bungapedia beranda" data-od-id="logo">
-      <span class="logo-mark">✿</span>
-      <span class="logo-word">Bungapedia<small>Hantarkan Apresiasi, Satukan Kebersamaan</small></span>
+      <img class="logo-img" src={base + 'assets/brand/bungapedia-mark.png'} alt="Logo Bungapedia" />
+      <span class="logo-word"><span class="wm">Bungapedia</span><small>Hantarkan Apresiasi, Satukan Kebersamaan</small></span>
     </a>
     <nav class="main-nav" aria-label="Navigasi utama" data-od-id="main-nav">
       <a href="#/produk" class:on={page === 'produk'}>Produk</a>
@@ -320,7 +320,7 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="logo-word" style="color:#fff">✿ Bungapedia</span>
+        <span class="logo-word foot-brand" style="color:#fff"><img class="logo-img sm" src={base + 'assets/brand/bungapedia-mark.png'} alt="" /> <span class="wm">Bungapedia</span></span>
         <p>Hantarkan Apresiasi, Satukan Kebersamaan. Marketplace yang mempertemukan customer dengan partner terpercaya — dari pencarian hingga settlement.</p>
       </div>
       <div><h4>Customer</h4><a href="#/produk">Katalog</a><a href="#/partner">Partner</a><a href="#/pesanan">Lacak pesanan</a><a href="#/akun">Akun saya</a><a href="#/wishlist">Wishlist</a></div>
@@ -335,6 +335,7 @@
 
 <style>
   .main-nav a.on { border-bottom-color: var(--accent); color: var(--accent-dark); }
+  .foot-brand { display: flex; align-items: center; gap: 8px; }
   .errbar { max-width: 1180px; margin: 14px auto 0; background: #fdeee9; border: 1px solid #f3c4b5; color: #7c2d12; border-radius: 12px; padding: 14px 18px; display: flex; gap: 14px; align-items: center; justify-content: space-between; font-family: var(--font-ui); font-size: 14px; }
   .soon { padding: 48px 24px 64px; max-width: 820px; margin: 0 auto; font-family: var(--font-ui); }
   .wrap { max-width: 900px; margin: 0 auto; padding: 28px 24px 48px; }
