@@ -10,6 +10,7 @@
   import MarketCheckout from './pages/MarketCheckout.svelte';
   import MarketOrder from './pages/MarketOrder.svelte';
   import Login from './pages/Login.svelte';
+  import CustomerRegister from './pages/CustomerRegister.svelte';
   import AccountView from './pages/AccountView.svelte';
   import WishlistView from './pages/WishlistView.svelte';
   import ChatList from './pages/ChatList.svelte';
@@ -148,6 +149,12 @@
     {:else}
       <Login role="customer" title="Masuk" accentWord="Bungapedia" subtitle="Satu akun untuk belanja & pantau pesanan" on:success={onLoginSuccess} />
     {/if}
+  {:else if page === 'daftar'}
+    {#if $sessionCustomer}
+      <AccountView />
+    {:else}
+      <CustomerRegister />
+    {/if}
   {:else if page === 'akun'}
     {#if $sessionCustomer}
       <AccountView />
@@ -178,7 +185,7 @@
     <MarketOrder orderId={param} />
   {:else if page === 'pesanan'}
     <MarketOrder listMode />
-  {:else if page !== 'home' && !['produk','partner','checkout','masuk','akun','wishlist','pesan','bayar','lacak','pesanan'].includes(page)}
+  {:else if page !== 'home' && !['produk','partner','checkout','masuk','daftar','akun','wishlist','pesan','bayar','lacak','pesanan'].includes(page)}
     <div class="container soon" data-od-id="404">
       <p class="eyebrow">404 · rute tidak dikenal</p>
       <h1>Halaman “/{page}” tidak ada</h1>

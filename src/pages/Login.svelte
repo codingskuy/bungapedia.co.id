@@ -55,6 +55,9 @@
       {#if error}<div class="err" role="alert">{error}</div>{/if}
       <button class="btn btn-primary big" type="submit" disabled={busy}>{busy ? 'Memeriksa…' : 'Masuk →'}</button>
     </form>
+    {#if role === 'customer'}
+      <p class="swap">Belum punya akun? <a href="#/daftar">Daftar dengan email →</a></p>
+    {/if}
     <div class="hint">
       <b>Akun demo — klik untuk isi otomatis</b>
       <div class="chips">
@@ -83,4 +86,5 @@
   .chip:hover { border-color: var(--accent); }
   .chip small { display: block; font-weight: 500; color: var(--muted); font-size: 11px; }
   .hint > small { color: var(--muted); font-size: 12.5px; }
+  .swap { text-align: center; font-size: 14px; color: var(--muted); margin: 16px 0 0; }
 </style>
