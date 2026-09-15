@@ -8,5 +8,15 @@ export default defineConfig({
   plugins: [svelte()],
   server: {
     port: 5173
-  }
+  },
+  build: {
+    rollupOptions: {
+      // 3 entry point terpisah: customer (/), partner (/partner/), admin (/admin/)
+      input: {
+        main: 'index.html',
+        partner: 'partner/index.html',
+        admin: 'admin/index.html',
+      },
+    },
+  },
 })

@@ -5,6 +5,7 @@
 import { derived, writable } from 'svelte/store';
 import type { AppError, CheckoutDraft, MarketProduct, Order, OrderItem, OrderStatus, PaymentMethod } from './market-types';
 import { DELIVERY_FEE, PLATFORM_FEE, SEED_ORDERS, productById } from './market-data';
+import { currentCustomer } from './auth';
 
 function persist<T>(key: string, store: { subscribe: (fn: (v: T) => void) => unknown }) {
   store.subscribe((v) => {
@@ -148,10 +149,11 @@ export function placeOrder(d: CheckoutDraft): Order | null {
   const productTotal = lines.reduce((n, l) => n + l.price * l.qty, 0);
   const total = productTotal + DELIVERY_FEE + PLATFORM_FEE;
   const id = `INV-2026-${String(Math.floor(100 + Math.random() * 900))}`;
+  const me = currentCustomer();
   const order: Order = {
     id,
-    customerId: 'c-guest',
-    customerName: d.recipientName,
+    customerId: me?.customerId ?? 'c-guest',
+    customerName: me?.name ?? d.recipientName,
     items: lines,
     partnerId: lines[0].partnerId,
     productTotal,

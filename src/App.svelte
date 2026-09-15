@@ -3,21 +3,28 @@
   import './app.css';
   import { FAQS, OCCASIONS, PARTNERS, PRODUCTS, REVIEWS, partnerById, rp } from './market-data';
   import { cartCount, cartTotal, appError, clearError, showToast, toast, wishlist } from './market-store';
+  import { logout, sessionCustomer } from './auth';
   import MarketProducts from './pages/MarketProducts.svelte';
   import MarketProductDetail from './pages/MarketProductDetail.svelte';
   import MarketPartners from './pages/MarketPartners.svelte';
   import MarketCheckout from './pages/MarketCheckout.svelte';
   import MarketOrder from './pages/MarketOrder.svelte';
-  import PartnerDash from './pages/PartnerDash.svelte';
-  import AdminDash from './pages/AdminDash.svelte';
+  import Login from './pages/Login.svelte';
+  import AccountView from './pages/AccountView.svelte';
+  import WishlistView from './pages/WishlistView.svelte';
   import { catalog } from './ops-store';
   import { productById } from './market-data';
+
+  const base = import.meta.env.BASE_URL;
 
   let rawHash = typeof location !== 'undefined' ? location.hash : '';
   let scrolled = false;
   let mobileNav = false;
   let cartOpen = false;
   let homeQuery = '';
+  let loginReturn = '#/akun';
+  let logged = false;
+  sessionCustomer.subscribe((v) => (logged = !!v));
   let lines: import('./market-store').CartLine[] = [];
   import { cart } from './market-store';
   $: cart.subscribe((c) => (lines = c))();
@@ -26,6 +33,7 @@
     rawHash = location.hash;
     mobileNav = false;
     clearError();
+    if ((rawHash === '#/checkout' || rawHash === '#/akun') && !logged) loginReturn = rawHash;
     if (rawHash.startsWith('#/')) window.scrollTo(0, 0);
   }
   onMount(() => {
@@ -43,6 +51,11 @@
   $: partnerObj = page === 'partner' && param ? PARTNERS.find((p) => p.id === param) : undefined;
 
   function onScroll() { scrolled = window.scrollY > 8; }
+  function onLoginSuccess() {
+    const t = loginReturn;
+    loginReturn = '#/akun';
+    location.hash = t;
+  }
   function searchOccasion(o: string) { location.hash = '#/produk'; showToast(`Filter momen: ${o} — pilih di katalog`); }
   function goSearch() {
     if (!homeQuery.trim()) { location.hash = '#/produk'; return; }
@@ -73,7 +86,11 @@
     </nav>
     <div class="header-actions">
       <a class="btn" href="#/pesanan" data-od-id="cta-orders">Lacak</a>
-      <a class="btn" href="#/partner-dash" data-od-id="cta-partner">Jadi Partner</a>
+      {#if $sessionCustomer}
+        <a class="btn" href="#/akun" data-od-id="cta-account">Halo, {$sessionCustomer.name}</a>
+      {:else}
+        <a class="btn" href="#/masuk" data-od-id="cta-signin">Masuk</a>
+      {/if}
       <a class="btn cart-btn" href="#/checkout" aria-label="Keranjang, {$cartCount} item" data-od-id="cta-cart">
         🛒 {$cartCount > 0 ? rp($cartTotal) : 'Keranjang'}
         {#if $cartCount > 0}<span class="cart-count">{$cartCount}</span>{/if}
@@ -87,18 +104,14 @@
       <a href="#/partner" on:click={() => (mobileNav = false)}>Partner</a>
       <a href="#/pesanan" on:click={() => (mobileNav = false)}>Pesanan</a>
       <a href="#/checkout" on:click={() => (mobileNav = false)}>Checkout</a>
-      <a href="#/partner-dash" on:click={() => (mobileNav = false)}>Dashboard Partner</a>
-      <a href="#/admin" on:click={() => (mobileNav = false)}>Dashboard Admin</a>
+      {#if $sessionCustomer}
+        <a href="#/akun" on:click={() => (mobileNav = false)}>Akun saya</a>
+        <a href="#/wishlist" on:click={() => (mobileNav = false)}>Wishlist</a>
+      {:else}
+        <a href="#/masuk" on:click={() => (mobileNav = false)}>Masuk / Daftar</a>
+      {/if}
     </nav>
   {/if}
-  <nav class="subnav" aria-label="Peran" data-od-id="role-switch">
-    <div class="subnav-inner">
-      <a href="#/" class:on={['/', 'produk', 'partner', 'checkout', 'pesanan', 'lacak', 'bayar'].includes(page) || page === 'home'}>Customer</a>
-      <a href="#/partner-dash" class:on={page === 'partner-dash'}>Partner</a>
-      <a href="#/admin" class:on={page === 'admin'}>Admin / Owner</a>
-      <span class="cutoff">Prototype · data dummy · pembayaran simulasi</span>
-    </div>
-  </nav>
 </header>
 
 {#if $appError}
@@ -121,18 +134,32 @@
   {:else if page === 'partner'}
     <MarketPartners listMode />
   {:else if page === 'checkout'}
-    <MarketCheckout />
+    {#if $sessionCustomer}
+      <MarketCheckout />
+    {:else}
+      <Login role="customer" title="Masuk dulu" subtitle="Checkout butuh akun" on:success={onLoginSuccess} />
+    {/if}
+  {:else if page === 'masuk'}
+    {#if $sessionCustomer}
+      <AccountView />
+    {:else}
+      <Login role="customer" title="Masuk" accentWord="Bungapedia" subtitle="Satu akun untuk belanja & pantau pesanan" on:success={onLoginSuccess} />
+    {/if}
+  {:else if page === 'akun'}
+    {#if $sessionCustomer}
+      <AccountView />
+    {:else}
+      <Login role="customer" title="Masuk dulu" subtitle="Halaman akun butuh login" on:success={onLoginSuccess} />
+    {/if}
+  {:else if page === 'wishlist'}
+    <WishlistView />
   {:else if page === 'bayar'}
     <MarketOrder orderId={param} />
   {:else if page === 'lacak'}
     <MarketOrder orderId={param} />
   {:else if page === 'pesanan'}
     <MarketOrder listMode />
-  {:else if page === 'partner-dash'}
-    <PartnerDash />
-  {:else if page === 'admin'}
-    <AdminDash />
-  {:else if page !== 'home' && !['produk','partner','checkout','bayar','lacak','pesanan','partner-dash','admin'].includes(page)}
+  {:else if page !== 'home' && !['produk','partner','checkout','masuk','akun','wishlist','bayar','lacak','pesanan'].includes(page)}
     <div class="container soon" data-od-id="404">
       <p class="eyebrow">404 · rute tidak dikenal</p>
       <h1>Halaman “/{page}” tidak ada</h1>
@@ -153,7 +180,7 @@
           </div>
           <div class="hero-cta">
             <a class="link-more" href="#/produk">Lihat Semua Produk →</a>
-            <span class="wishlist-link">♥ {$wishlist.length} wishlist</span>
+            <a class="wishlist-link" href="#/wishlist">♥ {$wishlist.length} wishlist</a>
           </div>
           <div class="hero-stats">
             <div><b>{PRODUCTS.length * 100}+</b><span>produk kurasi</span></div>
@@ -248,7 +275,7 @@
         <div class="wholesale-card">
           <div><p class="eyebrow">FAQ</p><h2>Punya toko bunga? Gabung sebagai partner.</h2>
           <p style="color:var(--muted);font-size:15px;line-height:1.65">Dapatkan order konsisten, kelola katalog & settlement dalam satu dashboard. Verifikasi dikontrol admin.</p>
-          <p><a class="btn btn-primary" href="#/partner-dash" data-od-id="cta-join">Lihat dashboard partner</a></p></div>
+          <p><a class="btn btn-primary" href={base + 'partner/'} data-od-id="cta-join">Gabung sebagai Partner →</a></p></div>
           <div>
             {#each FAQS as f}<details><summary>{f.q}</summary><p>{f.a}</p></details>{/each}
           </div>
@@ -265,9 +292,9 @@
         <span class="logo-word" style="color:#fff">✿ Bungapedia</span>
         <p>Hantarkan Apresiasi, Satukan Kebersamaan. Marketplace yang mempertemukan customer dengan partner terpercaya — dari pencarian hingga settlement.</p>
       </div>
-      <div><h4>Customer</h4><a href="#/produk">Katalog</a><a href="#/partner">Partner</a><a href="#/pesanan">Lacak pesanan</a><a href="#/checkout">Checkout</a></div>
-      <div><h4>Partner</h4><a href="#/partner-dash">Dashboard</a><a href="#/partner">Direktori</a></div>
-      <div><h4>Owner</h4><a href="#/admin">Dashboard admin</a><a href="#/pesanan">Transaksi</a></div>
+      <div><h4>Customer</h4><a href="#/produk">Katalog</a><a href="#/partner">Partner</a><a href="#/pesanan">Lacak pesanan</a><a href="#/akun">Akun saya</a><a href="#/wishlist">Wishlist</a></div>
+      <div><h4>Partner</h4><a href={base + 'partner/'}>Gabung sebagai partner</a><a href="#/partner">Direktori partner</a></div>
+      <div><h4>Bantuan</h4><a href="#/pesanan">Lacak pesanan</a><a href="#/masuk">Masuk / Daftar</a><a href="#/">Beranda</a></div>
     </div>
     <div class="footer-bottom"><span>© 2026 Bungapedia · Prototype validasi — mock data, pembayaran & settlement disimulasikan.</span></div>
   </div>

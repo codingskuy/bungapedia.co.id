@@ -12,7 +12,9 @@
   import { catalog, flagOf, netOf, partnerFlags, partnerKpis, removeProduct, toggleAvailable, upsertProduct } from '../ops-store';
   import type { MarketProduct } from '../market-types';
 
-  let pid = 'pt-flower-house';
+  export let fixedId: string | null = null;
+  let selPid = 'pt-flower-house';
+  $: pid = fixedId ?? selPid;
   let tab: 'ringkas' | 'pesanan' | 'produk' | 'wallet' = 'ringkas';
   $: pt = partnerById(pid);
   $: kpis = partnerKpis(pid);
@@ -60,9 +62,11 @@
       <h1>Halo, {pt.name} {#if flag.verified}<span class="vbadge">✓ Verified</span>{/if}</h1>
       <p class="lede">Terima order, update produksi, kelola katalog & pantau settlement — tanpa backend.</p>
     </div>
+    {#if !fixedId}
     <label class="as">Masuk sebagai
-      <select bind:value={pid}>{#each PARTNERS as p}<option value={p.id}>{p.name} · {flagOf(p.id).suspended ? 'suspended' : 'aktif'}</option>{/each}</select>
+      <select bind:value={selPid}>{#each PARTNERS as p}<option value={p.id}>{p.name} · {flagOf(p.id).suspended ? 'suspended' : 'aktif'}</option>{/each}</select>
     </label>
+    {/if}
   </div>
 
   <nav class="tabs" aria-label="Menu partner">
