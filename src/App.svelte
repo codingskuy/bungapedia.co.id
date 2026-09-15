@@ -1,29 +1,31 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import './app.css';
-  import { CATEGORIES, DEALS, PREBOOK, PRESS, NAV_LINKS, SUBNAV, HERO_IMG, rp } from './data';
-  import { cart, cartCount, cartTotal, addToCart, bumpQty, toast, showToast, ensureCartTimer } from './store';
-  import Shop from './pages/Shop.svelte';
-  import About from './pages/About.svelte';
-  import Journal from './pages/Journal.svelte';
-  import Prebook from './pages/Prebook.svelte';
-  import Quote from './pages/Quote.svelte';
-  import Checkout from './pages/Checkout.svelte';
+  import { FAQS, OCCASIONS, PARTNERS, PRODUCTS, REVIEWS, partnerById, rp } from './market-data';
+  import { cartCount, cartTotal, appError, clearError, showToast, toast, wishlist } from './market-store';
+  import MarketProducts from './pages/MarketProducts.svelte';
+  import MarketProductDetail from './pages/MarketProductDetail.svelte';
+  import MarketPartners from './pages/MarketPartners.svelte';
+  import MarketCheckout from './pages/MarketCheckout.svelte';
+  import MarketOrder from './pages/MarketOrder.svelte';
+  import PartnerDash from './pages/PartnerDash.svelte';
+  import AdminDash from './pages/AdminDash.svelte';
+  import { catalog } from './ops-store';
+  import { productById } from './market-data';
 
-  let cartOpen = false;
-  let quoteOpen = false;
-  let mobileNav = false;
-  let scrolled = false;
-  let query = '';
-  let quoteSent = false;
   let rawHash = typeof location !== 'undefined' ? location.hash : '';
-
-  $: isPage = rawHash.startsWith('#/');
-  $: route = isPage ? rawHash.slice(1) : '/';
+  let scrolled = false;
+  let mobileNav = false;
+  let cartOpen = false;
+  let homeQuery = '';
+  let lines: import('./market-store').CartLine[] = [];
+  import { cart } from './market-store';
+  $: cart.subscribe((c) => (lines = c))();
 
   function syncHash() {
     rawHash = location.hash;
     mobileNav = false;
+    clearError();
     if (rawHash.startsWith('#/')) window.scrollTo(0, 0);
   }
   onMount(() => {
@@ -31,309 +33,228 @@
     syncHash();
   });
 
-  // countdown to 13:00 WIB today (order cutoff, mirrors original "Order by 1pm")
-  let remain = '';
-  function tick() {
-    const now = new Date();
-    const cut = new Date(now);
-    cut.setHours(13, 0, 0, 0);
-    if (cut.getTime() < now.getTime()) cut.setDate(cut.getDate() + 1);
-    const s = Math.max(0, Math.floor((cut.getTime() - now.getTime()) / 1000));
-    const h = String(Math.floor(s / 3600)).padStart(2, '0');
-    const m = String(Math.floor((s % 3600) / 60)).padStart(2, '0');
-    const ss = String(s % 60).padStart(2, '0');
-    remain = `${h}:${m}:${ss}`;
-  }
-  tick();
-  setInterval(tick, 1000);
+  // hash router: #/produk/ID, #/partner/ID, #/bayar/ID, #/lacak/ID
+  $: path = rawHash.startsWith('#/') ? rawHash.slice(1) : '/';
+  $: seg = path.split('/').filter(Boolean);
+  $: page = seg.length === 0 ? 'home' : seg[0];
+  $: param = decodeURIComponent(seg[1] ?? '');
 
-  $: filteredCats = CATEGORIES.filter((c) =>
-    (c.name + ' ' + c.detail).toLowerCase().includes(query.trim().toLowerCase())
-  );
+  $: pdp = page === 'produk' && param ? ($catalog.find((p) => p.id === param) ?? productById(param)) : undefined;
+  $: partnerObj = page === 'partner' && param ? PARTNERS.find((p) => p.id === param) : undefined;
 
-  function addDeal(id: string) {
-    const d = DEALS.find((x) => x.id === id)!;
-    addToCart({ id, name: d.name, img: d.img, price: d.now * 16000, unit: d.unit });
-    ensureCartTimer();
-    showToast(`${d.name} masuk keranjang`);
+  function onScroll() { scrolled = window.scrollY > 8; }
+  function searchOccasion(o: string) { location.hash = '#/produk'; showToast(`Filter momen: ${o} — pilih di katalog`); }
+  function goSearch() {
+    if (!homeQuery.trim()) { location.hash = '#/produk'; return; }
+    location.hash = '#/produk';
+    showToast(`Mencari “${homeQuery.trim()}” di katalog`);
   }
-  function onScroll() {
-    scrolled = window.scrollY > 8;
-  }
-  function submitQuote(e: Event) {
-    e.preventDefault();
-    quoteSent = true;
-  }
-  function goShop() {
-    if (query.trim()) location.hash = '#/stok';
-  }
+  $: popular = $catalog.filter((p) => p.popular).concat($catalog.slice(0, 4)).slice(0, 4);
+  $: heroImg = '/assets/images/flowermarketplace.com/0b5c95843a684c817befc78c95993fc3-1600-93dc4b0060.webp';
 </script>
 
 <svelte:window on:scroll={onScroll} />
 
 <div class="topbar" data-od-id="topbar">
-  Grosir saja · Untuk florist, perangkai & event organizer · <b>1.307 toko</b> pesan hari ini · Stok live
+  Marketplace karangan bunga · <b>{PARTNERS.length} partner</b> · Transaksi via platform · Settlement transparan
 </div>
 
 <header class="site-header" class:scrolled data-od-id="site-header">
   <div class="header-inner">
     <a class="logo" href="#/" aria-label="Bungapedia beranda" data-od-id="logo">
       <span class="logo-mark">✿</span>
-      <span class="logo-word">Bungapedia<small>bunga grosir · bungapedia.co.id</small></span>
+      <span class="logo-word">Bungapedia<small>Hantarkan Apresiasi, Satukan Kebersamaan</small></span>
     </a>
     <nav class="main-nav" aria-label="Navigasi utama" data-od-id="main-nav">
-      {#each NAV_LINKS as l}
-        <a href={l.href}>{l.label}</a>
-      {/each}
+      <a href="#/produk" class:on={page === 'produk'}>Produk</a>
+      <a href="#/partner" class:on={page === 'partner'}>Partner</a>
+      <a href="#/pesanan" class:on={page === 'pesanan' || page === 'lacak' || page === 'bayar'}>Pesanan</a>
+      <a href="#/checkout" class:on={page === 'checkout'}>Checkout</a>
     </nav>
     <div class="header-actions">
-      <label class="search-pill" data-od-id="search">
-        <span aria-hidden="true">⌕</span>
-        <input type="search" placeholder="Cari mawar, tulip…" bind:value={query} on:keydown={(e) => { if (e.key === 'Enter') goShop(); }} aria-label="Cari bunga" />
-      </label>
-      <button class="btn btn-quote" on:click={() => (quoteOpen = true)} data-od-id="cta-quote">Minta Penawaran</button>
-      <button class="btn" on:click={() => showToast('Masuk / daftar akun grosir — modul akun segera hadir')} data-od-id="cta-signin">Masuk</button>
-      <button
-        class="btn cart-btn"
-        on:click={() => (cartOpen = true)}
-        aria-label="Buka keranjang, {$cartCount} item"
-        data-od-id="cta-cart"
-      >
+      <a class="btn" href="#/pesanan" data-od-id="cta-orders">Lacak</a>
+      <a class="btn" href="#/partner-dash" data-od-id="cta-partner">Jadi Partner</a>
+      <a class="btn cart-btn" href="#/checkout" aria-label="Keranjang, {$cartCount} item" data-od-id="cta-cart">
         🛒 {$cartCount > 0 ? rp($cartTotal) : 'Keranjang'}
         {#if $cartCount > 0}<span class="cart-count">{$cartCount}</span>{/if}
-      </button>
-      <button class="btn hamburger" on:click={() => (mobileNav = !mobileNav)} aria-label="Menu" data-od-id="menu-toggle">☰</button>
+      </a>
+      <button class="btn hamburger" on:click={() => (mobileNav = !mobileNav)} aria-label="Menu">☰</button>
     </div>
   </div>
   {#if mobileNav}
-    <nav class="mobile-nav" aria-label="Navigasi seluler" data-od-id="mobile-nav">
-      {#each NAV_LINKS as l}
-        <a href={l.href} on:click={() => (mobileNav = false)}>{l.label}</a>
-      {/each}
-      <a href="#/" on:click={() => { mobileNav = false; quoteOpen = true; }}>Minta Penawaran</a>
+    <nav class="mobile-nav" data-od-id="mobile-nav">
+      <a href="#/produk" on:click={() => (mobileNav = false)}>Produk</a>
+      <a href="#/partner" on:click={() => (mobileNav = false)}>Partner</a>
+      <a href="#/pesanan" on:click={() => (mobileNav = false)}>Pesanan</a>
+      <a href="#/checkout" on:click={() => (mobileNav = false)}>Checkout</a>
+      <a href="#/partner-dash" on:click={() => (mobileNav = false)}>Dashboard Partner</a>
+      <a href="#/admin" on:click={() => (mobileNav = false)}>Dashboard Admin</a>
     </nav>
   {/if}
-  <nav class="subnav" aria-label="Navigasi halaman" data-od-id="subnav">
+  <nav class="subnav" aria-label="Peran" data-od-id="role-switch">
     <div class="subnav-inner">
-      {#each SUBNAV as l}
-        <a href={l.href} class:on={route === l.href.slice(1)}>{l.label}</a>
-      {/each}
-      <span class="cutoff">◷ Cut-off <b>{remain}</b> · kirim dari Jakarta</span>
+      <a href="#/" class:on={['/', 'produk', 'partner', 'checkout', 'pesanan', 'lacak', 'bayar'].includes(page) || page === 'home'}>Customer</a>
+      <a href="#/partner-dash" class:on={page === 'partner-dash'}>Partner</a>
+      <a href="#/admin" class:on={page === 'admin'}>Admin / Owner</a>
+      <span class="cutoff">Prototype · data dummy · pembayaran simulasi</span>
     </div>
   </nav>
 </header>
 
-<main id="top">
-  {#if route === '/stok'}
-    <Shop />
-  {:else if route === '/prebook'}
-    <Prebook />
-  {:else if route === '/library'}
-    <Journal />
-  {:else if route === '/blog'}
-    <Journal />
-  {:else if route === '/about'}
-    <About />
-  {:else if route === '/quote'}
-    <Quote />
-  {:else if route === '/checkout'}
-    <Checkout />
-  {:else}
-  <!-- HERO -->
-  <section class="hero" data-od-id="hero">
-    <div class="hero-grid">
-      <div>
-        <p class="eyebrow">Grosir saja · Petani → Toko dalam semalam</p>
-        <h1>Bunga potong grosir segar, dikirim kilat ke seluruh Indonesia.</h1>
-        <p class="hero-sub">
-          Langsung dari kebun mitra di Bandung, Batu, Dieng & Bali — petik pagi, terbang malam ini,
-          sampai di tokomu besok pagi. Stok live diperbarui harian dari hub distribusi Jakarta.
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#/stok" data-od-id="cta-shop">Belanja Stok Live →</a>
-          <button class="btn" on:click={() => (quoteOpen = true)} data-od-id="cta-event">Minta Penawaran Event</button>
-        </div>
-        <div class="hero-stats">
-          <div><b>1.307</b><span>toko pesan minggu ini</span></div>
-          <div><b>Jakarta Hub</b><span>hub distribusi</span></div>
-          <div class="cd"><b>{remain}</b><span>cut-off kirim besok · 13:00 WIB</span></div>
-        </div>
-      </div>
-      <div class="hero-media">
-        <img src={HERO_IMG} alt="Rangkaian bunga segar Bungapedia" width="1600" height="900" />
-        <div class="hero-card"><span class="live-dot"></span><span><b>Stok live</b> · 200+ SKU dipetik pagi ini · harga grosir diperbarui 05:00 WIB</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRUST -->
-  <div class="trust-strip" data-od-id="trust-strip">
-    <div class="trust-grid">
-      <div class="trust-cell"><span class="trust-ic">🌱</span><div><b>20+ tahun di industri</b><span>Importir & distributor bunga grosir</span></div></div>
-      <div class="trust-cell"><span class="trust-ic">🌍</span><div><b>Kirim nasional</b><span>Bandung, Batu, Dieng, Bali & impor</span></div></div>
-      <div class="trust-cell"><span class="trust-ic">✈</span><div><b>Same-day & overnight</b><span>Cut-off 13:00 WIB setiap hari</span></div></div>
-      <div class="trust-cell"><span class="trust-ic">🛡</span><div><b>Garansi kesegaran</b><span>Klaim mudah untuk tiap pesanan</span></div></div>
+{#if $appError}
+  <div class="errbar" role="alert" data-od-id="app-error">
+    <div><b>⚠ {$appError.code}</b> — {$appError.message}<br /><small>{$appError.recover}</small></div>
+    <div style="display:flex;gap:8px">
+      <a class="btn btn-sm" href="#/produk">Ke katalog</a>
+      <button class="btn btn-sm" on:click={clearError}>Tutup</button>
     </div>
   </div>
+{/if}
 
-  <!-- CATALOG -->
-  <section class="section" id="katalog" data-od-id="catalog">
-    <div class="container">
-      <div class="section-head">
+<main id="top">
+  {#if page === 'produk' && param}
+    <MarketProductDetail product={pdp} notFoundId={param} />
+  {:else if page === 'produk'}
+    <MarketProducts />
+  {:else if page === 'partner' && param}
+    <MarketPartners partner={partnerObj} />
+  {:else if page === 'partner'}
+    <MarketPartners listMode />
+  {:else if page === 'checkout'}
+    <MarketCheckout />
+  {:else if page === 'bayar'}
+    <MarketOrder orderId={param} />
+  {:else if page === 'lacak'}
+    <MarketOrder orderId={param} />
+  {:else if page === 'pesanan'}
+    <MarketOrder listMode />
+  {:else if page === 'partner-dash'}
+    <PartnerDash />
+  {:else if page === 'admin'}
+    <AdminDash />
+  {:else if page !== 'home' && !['produk','partner','checkout','bayar','lacak','pesanan','partner-dash','admin'].includes(page)}
+    <div class="container soon" data-od-id="404">
+      <p class="eyebrow">404 · rute tidak dikenal</p>
+      <h1>Halaman “/{page}” tidak ada</h1>
+      <p class="lede">Jangan khawatir — semua navigasi P0 customer sudah terdaftar. Kembali ke jalur demo.</p>
+      <p><a class="btn btn-primary" href="#/">Ke beranda →</a> <a class="btn" href="#/produk">Katalog</a></p>
+    </div>
+  {:else}
+    <!-- HOMEPAGE marketplace — IA prompt §24 -->
+    <section class="hero" data-od-id="hero">
+      <div class="hero-grid">
         <div>
-          <p class="eyebrow">Jelajahi katalog</p>
-          <h2>Cari berdasar varietas</h2>
-          <p>Semua kategori terhubung ke stok live hari ini. Harga update 05:00 WIB.</p>
+          <p class="eyebrow">Marketplace · {PARTNERS.length} partner terkurasi</p>
+          <h1>Temukan Karangan Bunga dari Partner Terpercaya</h1>
+          <p class="hero-sub">Pilih, pesan, dan pantau karangan bunga dari berbagai penyedia jasa dalam satu platform. Kamu tahu siapa yang merangkai — dan tahu uangmu di tahap mana.</p>
+          <div class="hero-search" data-od-id="hero-search">
+            <input type="search" placeholder="Cari “Bunga Ulang Tahun”…" bind:value={homeQuery} on:keydown={(e) => { if (e.key === 'Enter') goSearch(); }} aria-label="Cari karangan bunga" />
+            <button class="btn btn-primary" on:click={goSearch}>Cari Karangan Bunga</button>
+          </div>
+          <div class="hero-cta">
+            <a class="link-more" href="#/produk">Lihat Semua Produk →</a>
+            <span class="wishlist-link">♥ {$wishlist.length} wishlist</span>
+          </div>
+          <div class="hero-stats">
+            <div><b>{PRODUCTS.length * 100}+</b><span>produk kurasi</span></div>
+            <div><b>★ 4.8</b><span>rata-rata rating</span></div>
+            <div><b>Same-day</b><span>Jabodetabek & Bandung</span></div>
+          </div>
         </div>
-        <a class="link-more" href="#/stok">Lihat katalog penuh →</a>
+        <div class="hero-media">
+          <img src={heroImg} alt="Rangkaian bunga Bungapedia dari partner terverifikasi" width="1600" height="900" />
+          <div class="hero-card"><span class="live-dot"></span><span><b>Dibuat oleh Bunga Sejahtera</b> ✓ Verified · ★ 4.9 · foto QC sebelum kirim</span></div>
+        </div>
       </div>
-      {#if filteredCats.length === 0}
-        <p class="empty-note">Tidak ada varietas cocok “{query}”. Coba “mawar” atau “tulip”.</p>
-      {:else}
-        <div class="cat-grid">
-          {#each filteredCats as c}
-            <a class="cat-card" href="#/stok" data-od-id="cat-card-{c.id}">
-              <div class="ph">
-                <img src={c.img} alt={c.name} loading="lazy" />
-                {#if c.badge}<span class="cat-badge">{c.badge}</span>{/if}
+    </section>
+
+    <section class="section" data-od-id="shop-by-occasion">
+      <div class="container">
+        <p class="eyebrow">Shop by occasion</p>
+        <h2>Untuk momen apa?</h2>
+        <div class="occ-grid">
+          {#each OCCASIONS as o}
+            <button class="occ-card" on:click={() => searchOccasion(o)} data-od-id="occ-{o}"><b>{o}</b><span>Cari →</span></button>
+          {/each}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="popular">
+      <div class="container">
+        <div class="section-head"><div><p class="eyebrow">Populer minggu ini</p><h2>Produk favorit customer</h2></div><a class="link-more" href="#/produk">Semua produk →</a></div>
+        <div class="deal-grid">
+          {#each popular as p}
+            {@const pt = partnerById(p.partnerId)}
+            <article class="deal-card" data-od-id="pop-{p.id}">
+              <a class="ph" href="#/produk/{p.id}"><img src={p.img} alt={p.name} loading="lazy" /></a>
+              <div class="tx"><span class="deal-farm">{pt.name} {#if pt.verified}✓{/if}</span>
+                <a class="deal-name" href="#/produk/{p.id}">{p.name}</a>
+                <div class="deal-price"><b class="now">{rp(p.price)}</b><span>★ {p.rating} ({p.reviews})</span></div>
               </div>
-              <div class="tx"><b>{c.name}</b><span>{c.detail}</span></div>
+            </article>
+          {/each}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="trusted-partners">
+      <div class="container">
+        <div class="section-head"><div><p class="eyebrow">Trusted partners</p><h2>Dikerjakan siapa? Jelas.</h2></div><a class="link-more" href="#/partner">Semua partner →</a></div>
+        <div class="steps-grid">
+          {#each PARTNERS.slice(0, 3) as pt}
+            <a class="step-card" href="#/partner/{pt.id}" data-od-id="home-{pt.id}">
+              <span class="step-num">✓</span><b>{pt.name} {#if pt.verified}<span class="vbadge">Verified</span>{/if}</b>
+              <p>★ {pt.rating} · {(pt.orders / 1000).toFixed(1)}K order · {pt.city}. {pt.productionTime} produksi.</p>
             </a>
           {/each}
         </div>
-      {/if}
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <!-- DEALS -->
-  <section class="section" id="deals" data-od-id="deals">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Live · update 05:00 WIB</p>
-          <h2>Promo hari ini</h2>
-          <p>Diskon harga petani yang dipilih manual. Tambah ke cart sebelum cut-off 13:00 untuk kirim besok.</p>
+    <section class="section" data-od-id="how-it-works">
+      <div class="container">
+        <p class="eyebrow">Cara kerja</p><h2>Discover → Compare → Protected → Track → Settlement</h2>
+        <div class="steps-grid">
+          <div class="step-card"><span class="step-num">1</span><b>🔍 Discover by momen</b><p>Cari berdasar momen & penerima — bukan sekadar kategori bunga mentah.</p></div>
+          <div class="step-card"><span class="step-num">2</span><b>⚖ Compare partner</b><p>Bandingkan harga, rating, estimasi, dan area sebelum memilih.</p></div>
+          <div class="step-card"><span class="step-num">3</span><b>🛡 Protected transaction</b><p>Bayar via platform. Dana Pending sampai kamu konfirmasi selesai.</p></div>
         </div>
-        <a class="link-more" href="#/stok">Lihat semua →</a>
       </div>
-      <div class="deal-grid">
-        {#each DEALS as d}
-          <article class="deal-card" data-od-id="deal-card-{d.id}">
-            <div class="ph">
-              <img src={d.img} alt={d.name} loading="lazy" />
-              <span class="deal-tag">{d.tag}</span>
-            </div>
-            <div class="tx">
-              <span class="deal-farm">{d.farm} · Bandung</span>
-              <span class="deal-name">{d.name}</span>
-              <div class="deal-price"><span class="was">${d.was.toFixed(2)}</span><span class="now">{rp(d.now * 16000)}{d.unit}</span></div>
-              <div class="deal-row">
-                <button class="btn btn-primary btn-sm" on:click={() => addDeal(d.id)}>+ Keranjang</button>
-                <button class="btn btn-sm" on:click={() => showToast(d.name + ' · ' + d.farm)}>Detail</button>
-              </div>
-            </div>
-          </article>
-        {/each}
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EVENT BAND -->
-  <section class="band-dark" data-od-id="event-band">
-    <div class="band-inner">
-      <p class="eyebrow" style="color: var(--footer-fg)">Untuk event & wedding planner</p>
-      <h2>Rencanakan event dengan percaya diri.</h2>
-      <p class="lead">Ceritakan tanggal, venue & jumlah tamu — kami susun daftar belanja lengkap dalam 1×24 jam, lead time terkunci, substitusi pre-approved.</p>
-      <div class="pill-row">
-        <div class="pill"><b>7–10d</b><span>event standar</span></div>
-        <div class="pill"><b>14d</b><span>event besar / dekor penuh</span></div>
-        <div class="pill"><b>21d</b><span>premium / impor khusus</span></div>
+    <section class="band-dark" data-od-id="protection">
+      <div class="band-inner">
+        <p class="eyebrow" style="color: var(--footer-fg)">Transaction protection</p>
+        <h2>Uangmu di tahap mana? Selalu terlihat.</h2>
+        <p class="lead">✓ Payment received → ✓ Partner confirmed → ✓ Being prepared → ● Waiting delivery → ○ Settlement after completion. Bukan klaim escrow legal — visualisasi proteksi untuk demo bisnis.</p>
+        <p><a class="btn btn-primary" href="#/pesanan">Coba lacak pesanan dummy →</a></p>
       </div>
-      <button class="btn btn-primary" on:click={() => (quoteOpen = true)} data-od-id="cta-event-quote">Minta Penawaran Event</button>
-    </div>
-  </section>
+    </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section" id="stok" data-od-id="how-it-works">
-    <div class="container">
-      <p class="eyebrow">Cara kerja</p>
-      <div class="section-head"><div><h2>Dari kebun ke tokomu besok pagi.</h2></div></div>
-      <div class="steps-grid">
-        <div class="step-card"><span class="step-num">1</span><b>🌸 Jelajahi stok live</b><p>200+ SKU harian dengan jumlah batang, grade & panjang tangkai real. Filter berdasar warna, asal & grade.</p></div>
-        <div class="step-card"><span class="step-num">2</span><b>⏰ Pesan sebelum 13:00 WIB</b><p>Harga terkunci per box besok. Tim kami cek & tandai substitusi sebelum menagih.</p></div>
-        <div class="step-card"><span class="step-num">3</span><b>🚚 Pilih pengirimanmu</b><p>Overnight ke 45 kota, same-day Jabodetabek, atau ambil di hub. Diskon volume untuk akun terverifikasi.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PREBOOK -->
-  <section class="section" id="prebook" data-od-id="prebook">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Kalender pre-book</p>
-          <h2>Pesan jauh hari, hemat lebih banyak.</h2>
-          <p>Kunci harga & alokasi untuk puncak musim bunga. Pre-book melindungimu dari lonjakan harga pasar.</p>
+    <section class="section" data-od-id="reviews">
+      <div class="container">
+        <p class="eyebrow">Customer reviews</p><h2>Kenapa mereka berani pesan?</h2>
+        <div class="steps-grid">
+          {#each REVIEWS as r}
+            <div class="step-card"><span class="step-num">★</span><b>{r.name}</b><p>“{r.text}”</p><small style="color:var(--muted)">{r.product}</small></div>
+          {/each}
         </div>
-        <a class="link-more" href="#/prebook">Semua jadwal →</a>
       </div>
-      <div class="prebook-grid">
-        {#each PREBOOK as p}
-          <div class="prebook-card">
-            <div><div class="dt">{p.date}</div><b>{p.title} {#if p.hot}<span class="hot-flag">Ramai</span>{/if}</b><small>{p.note}</small></div>
-            <button class="btn btn-sm" on:click={() => { quoteOpen = true; }}>Amankan</button>
+    </section>
+
+    <section class="section" data-od-id="faq">
+      <div class="container">
+        <div class="wholesale-card">
+          <div><p class="eyebrow">FAQ</p><h2>Punya toko bunga? Gabung sebagai partner.</h2>
+          <p style="color:var(--muted);font-size:15px;line-height:1.65">Dapatkan order konsisten, kelola katalog & settlement dalam satu dashboard. Verifikasi dikontrol admin.</p>
+          <p><a class="btn btn-primary" href="#/partner-dash" data-od-id="cta-join">Lihat dashboard partner</a></p></div>
+          <div>
+            {#each FAQS as f}<details><summary>{f.q}</summary><p>{f.a}</p></details>{/each}
           </div>
-        {/each}
-      </div>
-    </div>
-  </section>
-
-  <!-- GROWERS -->
-  <section class="band-dark" id="tentang" data-od-id="growers">
-    <div class="band-inner">
-      <p class="eyebrow" style="color: var(--footer-fg)">Jejaring petani</p>
-      <h2>Dipasok petani di lima pulau & mancanegara.</h2>
-      <p class="lead">Tanpa perantara. Rantai dingin dari panen ke hub Jakarta, lalu ke tokomu. Arahkan kursor ke hub untuk melihat asalnya.</p>
-      <div class="map-card">
-        <div class="hub-row">
-          <span class="hub-chip"><b>Jakarta Hub</b> · distribusi nasional</span>
-          <span class="hub-chip">Bandung · mawar & hortensia</span>
-          <span class="hub-chip">Batu · lily & alstroemeria</span>
-          <span class="hub-chip">Dieng · alstroemeria</span>
-          <span class="hub-chip">Bali · tropis & anthurium</span>
-          <span class="hub-chip">Ekuador · impor premium</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- PRESS -->
-  <div class="press-band" data-od-id="press">
-    <div class="press-inner">
-      <p class="eyebrow">Diakui industri</p>
-      <div><b style="font-family: var(--font-display); font-size: 22px; color: var(--ink)">Diliput Media</b></div>
-      <div class="press-logos">{#each PRESS as p}<span>{p}</span>{/each}</div>
-    </div>
-  </div>
-
-  <!-- WHOLESALE -->
-  <section id="gabung" data-od-id="wholesale">
-    <div class="container">
-      <div class="wholesale-card">
-        <div>
-          <p class="eyebrow">Cara bergabung</p>
-          <h2>Buka akun grosir dalam tiga langkah.</h2>
-          <p style="color: var(--muted); font-size: 15px; line-height: 1.65">Bungapedia khusus grosir — florist, desainer & profesional event. Daftar sekali, buka harga grosir, pre-book & overnight.</p>
-          <p><button class="btn btn-primary" on:click={() => (quoteOpen = true)} data-od-id="cta-wholesale">Daftar Akses Grosir</button></p>
-        </div>
-        <ol>
-          <li><span class="step-dot">1</span><span><b style="color: var(--ink)">Daftar</b><br />Ceritakan usahamu, volume bulanan & kotamu. Formulir lima menit.</span></li>
-          <li><span class="step-dot">2</span><span><b style="color: var(--ink)">Verifikasi</b><br />Kirim bukti usaha. Disetujui dalam satu hari kerja.</span></li>
-          <li><span class="step-dot">3</span><span><b style="color: var(--ink)">Belanja</b><br />Belanja stok live, pre-book, atau minta penawaran event.</span></li>
-        </ol>
-      </div>
-    </div>
-  </section>
+    </section>
   {/if}
 </main>
 
@@ -341,81 +262,35 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="logo" href="#/" style="text-decoration: none; color: #fff"><span class="logo-mark">✿</span><span class="logo-word">Bungapedia</span></a>
-        <p>Keluarga florist Indonesia. Harga grosir untuk profesional — dengan harga & ketersediaan live, rantai dingin terjaga dari kebun ke tokomu.</p>
-        <p><b style="color:#fff">0800-1-BUNGA</b><br />Hub Jakarta · Pasar Bunga Rawa Belong<br />Senin–Sabtu 05:00–17:00 WIB</p>
+        <span class="logo-word" style="color:#fff">✿ Bungapedia</span>
+        <p>Hantarkan Apresiasi, Satukan Kebersamaan. Marketplace yang mempertemukan customer dengan partner terpercaya — dari pencarian hingga settlement.</p>
       </div>
-      <div><h4>Belanja</h4><a href="#/stok">Stok Live</a><a href="#/prebook">Prebook</a><a href="#/stok">Box Kombo</a><a href="#/quote">Minta Penawaran</a></div>
-      <div><h4>Untuk Pembeli</h4><a href="#/quote">Daftar Grosir</a><a href="#/quote">Masuk</a><a href="#/quote">Minta Penawaran</a><a href="#/stok">Pengiriman</a><a href="#/quote">Ajukan Klaim</a></div>
-      <div><h4>Belajar</h4><a href="#/library">Perpustakaan Bunga</a><a href="#/blog">Blog</a><a href="#/about">Tentang</a><a href="#/about">FAQ</a><a href="#/quote">Kontak</a></div>
-      <div><h4>Kebijakan</h4><a href="#/about">Kredit & Pembayaran</a><a href="#/about">Syarat Layanan</a><a href="#/about">Kebijakan Privasi</a></div>
+      <div><h4>Customer</h4><a href="#/produk">Katalog</a><a href="#/partner">Partner</a><a href="#/pesanan">Lacak pesanan</a><a href="#/checkout">Checkout</a></div>
+      <div><h4>Partner</h4><a href="#/partner-dash">Dashboard</a><a href="#/partner">Direktori</a></div>
+      <div><h4>Owner</h4><a href="#/admin">Dashboard admin</a><a href="#/pesanan">Transaksi</a></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Bungapedia.co.id · PT Bunga Pedia Nusantara. Hak cipta dilindungi.</span>
-      <span>Terinspirasi struktur flowermarketplace.com · konten & merek milik Bungapedia</span>
-    </div>
+    <div class="footer-bottom"><span>© 2026 Bungapedia · Prototype validasi — mock data, pembayaran & settlement disimulasikan.</span></div>
   </div>
 </footer>
 
-<!-- CART DRAWER -->
-<div class="scrim" class:open={cartOpen || quoteOpen} role="presentation" on:click={() => { cartOpen = false; quoteOpen = false; }} on:keydown={(e) => { if (e.key === 'Escape') { cartOpen = false; quoteOpen = false; } }}></div>
-<aside class="drawer" class:open={cartOpen} aria-hidden={!cartOpen} data-od-id="cart-drawer">
-  <header><b>Keranjang ({$cartCount})</b><button class="btn btn-sm" on:click={() => (cartOpen = false)}>✕ Tutup</button></header>
-  <div class="items">
-    {#if $cart.length === 0}
-      <p class="empty-note">Keranjang masih kosong.<br />Yuk tambah promo hari ini 🥀</p>
-    {:else}
-      {#each $cart as l}
-        <div class="cart-line">
-          <img src={l.img} alt={l.name} />
-          <div><div class="nm">{l.name}</div><div class="pr">{rp(l.price)}{l.unit}</div></div>
-          <div class="qty">
-            <button on:click={() => bumpQty(l.id, -1)} aria-label="Kurangi">−</button>
-            <b>{l.qty}</b>
-            <button on:click={() => bumpQty(l.id, 1)} aria-label="Tambah">+</button>
-          </div>
-        </div>
-      {/each}
-    {/if}
-  </div>
-  <footer>
-    <div class="total-row"><span>Total</span><span>{rp($cartTotal)}</span></div>
-    {#if $cart.length === 0}
-      <button class="btn btn-primary" style="width:100%; justify-content:center" disabled>Checkout →</button>
-    {:else}
-      <a class="btn btn-primary" style="width:100%; justify-content:center" href="#/checkout" on:click={() => (cartOpen = false)}>Checkout →</a>
-    {/if}
-  </footer>
-</aside>
-
-<!-- QUOTE MODAL -->
-<div class="modal" class:open={quoteOpen} role="dialog" aria-modal="true" aria-label="Minta penawaran" data-od-id="quote-modal">
-  <div class="modal-card">
-    {#if !quoteSent}
-      <h3>Minta penawaran</h3>
-      <p style="color: var(--muted); font-size: 14px; margin: 0">Event atau kebutuhan rutin? Balasan dalam 1×24 jam.</p>
-      <form on:submit={submitQuote}>
-        <label for="q-name">Nama & usaha</label>
-        <input id="q-name" required placeholder="cth. Rina — Rina Florist, Bandung" />
-        <label for="q-date">Tanggal dibutuhkan</label>
-        <input id="q-date" type="date" required />
-        <label for="q-type">Kebutuhan</label>
-        <select id="q-type"><option>Event / wedding</option><option>Stok toko rutin</option><option>Pre-book musim</option><option>Korporat</option></select>
-        <label for="q-msg">Detail</label>
-        <textarea id="q-msg" rows="3" placeholder="Jenis bunga, jumlah, kota kirim…"></textarea>
-        <div class="modal-actions">
-          <button type="submit" class="btn btn-primary" style="flex:1; justify-content:center">Kirim →</button>
-          <button type="button" class="btn" on:click={() => (quoteOpen = false)}>Batal</button>
-        </div>
-      </form>
-    {:else}
-      <h3>✓ Terkirim!</h3>
-      <p style="color: var(--muted); font-size: 14.5px; line-height: 1.65">Tim Bungapedia akan menghubungimu dalam 1×24 jam dengan daftar belanja & harga terkunci. Cek email/SMS ya.</p>
-      <div class="modal-actions">
-        <button class="btn btn-primary" style="flex:1; justify-content:center" on:click={() => { quoteOpen = false; quoteSent = false; }}>Kembali belanja</button>
-      </div>
-    {/if}
-  </div>
-</div>
-
 {#if $toast}<div class="toast show" role="status">{$toast}</div>{/if}
+
+<style>
+  .main-nav a.on { border-bottom-color: var(--accent); color: var(--accent-dark); }
+  .errbar { max-width: 1180px; margin: 14px auto 0; background: #fdeee9; border: 1px solid #f3c4b5; color: #7c2d12; border-radius: 12px; padding: 14px 18px; display: flex; gap: 14px; align-items: center; justify-content: space-between; font-family: var(--font-ui); font-size: 14px; }
+  .soon { padding: 48px 24px 64px; max-width: 820px; margin: 0 auto; font-family: var(--font-ui); }
+  .soon h1 { font-family: var(--font-display); color: var(--ink); font-size: clamp(30px,4vw,44px); margin: 6px 0 10px; }
+  .hero-search { display: flex; gap: 10px; margin-bottom: 14px; }
+  .hero-search input { flex: 1; border: 1px solid var(--border-strong); border-radius: 999px; padding: 13px 18px; font-size: 15px; font-family: var(--font-ui); }
+  .hero-cta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .wishlist-link { font-size: 13.5px; color: var(--muted); font-family: var(--font-ui); }
+  .occ-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px; }
+  .occ-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px; text-align: left; font-family: var(--font-ui); }
+  .occ-card:hover { border-color: var(--accent); } .occ-card b { display: block; color: var(--ink); font-size: 15px; } .occ-card span { color: var(--accent-dark); font-size: 13px; font-weight: 700; }
+  .deal-card .ph { display: block; } .deal-name { text-decoration: none; } .deal-name:hover { text-decoration: underline; }
+  .vbadge { background: var(--accent-soft); color: var(--accent-dark); font-size: 11px; padding: 2px 8px; border-radius: 999px; }
+  .step-card { text-decoration: none; color: inherit; display: block; }
+  details { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; font-size: 14px; }
+  summary { font-weight: 700; color: var(--ink); cursor: pointer; } details p { color: var(--muted); line-height: 1.65; }
+  @media (max-width: 960px) { .occ-grid { grid-template-columns: 1fr 1fr; } .hero-search { flex-direction: column; } }
+</style>
