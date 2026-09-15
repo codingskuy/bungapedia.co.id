@@ -4,7 +4,7 @@
 
 import { derived, writable } from 'svelte/store';
 import type { AppError, CheckoutDraft, MarketProduct, Order, OrderItem, OrderStatus, PaymentMethod } from './market-types';
-import { DELIVERY_FEE, PLATFORM_FEE, SEED_ORDERS, productById } from './market-data';
+import { DELIVERY_FEE, PLATFORM_FEE, SEED_ORDERS, fixImg, productById } from './market-data';
 import { currentCustomer } from './auth';
 
 function persist<T>(key: string, store: { subscribe: (fn: (v: T) => void) => unknown }) {
@@ -55,7 +55,7 @@ export function toggleWishlist(id: string) {
 export interface CartLine extends OrderItem {
   qty: number;
 }
-export const cart = writable<CartLine[]>(restore('bp-cart', []));
+export const cart = writable<CartLine[]>(restore('bp-cart', []).map((l) => ({ ...l, img: fixImg(l.img) })));
 persist('bp-cart', cart);
 export const cartCount = derived(cart, ($c) => $c.reduce((n, l) => n + l.qty, 0));
 export const cartTotal = derived(cart, ($c) => $c.reduce((n, l) => n + l.qty * l.price, 0));
@@ -90,8 +90,10 @@ export function clearMarketCart() {
   } catch { /* noop */ }
 }
 
-// ---------- orders ----------
-export const orders = writable<Order[]>(restore('bp-orders', SEED_ORDERS));
+// ---------- orders (path gambar lawas dinormalisasi via fixImg) ----------
+export const orders = writable<Order[]>(
+  restore('bp-orders', SEED_ORDERS).map((o) => ({ ...o, items: o.items.map((i) => ({ ...i, img: fixImg(i.img) })) }))
+);
 persist('bp-orders', orders);
 export function orderById(id: string): Order | undefined {
   let found: Order | undefined;

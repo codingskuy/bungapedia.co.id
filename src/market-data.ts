@@ -14,6 +14,16 @@ export function rp(n: number): string {
   return 'Rp' + Math.round(n).toLocaleString('id-ID');
 }
 
+/** Normalisasi path gambar lawas (/assets/...) ke BASE_URL.
+ *  localStorage pengunjung lama masih menyimpan path absolut pra-fix —
+ *  tanpa ini gambar produk tampil rusak di subpath Pages. Self-healing:
+ *  hasil normalisasi ditulis balik oleh persist(). */
+export function fixImg(src: string): string {
+  if (typeof src !== 'string') return src;
+  if (src.startsWith('/assets/')) return `${import.meta.env.BASE_URL}${src.slice(1)}`;
+  return src;
+}
+
 export const CATEGORIES = [
   'Bunga Papan',
   'Standing Flower',

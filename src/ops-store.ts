@@ -2,7 +2,7 @@
 // sehingga aksi demo (verifikasi, suspend, CRUD produk) terasa nyata dan tidak 404.
 
 import { derived, writable } from 'svelte/store';
-import { PARTNERS, PRODUCTS } from './market-data';
+import { PARTNERS, PRODUCTS, fixImg } from './market-data';
 import type { MarketProduct } from './market-types';
 import { orders, showToast } from './market-store';
 
@@ -57,7 +57,10 @@ export function resetOps() {
 }
 
 // ---------- katalog live (CRUD partner menembus ke katalog customer) ----------
-export const catalog = writable<MarketProduct[]>(restore('bp-catalog', PRODUCTS));
+// Path gambar lawas (/assets/...) dari localStorage lama dinormalisasi via fixImg.
+export const catalog = writable<MarketProduct[]>(
+  restore('bp-catalog', PRODUCTS).map((p) => ({ ...p, img: fixImg(p.img), gallery: (p.gallery ?? [p.img]).map(fixImg) }))
+);
 persist('bp-catalog', catalog);
 
 export function upsertProduct(p: MarketProduct) {
