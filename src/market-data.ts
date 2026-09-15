@@ -10,6 +10,9 @@ export const PLATFORM_FEE = 20000;
 export const DELIVERY_FEE = 30000;
 export const SETTLEMENT_FEE_RATE = 0.1;
 
+/** Badan hukum pengelola platform (dipilih owner — opsi 1). */
+export const COMPANY_LEGAL = 'PT Bunga Pedia Nusantara';
+
 export function rp(n: number): string {
   return 'Rp' + Math.round(n).toLocaleString('id-ID');
 }

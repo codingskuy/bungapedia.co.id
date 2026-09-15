@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import './app.css';
-  import { FAQS, OCCASIONS, PARTNERS, PRODUCTS, REVIEWS, partnerById, rp } from './market-data';
+  import { FAQS, OCCASIONS, PARTNERS, PRODUCTS, REVIEWS, COMPANY_LEGAL, partnerById, rp } from './market-data';
   import { cartCount, cartTotal, appError, clearError, showToast, toast, wishlist } from './market-store';
   import { logout, sessionCustomer } from './auth';
   import MarketProducts from './pages/MarketProducts.svelte';
@@ -13,6 +13,7 @@
   import CustomerRegister from './pages/CustomerRegister.svelte';
   import AccountView from './pages/AccountView.svelte';
   import WishlistView from './pages/WishlistView.svelte';
+  import AboutPage from './pages/AboutPage.svelte';
   import ChatList from './pages/ChatList.svelte';
   import ChatRoom from './pages/ChatRoom.svelte';
   import { catalog } from './ops-store';
@@ -85,6 +86,7 @@
       <a href="#/produk" class:on={page === 'produk'}>Produk</a>
       <a href="#/partner" class:on={page === 'partner'}>Partner</a>
       <a href="#/pesanan" class:on={page === 'pesanan' || page === 'lacak' || page === 'bayar'}>Pesanan</a>
+      <a href="#/tentang" class:on={page === 'tentang'}>Tentang</a>
       <a href="#/checkout" class:on={page === 'checkout'}>Checkout</a>
     </nav>
     <div class="header-actions">
@@ -106,6 +108,7 @@
       <a href="#/produk" on:click={() => (mobileNav = false)}>Produk</a>
       <a href="#/partner" on:click={() => (mobileNav = false)}>Partner</a>
       <a href="#/pesanan" on:click={() => (mobileNav = false)}>Pesanan</a>
+      <a href="#/tentang" on:click={() => (mobileNav = false)}>Tentang</a>
       <a href="#/checkout" on:click={() => (mobileNav = false)}>Checkout</a>
       {#if $sessionCustomer}
         <a href="#/akun" on:click={() => (mobileNav = false)}>Akun saya</a>
@@ -163,6 +166,8 @@
     {/if}
   {:else if page === 'wishlist'}
     <WishlistView />
+  {:else if page === 'tentang'}
+    <AboutPage />
   {:else if page === 'pesan' && param}
     {#if $sessionCustomer}
       <ChatRoom threadId={param} me={{ role: 'customer', id: $sessionCustomer.customerId, name: $sessionCustomer.name }} />
@@ -185,7 +190,7 @@
     <MarketOrder orderId={param} />
   {:else if page === 'pesanan'}
     <MarketOrder listMode />
-  {:else if page !== 'home' && !['produk','partner','checkout','masuk','daftar','akun','wishlist','pesan','bayar','lacak','pesanan'].includes(page)}
+  {:else if page !== 'home' && !['produk','partner','checkout','masuk','daftar','akun','wishlist','pesan','tentang','bayar','lacak','pesanan'].includes(page)}
     <div class="container soon" data-od-id="404">
       <p class="eyebrow">404 · rute tidak dikenal</p>
       <h1>Halaman “/{page}” tidak ada</h1>
@@ -320,9 +325,9 @@
       </div>
       <div><h4>Customer</h4><a href="#/produk">Katalog</a><a href="#/partner">Partner</a><a href="#/pesanan">Lacak pesanan</a><a href="#/akun">Akun saya</a><a href="#/wishlist">Wishlist</a></div>
       <div><h4>Partner</h4><a href={base + 'partner/'}>Gabung sebagai partner</a><a href="#/partner">Direktori partner</a></div>
-      <div><h4>Bantuan</h4><a href="#/pesan">Pesan & bantuan</a><a href="#/pesanan">Lacak pesanan</a><a href="#/masuk">Masuk / Daftar</a><a href="#/">Beranda</a></div>
+      <div><h4>Bantuan</h4><a href="#/tentang">Tentang kami</a><a href="#/pesan">Pesan & bantuan</a><a href="#/pesanan">Lacak pesanan</a><a href="#/masuk">Masuk / Daftar</a><a href="#/">Beranda</a></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Bungapedia · Prototype validasi — mock data, pembayaran & settlement disimulasikan.</span></div>
+    <div class="footer-bottom"><span>© 2026 Bungapedia · {COMPANY_LEGAL} · Prototype validasi — mock data, pembayaran & settlement disimulasikan.</span></div>
   </div>
 </footer>
 

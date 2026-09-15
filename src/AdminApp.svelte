@@ -3,6 +3,7 @@
   import { onMount } from 'svelte';
   import './app.css';
   import { logout, sessionAdmin } from './auth';
+  import { COMPANY_LEGAL } from './market-data';
   import { threads, totalUnread } from './chat-store';
   import Login from './pages/Login.svelte';
   import AdminDash from './pages/AdminDash.svelte';
@@ -73,7 +74,7 @@
 <footer class="site-footer" data-od-id="portal-footer">
   <div class="footer-inner">
     <div class="footer-bottom" style="border:0;margin:0;padding:0">
-      <span>© 2026 Bungapedia · Portal Owner (prototype — data dummy)</span>
+      <span>© 2026 Bungapedia · {COMPANY_LEGAL} · Portal Owner (prototype — data dummy)</span>
       <a href={base} style="color:#fff">← bungapedia.co.id</a>
     </div>
   </div>
