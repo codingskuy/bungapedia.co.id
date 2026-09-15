@@ -20,7 +20,7 @@ export interface Deal {
   tag: string;
 }
 
-const IMG = (f: string) => `/assets/images/flowermarketplace.com/${f}`;
+const IMG = (f: string) => `${import.meta.env.BASE_URL}assets/images/flowermarketplace.com/${f}`;
 
 export const HERO_IMG = IMG('0b5c95843a684c817befc78c95993fc3-1600-93dc4b0060.webp');
 

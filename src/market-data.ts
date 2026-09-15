@@ -4,7 +4,7 @@
 
 import type { Customer, MarketProduct, Order, Partner } from './market-types';
 
-const IMG = (f: string) => `/assets/images/flowermarketplace.com/${f}`;
+const IMG = (f: string) => `${import.meta.env.BASE_URL}assets/images/flowermarketplace.com/${f}`;
 
 export const PLATFORM_FEE = 20000;
 export const DELIVERY_FEE = 30000;

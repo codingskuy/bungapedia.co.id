@@ -50,7 +50,7 @@
     showToast(`Mencari “${homeQuery.trim()}” di katalog`);
   }
   $: popular = $catalog.filter((p) => p.popular).concat($catalog.slice(0, 4)).slice(0, 4);
-  $: heroImg = '/assets/images/flowermarketplace.com/0b5c95843a684c817befc78c95993fc3-1600-93dc4b0060.webp';
+  $: heroImg = `${import.meta.env.BASE_URL}assets/images/flowermarketplace.com/0b5c95843a684c817befc78c95993fc3-1600-93dc4b0060.webp`;
 </script>
 
 <svelte:window on:scroll={onScroll} />
