@@ -15,7 +15,7 @@
   {:else}
     {#each list as t}
       <a class="trow" href="#/pesan/{t.id}" data-od-id="thread-{t.id}">
-        <div class="av">{t.kind === 'admin-customer' ? '🛡' : t.kind === 'admin-partner' ? '🤝' : '💬'}</div>
+        <div class="av">{t.kind === 'admin-customer' ? '🛡' : '🤝'}</div>
         <div class="mid">
           <b>{t.title}</b>
           <small>{kindLabel(t.kind)}{t.orderId ? ` · ${t.orderId}` : ''}</small>

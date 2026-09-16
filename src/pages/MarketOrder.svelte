@@ -20,12 +20,12 @@
   async function pay() { if (live) { const ok = await simulatePayment(live.id, failNext); if (ok) location.hash = `#/lacak/${live.id}`; } }
   function confirm() { if (live && confirm('Pesanan sudah diterima dengan baik?')) confirmReceived(live.id); }
   function sendDispute() { if (live && fileDispute(live.id, disputeText)) { disputeOpen = false; disputeText = ''; } }
-  function chatWith(target: 'admin' | 'partner') {
+  function chatWith(target: 'admin') {
     if (!live) return;
     let s: import('../auth').Session | null = null;
     sessionCustomer.subscribe((v) => (s = v))();
     if (!s) {
-      showToast('Masuk dulu untuk chat dengan admin / partner.');
+      showToast('Masuk dulu untuk chat dengan admin.');
       location.hash = '#/masuk';
       return;
     }
@@ -119,8 +119,7 @@
           <div class="trow"><span>Dibayar</span><span>{rp(live.total)} ✓</span></div>
           <div class="trow"><span>Settlement</span><span>{live.settlement.toUpperCase()}</span></div>
           <div class="chat-row">
-            <button class="btn btn-sm" style="flex:1;justify-content:center" on:click={() => chatWith('partner')}>💬 Chat partner</button>
-            <button class="btn btn-sm" style="flex:1;justify-content:center" on:click={() => chatWith('admin')}>🛡 Chat admin</button>
+            <button class="btn btn-sm" style="flex:1;justify-content:center" on:click={() => chatWith('admin')}>🛡 Chat admin — mediasi & bantuan</button>
           </div>
           <p><a class="btn" style="width:100%;justify-content:center" href="#/partner/{live.partnerId}">Lihat profil partner →</a></p>
         </aside>

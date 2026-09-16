@@ -1,13 +1,16 @@
 // Lapisan percakapan Bungapedia — mediasi terikat konteks transaksi.
-// Thread selalu punya TEPAT 2 pihak (kind), jadi unread per role selalu tepat sasaran.
-// Bukan chat realtime: persist localStorage + "balasan simulasi" yang diberi label jujur.
+// ATURAN: customer dan partner TIDAK bisa chat langsung satu sama lain.
+// Semua percakapan lewat admin sebagai mediator:
+//   - admin-customer   : bantuan transaksi / mediasi komplain
+//   - admin-partner    : konfirmasi operasional
+// Bukan chat realtime: persist localStorage + "balasan simulasi" berlabel jujur.
 
 import { writable } from 'svelte/store';
 import { partnerById } from './market-data';
 import type { Order } from './market-types';
 
 export type ChatRole = 'customer' | 'partner' | 'admin';
-export type ThreadKind = 'admin-customer' | 'admin-partner' | 'customer-partner';
+export type ThreadKind = 'admin-customer' | 'admin-partner';
 
 export interface Me {
   role: ChatRole;
@@ -41,7 +44,6 @@ export interface Thread {
 const KIND_LABEL: Record<ThreadKind, string> = {
   'admin-customer': 'Admin × Customer',
   'admin-partner': 'Admin × Partner',
-  'customer-partner': 'Customer × Partner',
 };
 export const kindLabel = (k: ThreadKind): string => KIND_LABEL[k];
 
@@ -87,30 +89,19 @@ function seed(): Thread[] {
       unread: { customer: 0, partner: 1, admin: 0 },
       updatedAt: '12 Sep 2026 · 18:12',
     },
-    {
-      id: 't-cp-001',
-      kind: 'customer-partner',
-      title: 'INV-2026-001 · Buket Peony Sarah Blush',
-      orderId: 'INV-2026-001',
-      customerId: 'c-rina',
-      customerName: 'Rina',
-      partnerId: 'pt-flower-house',
-      partnerName: 'Flower House',
-      messages: [
-        msg('partner', 'Flower House', 'Halo Kak Rina! Peony-nya kami fotokan QC dulu sebelum kirim — mau pita gold atau dusty pink untuk kartunya?', '13 Sep 2026 · 09:40'),
-      ],
-      unread: { customer: 1, partner: 0, admin: 0 },
-      updatedAt: '13 Sep 2026 · 09:40',
-    },
   ];
 }
+
+const VALID_KINDS: ThreadKind[] = ['admin-customer', 'admin-partner'];
 
 function restore(): Thread[] {
   try {
     const raw = localStorage.getItem('bp-threads');
     if (!raw) return seed();
     const v = JSON.parse(raw) as Thread[];
-    return Array.isArray(v) && v.length ? v : seed();
+    // Migrasi: buang thread customer-partner lawas (jalur itu sudah ditutup).
+    const kept = Array.isArray(v) ? v.filter((t) => VALID_KINDS.includes(t.kind)) : [];
+    return kept.length ? kept : seed();
   } catch {
     return seed();
   }
@@ -136,7 +127,7 @@ function get(id: string): Thread | undefined {
 /** Thread yang boleh dilihat pemilik sesi. */
 export function visibleThreads(me: Me): Thread[] {
   let all: Thread[] = [];
-  threads.subscribe((ts) => (all = ts))();
+  threads.subscribe((ts) => (all = ts.filter((t) => VALID_KINDS.includes(t.kind))))();
   if (me.role === 'admin') return [...all].sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1));
   if (me.role === 'customer')
     return all
@@ -150,15 +141,15 @@ export function totalUnread(me: Me): number {
 }
 
 /**
- * Buka (atau buat) thread untuk sebuah order.
+ * Buka (atau buat) thread untuk sebuah order. Customer & partner selalu
+ * diarahkan ke admin — tidak ada jalur langsung customer↔partner.
  * - customer → admin  : mediasi / bantuan transaksi
- * - customer → partner: tanya produksi / request kecil
  * - partner → admin   : konfirmasi operasional
  * - admin → customer/partner: dijangkau dari detail transaksi
  */
 export function ensureOrderThread(order: Order, target: 'admin' | 'partner' | 'customer', me: Me): string {
   let kind: ThreadKind;
-  if (me.role === 'customer') kind = target === 'admin' ? 'admin-customer' : 'customer-partner';
+  if (me.role === 'customer') kind = 'admin-customer';
   else if (me.role === 'partner') kind = 'admin-partner';
   else kind = target === 'partner' ? 'admin-partner' : 'admin-customer';
 

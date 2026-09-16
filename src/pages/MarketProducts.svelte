@@ -1,5 +1,6 @@
 <!-- Katalog marketplace — discovery by momen + penerima (diferensiasi PRD §12/23). -->
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { CATEGORIES, OCCASIONS, RECIPIENTS, PARTNERS, partnerById, rp } from '../market-data';
   import { catalog, partnerFlags } from '../ops-store';
   import { addMarketToCart, wishlist, toggleWishlist } from '../market-store';
@@ -12,6 +13,18 @@
   let sort: 'populer' | 'termurah' | 'termahal' | 'rating' = 'populer';
   let onlyVerified = false;
   let maxPrice = 650000;
+
+  // Prefilter dari home member (pil kategori / pencarian) via sessionStorage
+  onMount(() => {
+    try {
+      const c = sessionStorage.getItem('bp-cat');
+      if (c && (CATEGORIES as string[]).includes(c)) cat = c;
+      sessionStorage.removeItem('bp-cat');
+      const kw = sessionStorage.getItem('bp-q');
+      if (kw) q = kw;
+      sessionStorage.removeItem('bp-q');
+    } catch { /* abaikan */ }
+  });
 
   $: filtered = $catalog.filter((p) => {
     const pt = partnerById(p.partnerId);
