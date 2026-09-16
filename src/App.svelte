@@ -70,6 +70,19 @@
 
   $: pdp = page === 'produk' && param ? ($catalog.find((p) => p.id === param) ?? productById(param)) : undefined;
   $: partnerObj = page === 'partner' && param ? PARTNERS.find((p) => p.id === param) : undefined;
+  $: document.title = pageTitle(page, pdp?.name, partnerObj?.name);
+
+  function pageTitle(p: string, product?: string, partner?: string): string {
+    const suffix = 'Bungapedia';
+    if (p === 'produk' && product) return `${product} — ${suffix}`;
+    if (p === 'partner' && partner) return `${partner} — ${suffix}`;
+    const map: Record<string, string> = {
+      produk: 'Katalog Karangan Bunga', partner: 'Partner Terpercaya', checkout: 'Checkout',
+      bayar: 'Pembayaran', lacak: 'Lacak Pesanan', pesanan: 'Pesanan Saya', masuk: 'Masuk',
+      daftar: 'Daftar', akun: 'Akun Saya', wishlist: 'Wishlist', pesan: 'Pesan', tentang: 'Tentang Kami',
+    };
+    return map[p] ? `${map[p]} — ${suffix}` : `${suffix} — Hantarkan Apresiasi, Satukan Kebersamaan`;
+  }
 
   function onScroll() { scrolled = window.scrollY > 8; }
   function onLoginSuccess() {
@@ -77,11 +90,15 @@
     loginReturn = '#/akun';
     location.hash = t;
   }
-  function searchOccasion(o: string) { location.hash = '#/produk'; showToast(`Filter momen: ${o} — pilih di katalog`); }
-  function goSearch() {
-    if (!homeQuery.trim()) { location.hash = '#/produk'; return; }
+  function searchOccasion(o: string) {
+    try {
+      sessionStorage.setItem('bp-occ', o);
+    } catch { /* abaikan */ }
     location.hash = '#/produk';
-    showToast(`Mencari “${homeQuery.trim()}” di katalog`);
+  }
+  function goSearch() {
+    catalogQuery.set(homeQuery.trim());
+    if (page !== 'produk') location.hash = '#/produk';
   }
   $: popular = $catalog.filter((p) => p.popular).concat($catalog.slice(0, 4)).slice(0, 4);
   $: heroImg = `${import.meta.env.BASE_URL}assets/images/flowermarketplace.com/0b5c95843a684c817befc78c95993fc3-1600-93dc4b0060.webp`;

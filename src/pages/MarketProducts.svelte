@@ -13,9 +13,12 @@
   let onlyVerified = false;
   let maxPrice = 650000;
 
-  // Prefilter dari home member (pil kategori / pencarian) via sessionStorage
+  // Prefilter dari homepage (pil momen / kategori / pencarian) via sessionStorage
   onMount(() => {
     try {
+      const oc = sessionStorage.getItem('bp-occ');
+      if (oc && (OCCASIONS as string[]).includes(oc)) occasion = oc;
+      sessionStorage.removeItem('bp-occ');
       const c = sessionStorage.getItem('bp-cat');
       if (c && (CATEGORIES as string[]).includes(c)) cat = c;
       sessionStorage.removeItem('bp-cat');
