@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
   import './app.css';
   import { FAQS, OCCASIONS, PARTNERS, PRODUCTS, REVIEWS, COMPANY_LEGAL, partnerById, rp } from './market-data';
   import { cartCount, cartTotal, appError, catalogQuery, clearError, showToast, toast, wishlist } from './market-store';
@@ -27,6 +28,7 @@
   let mobileNav = false;
   let cartOpen = false;
   let homeQuery = '';
+  let reduceMotion = false;
   const CITIES = ['Jakarta Selatan', 'Jakarta Barat', 'Jakarta Timur', 'Jakarta Pusat', 'Bandung', 'Semarang', 'Surabaya', 'Denpasar'];
   let city = 'Jakarta Selatan';
   let hq = '';
@@ -57,6 +59,7 @@
   onMount(() => {
     window.addEventListener('hashchange', syncHash);
     syncHash();
+    reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   });
 
   // hash router: #/produk/ID, #/partner/ID, #/bayar/ID, #/lacak/ID
@@ -157,6 +160,8 @@
 {/if}
 
 <main id="top">
+  {#key path}
+  <div class="route" in:fade={{ duration: reduceMotion ? 0 : 180 }}>
   {#if page === 'produk' && param}
     <MarketProductDetail product={pdp} notFoundId={param} />
   {:else if page === 'produk'}
@@ -341,6 +346,8 @@
       </div>
     </section>
   {/if}
+  </div>
+  {/key}
 </main>
 
 <footer class="site-footer" data-od-id="site-footer">
