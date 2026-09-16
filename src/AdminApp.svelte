@@ -30,8 +30,7 @@
 
 <header class="site-header scrolled" data-od-id="portal-header">
   <div class="header-inner">
-    <a class="logo" href={base} aria-label="Kembali ke Bungapedia"><img class="logo-img" src={base + 'assets/brand/bungapedia-mark.png'} alt="Logo Bungapedia" />
-      <span class="logo-word"><span class="wm">Bungapedia</span><small>portal owner</small></span></a>
+    <a class="logo" href={base} aria-label="Kembali ke Bungapedia"><img class="logo-lockup" src={base + 'assets/brand/bungapedia-lockup.png'} alt="Bungapedia — portal owner" /></a>
     <div class="header-actions">
       {#if me}
         <nav class="ptabs" aria-label="Menu owner">

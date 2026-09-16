@@ -1,7 +1,11 @@
 # Bungapedia — Brand Identity Directions
 
 Sumber mark resmi: `public/assets/brand/bungapedia-mark.png` (dari `image.png` milik owner).
-Favicon aktif: `public/favicon.png` (file yang sama).
+Sumber lockup resmi: `public/assets/brand/bungapedia-lockup.png` (dari
+`logo-removebg-preview.png` milik owner — **transparan**, revisi dari
+`logo.jpeg`) — wordmark "Bungapedia" (Bunga koral + pedia hijau, bunga di
+huruf B) + tagline baked-in **"Small Gifts, Meaningful Bonds"**.
+Favicon aktif: `public/favicon.png` (mark B-daun — lockup terlalu lebar untuk favicon).
 
 ## Anatomi mark
 Monogram huruf **"B"** yang dibentuk dari **helai daun** — sisi kiri rumpun daun
@@ -22,10 +26,11 @@ Palet UI eksisting **sudah selaras** dengan mark — tidak ada token yang digant
 hanya `--brand-leaf` dan `--brand-deep` ditambahkan sebagai perluasan resmi.
 
 ## Rute lockup (sudah dipasang di 3 portal)
-- **A — Primary (dipakai):** mark 36px rounded + wordmark "Bungapedia" serif
-  display bergradasi hijau-muda → hijau tua (`--brand-leaf → --accent →
-  --brand-deep`, 120deg, via `.logo-word .wm`) + tagline kecil solid muted
-  di bawahnya. Header customer, portal partner, portal owner, footer.
+- **A — Primary (dipakai):** file `bungapedia-lockup.png` UTUH sebagai
+  satu-satunya lockup — header 48px dan footer 56px, langsung di atas
+  permukaan (putih/gelap) tanpa blend dan tanpa pelat, karena background-nya
+  sudah transparan. Teks + tagline HTML tidak dipakai di   sebelah logo. Tagline situs ("Hantarkan Apresiasi…") tetap hidup di
+  copy homepage/About, sementara lockup membawa tagline Inggris-nya sendiri.
 - **B — App-icon (dipakai):** mark rounded-10px di atas putih (header) dan
   di atas hijau tua (footer). Favicon memakai file yang sama.
 - **C — Wordmark saja (cadangan):** teks "Bungapedia" serif tanpa mark —

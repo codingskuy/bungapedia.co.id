@@ -83,6 +83,9 @@ button { font-family: var(--font-ui); cursor: pointer; }
   object-fit: cover; flex: none; background: #fff;
 }
 .logo-img.sm { width: 28px; height: 28px; border-radius: 8px; }
+/* Lockup resmi transparan (bungapedia-lockup.png): wordmark + tagline 1 gambar. */
+.logo-lockup { height: 48px; width: auto; display: block; }
+.logo-lockup.foot { height: 56px; }
 /* Wordmark gradasi hijau → gelap (identitas Bungapedia) */
 .logo-word .wm {
   background: linear-gradient(120deg, var(--brand-leaf) 0%, var(--accent) 48%, var(--brand-deep) 100%);

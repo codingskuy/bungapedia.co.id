@@ -13,6 +13,7 @@
   import CustomerRegister from './pages/CustomerRegister.svelte';
   import AccountView from './pages/AccountView.svelte';
   import WishlistView from './pages/WishlistView.svelte';
+  import MarketHome from './pages/MarketHome.svelte';
   import AboutPage from './pages/AboutPage.svelte';
   import ChatList from './pages/ChatList.svelte';
   import ChatRoom from './pages/ChatRoom.svelte';
@@ -79,8 +80,7 @@
 <header class="site-header" class:scrolled data-od-id="site-header">
   <div class="header-inner">
     <a class="logo" href="#/" aria-label="Bungapedia beranda" data-od-id="logo">
-      <img class="logo-img" src={base + 'assets/brand/bungapedia-mark.png'} alt="Logo Bungapedia" />
-      <span class="logo-word"><span class="wm">Bungapedia</span><small>Hantarkan Apresiasi, Satukan Kebersamaan</small></span>
+      <img class="logo-lockup" src={base + 'assets/brand/bungapedia-lockup.png'} alt="Bungapedia — Small Gifts, Meaningful Bonds" />
     </a>
     <nav class="main-nav" aria-label="Navigasi utama" data-od-id="main-nav">
       <a href="#/produk" class:on={page === 'produk'}>Produk</a>
@@ -197,6 +197,8 @@
       <p class="lede">Jangan khawatir — semua navigasi P0 customer sudah terdaftar. Kembali ke jalur demo.</p>
       <p><a class="btn btn-primary" href="#/">Ke beranda →</a> <a class="btn" href="#/produk">Katalog</a></p>
     </div>
+  {:else if $sessionCustomer}
+    <MarketHome />
   {:else}
     <!-- HOMEPAGE marketplace — IA prompt §24 -->
     <section class="hero" data-od-id="hero">
@@ -320,7 +322,7 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="logo-word foot-brand" style="color:#fff"><img class="logo-img sm" src={base + 'assets/brand/bungapedia-mark.png'} alt="" /> <span class="wm">Bungapedia</span></span>
+        <img class="logo-lockup foot" src={base + 'assets/brand/bungapedia-lockup.png'} alt="Bungapedia — Small Gifts, Meaningful Bonds" />
         <p>Hantarkan Apresiasi, Satukan Kebersamaan. Marketplace yang mempertemukan customer dengan partner terpercaya — dari pencarian hingga settlement.</p>
       </div>
       <div><h4>Customer</h4><a href="#/produk">Katalog</a><a href="#/partner">Partner</a><a href="#/pesanan">Lacak pesanan</a><a href="#/akun">Akun saya</a><a href="#/wishlist">Wishlist</a></div>
