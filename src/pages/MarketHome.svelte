@@ -16,16 +16,9 @@
   })();
   $: activeOrders = myOrders.filter((o) => !['completed', 'cancelled'].includes(o.status)).slice(0, 3);
   $: deals = $catalog.filter((p) => p.was && p.available).slice(0, 4);
-  $: tab = 'Semua';
+  let tab = 'Semua';
   $: grid = (tab === 'Semua' ? $catalog : $catalog.filter((p) => p.category === tab)).filter((p) => p.available);
 
-  let q = '';
-  function goSearch() {
-    try {
-      sessionStorage.setItem('bp-q', q.trim());
-    } catch { /* abaikan */ }
-    location.hash = '#/produk';
-  }
   function goCat(c: string) {
     try {
       sessionStorage.setItem('bp-cat', c);
@@ -50,17 +43,6 @@
 </script>
 
 <div class="mhome" data-od-id="home-member">
-  <div class="greet">
-    <div>
-      <p class="eyebrow">Halo, {me?.name ?? 'Kak'} — mau kirim apresiasi untuk momen apa?</p>
-      <div class="hsearch">
-        <input type="search" placeholder="Cari buket wisuda, papan opening…" bind:value={q} on:keydown={(e) => { if (e.key === 'Enter') goSearch(); }} aria-label="Cari produk" />
-        <button class="btn btn-primary" on:click={goSearch}>Cari</button>
-      </div>
-    </div>
-    <a class="mini-orders" href="#/pesanan">{myOrders.filter((o) => !['completed', 'cancelled'].includes(o.status)).length} aktif →</a>
-  </div>
-
   <a class="promo" href="#/produk" data-od-id="home-promo">
     <div><b>Same-day untuk momen hari ini</b><span>Pesan sebelum 15:00 — foto QC dari partner sebelum dikirim</span></div>
     <span class="promo-cta">Lihat penawaran →</span>

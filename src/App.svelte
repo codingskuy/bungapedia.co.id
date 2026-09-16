@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import './app.css';
   import { FAQS, OCCASIONS, PARTNERS, PRODUCTS, REVIEWS, COMPANY_LEGAL, partnerById, rp } from './market-data';
-  import { cartCount, cartTotal, appError, clearError, showToast, toast, wishlist } from './market-store';
+  import { cartCount, cartTotal, appError, catalogQuery, clearError, showToast, toast, wishlist } from './market-store';
   import { logout, sessionCustomer } from './auth';
   import MarketProducts from './pages/MarketProducts.svelte';
   import MarketProductDetail from './pages/MarketProductDetail.svelte';
@@ -27,6 +27,19 @@
   let mobileNav = false;
   let cartOpen = false;
   let homeQuery = '';
+  const CITIES = ['Jakarta Selatan', 'Jakarta Barat', 'Jakarta Timur', 'Jakarta Pusat', 'Bandung', 'Semarang', 'Surabaya', 'Denpasar'];
+  let city = 'Jakarta Selatan';
+  let hq = '';
+  try {
+    city = localStorage.getItem('bp-city') ?? city;
+  } catch { /* abaikan */ }
+  $: try {
+    localStorage.setItem('bp-city', city);
+  } catch { /* abaikan */ }
+  function goHeaderSearch() {
+    catalogQuery.set(hq.trim());
+    if (page !== 'produk') location.hash = '#/produk';
+  }
   let loginReturn = '#/akun';
   let logged = false;
   sessionCustomer.subscribe((v) => (logged = !!v));
@@ -82,22 +95,34 @@
     <a class="logo" href="#/" aria-label="Bungapedia beranda" data-od-id="logo">
       <img class="logo-lockup" src={base + 'assets/brand/bungapedia-lockup.png'} alt="Bungapedia — Small Gifts, Meaningful Bonds" />
     </a>
-    <nav class="main-nav" aria-label="Navigasi utama" data-od-id="main-nav">
-      <a href="#/produk" class:on={page === 'produk'}>Produk</a>
-      <a href="#/partner" class:on={page === 'partner'}>Partner</a>
-      <a href="#/pesanan" class:on={page === 'pesanan' || page === 'lacak' || page === 'bayar'}>Pesanan</a>
-      <a href="#/tentang" class:on={page === 'tentang'}>Tentang</a>
-      <a href="#/checkout" class:on={page === 'checkout'}>Checkout</a>
-    </nav>
+    <div class="header-mid" data-od-id="header-search">
+      <p class="hi">{#if $sessionCustomer}Halo, {$sessionCustomer.name} — {/if}mau kirim apresiasi untuk momen apa?</p>
+      <div class="hsearch-row">
+        <label class="loc-row">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+          <select bind:value={city} aria-label="Kota kirim">
+            {#each CITIES as c}<option>{c}</option>{/each}
+          </select>
+        </label>
+        <input type="search" placeholder="Cari buket wisuda, papan opening…" bind:value={hq} on:keydown={(e) => { if (e.key === 'Enter') goHeaderSearch(); }} aria-label="Cari produk" />
+        <button class="btn btn-primary" on:click={goHeaderSearch}>Cari</button>
+      </div>
+    </div>
     <div class="header-actions">
-      <a class="btn" href="#/pesanan" data-od-id="cta-orders">Lacak</a>
       {#if $sessionCustomer}
-        <a class="btn" href="#/akun" data-od-id="cta-account">Halo, {$sessionCustomer.name}</a>
+        <a class="hmenu" href="#/akun" data-od-id="cta-account" aria-label="Akun {$sessionCustomer.name}">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+          <span>{$sessionCustomer.name.split(' ')[0]}</span>
+        </a>
       {:else}
-        <a class="btn" href="#/masuk" data-od-id="cta-signin">Masuk</a>
+        <a class="hmenu" href="#/masuk" data-od-id="cta-signin" aria-label="Masuk atau daftar">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+          <span>Masuk</span>
+        </a>
       {/if}
-      <a class="btn cart-btn" href="#/checkout" aria-label="Keranjang, {$cartCount} item" data-od-id="cta-cart">
-        🛒 {$cartCount > 0 ? rp($cartTotal) : 'Keranjang'}
+      <a class="hmenu" href="#/checkout" aria-label="Keranjang, {$cartCount} item" data-od-id="cta-cart">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" /></svg>
+        <span>Keranjang</span>
         {#if $cartCount > 0}<span class="cart-count">{$cartCount}</span>{/if}
       </a>
       <button class="btn hamburger" on:click={() => (mobileNav = !mobileNav)} aria-label="Menu">☰</button>
@@ -337,6 +362,29 @@
 
 <style>
   .main-nav a.on { border-bottom-color: var(--accent); color: var(--accent-dark); }
+  /* Header ringkas: ikon di atas, label di bawah, tanpa border */
+  .hmenu {
+    position: relative; display: inline-flex; flex-direction: column;
+    align-items: center; gap: 3px; min-width: 56px; padding: 6px 8px;
+    color: var(--ink); text-decoration: none;
+    font-size: 11.5px; font-weight: 600; line-height: 1.2;
+  }
+  .hmenu:hover { color: var(--accent-dark); }
+  .hmenu:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+  .hmenu .cart-count { top: 0; right: 8px; }
+  /* Search + lokasi di tengah header: lokasi kiri, kolom ketik dominan */
+  .header-mid { flex: 1; min-width: 0; max-width: 640px; margin: 0 auto; }
+  .hi { margin: 0 0 7px; font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hsearch-row { display: flex; gap: 8px; align-items: center; }
+  .loc-row { flex: none; display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); border-right: 1px solid var(--border-strong); padding-right: 8px; }
+  .loc-row select { border: 0; background: transparent; font-size: 12.5px; font-weight: 800; color: var(--ink); font-family: var(--font-ui); padding: 2px 0; max-width: 130px; }
+  .hsearch-row input { flex: 1 1 auto; min-width: 0; border: 1px solid var(--border-strong); border-radius: 999px; padding: 10px 16px; font-size: 13.5px; font-family: var(--font-ui); color: var(--ink); }
+  .hsearch-row .btn { flex: none; padding: 10px 20px; font-size: 13.5px; }
+  @media (max-width: 960px) {
+    .header-inner { flex-wrap: wrap; }
+    .header-mid { order: 3; flex-basis: 100%; max-width: none; }
+    .hi { display: none; }
+  }
   .foot-brand { display: flex; align-items: center; gap: 8px; }
   .errbar { max-width: 1180px; margin: 14px auto 0; background: #fdeee9; border: 1px solid #f3c4b5; color: #7c2d12; border-radius: 12px; padding: 14px 18px; display: flex; gap: 14px; align-items: center; justify-content: space-between; font-family: var(--font-ui); font-size: 14px; }
   .soon { padding: 48px 24px 64px; max-width: 820px; margin: 0 auto; font-family: var(--font-ui); }

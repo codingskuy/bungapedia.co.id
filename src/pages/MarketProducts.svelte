@@ -3,9 +3,8 @@
   import { onMount } from 'svelte';
   import { CATEGORIES, OCCASIONS, RECIPIENTS, PARTNERS, partnerById, rp } from '../market-data';
   import { catalog, partnerFlags } from '../ops-store';
-  import { addMarketToCart, wishlist, toggleWishlist } from '../market-store';
+  import { addMarketToCart, catalogQuery, wishlist, toggleWishlist } from '../market-store';
 
-  let q = '';
   let cat = 'Semua';
   let occasion = 'Semua';
   let recipient = 'Semua';
@@ -21,7 +20,7 @@
       if (c && (CATEGORIES as string[]).includes(c)) cat = c;
       sessionStorage.removeItem('bp-cat');
       const kw = sessionStorage.getItem('bp-q');
-      if (kw) q = kw;
+      if (kw) catalogQuery.set(kw);
       sessionStorage.removeItem('bp-q');
     } catch { /* abaikan */ }
   });
@@ -36,7 +35,7 @@
     if (partner !== 'Semua' && pt.name !== partner) return false;
     if (onlyVerified && !pt.verified) return false;
     if (p.price > maxPrice) return false;
-    if (q.trim() && !(p.name + ' ' + p.category + ' ' + pt.name).toLowerCase().includes(q.trim().toLowerCase())) return false;
+    if ($catalogQuery.trim() && !(p.name + ' ' + p.category + ' ' + pt.name).toLowerCase().includes($catalogQuery.trim().toLowerCase())) return false;
     return true;
   }).sort((a, b) => {
     if (sort === 'termurah') return a.price - b.price;
@@ -46,7 +45,7 @@
   });
 
   function reset() {
-    q = ''; cat = 'Semua'; occasion = 'Semua'; recipient = 'Semua'; partner = 'Semua';
+    catalogQuery.set(''); cat = 'Semua'; occasion = 'Semua'; recipient = 'Semua'; partner = 'Semua';
     sort = 'populer'; onlyVerified = false; maxPrice = 650000;
   }
 </script>
@@ -58,7 +57,7 @@
 
   <div class="filter-card" data-od-id="produk-filter">
     <div class="frow">
-      <input class="fq" type="search" placeholder="Cari “buket wisuda”, “papan opening”… " bind:value={q} aria-label="Cari produk" />
+      <input class="fq" type="search" placeholder="Cari “buket wisuda”, “papan opening”… " bind:value={$catalogQuery} aria-label="Cari produk" />
       <select bind:value={sort} aria-label="Urutkan">
         <option value="populer">Paling populer</option>
         <option value="rating">Rating tertinggi</option>

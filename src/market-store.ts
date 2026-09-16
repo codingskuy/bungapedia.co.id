@@ -28,6 +28,9 @@ function restore<T>(key: string, fallback: T): T {
 
 // ---------- toast ----------
 export const toast = writable('');
+
+// ---------- query katalog global (search header + filter katalog tersinkron) ----------
+export const catalogQuery = writable('');
 let toastTimer: ReturnType<typeof setTimeout>;
 export function showToast(msg: string) {
   toast.set(msg);
