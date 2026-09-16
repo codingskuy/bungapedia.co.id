@@ -19,7 +19,7 @@
         {@const pt = partnerById(p.partnerId)}
         <article class="card">
           <a href="#/produk/{p.id}"><img src={p.img} alt={p.name} loading="lazy" /></a>
-          <div class="tx"><a class="nm" href="#/produk/{p.id}">{p.name}</a>
+          <div class="tx"><a class="nm ptitle-2" href="#/produk/{p.id}">{p.name}</a>
             <div class="meta">{pt.name} · ★ {p.rating}</div>
             <b>{rp(p.price)}</b>
             <div class="row">
@@ -38,11 +38,11 @@
   h1 { font-family: var(--font-display); color: var(--ink); margin: 6px 0 16px; font-size: clamp(26px,3.4vw,36px); }
   .empty { background: #fff; border: 1px dashed var(--border-strong); border-radius: 16px; padding: 36px; text-align: center; } .empty p { color: var(--muted); }
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .card { background: #fff; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .card { background: #fff; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
   .card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-  .tx { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 5px; }
+  .tx { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 5px; flex: 1; }
   .nm { font-weight: 800; color: var(--ink); text-decoration: none; font-size: 14.5px; }
-  .meta { font-size: 12.5px; color: var(--muted); } .row { display: flex; gap: 8px; margin-top: 6px; } .row .btn { flex: 1; justify-content: center; }
+  .meta { font-size: 12.5px; color: var(--muted); } .row { display: flex; gap: 8px; margin-top: auto; padding-top: 6px; } .row .btn { flex: 1; justify-content: center; }
   @media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
 </style>

@@ -96,7 +96,7 @@
         <article class="gcard" data-od-id="home-{p.id}">
           <a href="#/produk/{p.id}"><img src={p.img} alt={p.name} loading="lazy" /></a>
           <div class="tx">
-            <a class="nm" href="#/produk/{p.id}">{p.name}</a>
+            <a class="nm ptitle-2" href="#/produk/{p.id}">{p.name}</a>
             <b>{rp(p.price)}</b>
             <small>★ {p.rating} · {p.reviews} ulasan</small>
             <small class="pt">{pt2.name}{#if pt2.verified} ✓{/if} · {pt2.city}</small>
@@ -128,7 +128,7 @@
   .orow img { width: 48px; height: 48px; border-radius: 8px; object-fit: cover; } .orow small { color: var(--muted); display: block; font-size: 12px; }
   .deal-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
   .dcard { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-  .dcard a { position: relative; display: block; aspect-ratio: 1; background: #efe9dc; }
+  .dcard > a { position: relative; display: block; aspect-ratio: 1; background: #efe9dc; }
   .dcard img { width: 100%; height: 100%; object-fit: cover; }
   .off { position: absolute; top: 8px; left: 8px; background: var(--danger); color: #fff; font-size: 11px; font-weight: 800; border-radius: 6px; padding: 3px 7px; }
   .dcard .tx { padding: 10px 12px 12px; } .dcard .tx a { color: var(--ink); font-size: 13px; font-weight: 700; text-decoration: none; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -140,11 +140,11 @@
   .pills.sub button { border: 1px solid var(--border-strong); background: #fff; border-radius: 999px; padding: 8px 16px; font-size: 13px; color: var(--ink); }
   .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
   .gcard { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
-  .gcard a { display: block; aspect-ratio: 1; background: #efe9dc; } .gcard img { width: 100%; height: 100%; object-fit: cover; }
+  .gcard > a { display: block; aspect-ratio: 1; background: #efe9dc; } .gcard img { width: 100%; height: 100%; object-fit: cover; }
   .gcard .tx { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 3px; flex: 1; }
   .nm { font-size: 13px; font-weight: 600; color: var(--ink); text-decoration: none; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .gcard b { font-size: 14.5px; } .gcard small { color: var(--muted); font-size: 11.5px; } .pt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .row { display: flex; gap: 6px; margin-top: 6px; } .row .btn { flex: 1; justify-content: center; padding: 8px 6px; font-size: 12.5px; }
+  .row { display: flex; gap: 6px; margin-top: auto; padding-top: 6px; } .row .btn { flex: 1; justify-content: center; padding: 8px 6px; font-size: 12.5px; }
   .row .btn.on { border-color: var(--danger); color: var(--danger); }
   @media (max-width: 1100px) { .grid { grid-template-columns: repeat(4, 1fr); } }
   @media (max-width: 800px) { .grid, .deal-strip { grid-template-columns: 1fr 1fr; } .orow-wrap { grid-template-columns: 1fr; } .greet { flex-direction: column; align-items: stretch; } }

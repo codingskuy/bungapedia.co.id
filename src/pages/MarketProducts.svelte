@@ -94,7 +94,7 @@
             {#if p.was}<span class="flag-sale">−{Math.round((1 - p.price / p.was) * 100)}%</span>{/if}
           </a>
           <div class="tx">
-            <a class="nm" href="#/produk/{p.id}">{p.name}</a>
+            <a class="nm ptitle-2" href="#/produk/{p.id}">{p.name}</a>
             <div class="price">{#if p.was}<span class="was">{rp(p.was)}</span>{/if}<b>{rp(p.price)}</b></div>
             <a class="pt-line" href="#/partner/{pt.id}">
               {#if pt.verified}<span class="vbadge">✓ Verified</span>{/if}
@@ -133,11 +133,12 @@
   .nm { font-weight: 800; color: var(--ink); text-decoration: none; font-size: 15px; }
   .nm:hover { text-decoration: underline; }
   .price { display: flex; gap: 8px; align-items: baseline; } .was { text-decoration: line-through; color: var(--muted); font-size: 13px; } .price b { font-size: 17px; }
-  .pt-line { display: flex; gap: 6px; align-items: center; font-size: 12.5px; color: var(--muted); text-decoration: none; flex-wrap: wrap; }
+  .pt-line { display: flex; gap: 6px; align-items: center; font-size: 12.5px; color: var(--muted); text-decoration: none; white-space: nowrap; overflow: hidden; }
+  .pt-line .pt-name { overflow: hidden; text-overflow: ellipsis; }
   .vbadge { background: var(--accent-soft); color: var(--accent-dark); font-weight: 800; font-size: 11px; padding: 2px 8px; border-radius: 999px; }
   .pt-name { font-weight: 700; color: var(--ink); } .dot { opacity: .5; }
   .meta { font-size: 12.5px; color: var(--muted); }
-  .row { display: flex; gap: 8px; margin-top: 8px; } .btn-sm { flex: 1; justify-content: center; } .btn-sm.on { border-color: var(--danger); color: var(--danger); }
+  .row { display: flex; gap: 8px; margin-top: auto; padding-top: 8px; } .btn-sm { flex: 1; justify-content: center; } .btn-sm.on { border-color: var(--danger); color: var(--danger); }
   .empty { text-align: center; background: #fff; border: 1px dashed var(--border-strong); border-radius: 16px; padding: 40px 24px; }
   .empty p { color: var(--muted); }
   @media (max-width: 960px) { .mkt-grid { grid-template-columns: 1fr 1fr; } }

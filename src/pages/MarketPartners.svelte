@@ -45,7 +45,7 @@
         <h3 class="sec">Katalog {partner.name} ({prods.length})</h3>
         <div class="mgrid">
           {#each prods as p}
-            <a class="mcard" href="#/produk/{p.id}"><img src={p.img} alt={p.name} /><b>{p.name}</b><span>{rp(p.price)} · ★ {p.rating}</span></a>
+            <a class="mcard" href="#/produk/{p.id}"><img src={p.img} alt={p.name} /><b class="ptitle-2">{p.name}</b><span>{rp(p.price)} · ★ {p.rating}</span></a>
           {/each}
         </div>
       </div>
