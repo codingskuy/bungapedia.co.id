@@ -9,5 +9,5 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.svelte"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.svelte", "src/vite-env.d.ts"]
 }

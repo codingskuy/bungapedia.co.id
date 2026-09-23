@@ -1,16 +1,14 @@
 <!-- Katalog marketplace — discovery by momen + penerima (diferensiasi PRD §12/23). -->
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { CATEGORIES, OCCASIONS, RECIPIENTS, PARTNERS, partnerById, rp } from '../market-data';
+  import { CATEGORIES, OCCASIONS, RECIPIENTS, deliveryTone, rp } from '../market-data';
   import { catalog, partnerFlags } from '../ops-store';
   import { addMarketToCart, catalogQuery, wishlist, toggleWishlist } from '../market-store';
 
   let cat = 'Semua';
   let occasion = 'Semua';
   let recipient = 'Semua';
-  let partner = 'Semua';
   let sort: 'populer' | 'termurah' | 'termahal' | 'rating' = 'populer';
-  let onlyVerified = false;
   let maxPrice = 650000;
 
   // Prefilter dari homepage (pil momen / kategori / pencarian) via sessionStorage
@@ -29,16 +27,13 @@
   });
 
   $: filtered = $catalog.filter((p) => {
-    const pt = partnerById(p.partnerId);
     if ($partnerFlags[p.partnerId]?.suspended) return false;
     if (!p.available) return false;
     if (cat !== 'Semua' && p.category !== cat) return false;
     if (occasion !== 'Semua' && !p.occasions.includes(occasion)) return false;
     if (recipient !== 'Semua' && !p.recipients.includes(recipient)) return false;
-    if (partner !== 'Semua' && pt.name !== partner) return false;
-    if (onlyVerified && !pt.verified) return false;
     if (p.price > maxPrice) return false;
-    if ($catalogQuery.trim() && !(p.name + ' ' + p.category + ' ' + pt.name).toLowerCase().includes($catalogQuery.trim().toLowerCase())) return false;
+    if ($catalogQuery.trim() && !(p.name + ' ' + p.category).toLowerCase().includes($catalogQuery.trim().toLowerCase())) return false;
     return true;
   }).sort((a, b) => {
     if (sort === 'termurah') return a.price - b.price;
@@ -48,15 +43,15 @@
   });
 
   function reset() {
-    catalogQuery.set(''); cat = 'Semua'; occasion = 'Semua'; recipient = 'Semua'; partner = 'Semua';
-    sort = 'populer'; onlyVerified = false; maxPrice = 650000;
+    catalogQuery.set(''); cat = 'Semua'; occasion = 'Semua'; recipient = 'Semua';
+    sort = 'populer'; maxPrice = 650000;
   }
 </script>
 
 <div class="container mkt-page" data-od-id="produk-page">
-  <p class="eyebrow">Katalog · {filtered.length} produk dari {PARTNERS.length} partner</p>
+  <p class="eyebrow">Katalog · {filtered.length} rangkaian kurasi</p>
   <h1>Cari berdasar momen, bukan sekadar kategori.</h1>
-  <p class="lede">Setiap kartu menunjukkan siapa partner-nya — karena kamu membeli dari platform, tapi diyakinkan oleh partner.</p>
+  <p class="lede">Semua rangkaian dikurasi Bungapedia — pilih momen, bandingkan pilihan, dan pesan dalam menit.</p>
 
   <div class="filter-card" data-od-id="produk-filter">
     <div class="frow">
@@ -72,10 +67,8 @@
       <select bind:value={cat} aria-label="Kategori"><option>Semua</option>{#each CATEGORIES as c}<option>{c}</option>{/each}</select>
       <select bind:value={occasion} aria-label="Momen"><option>Semua</option>{#each OCCASIONS as o}<option>{o}</option>{/each}</select>
       <select bind:value={recipient} aria-label="Penerima"><option>Semua</option>{#each RECIPIENTS as r}<option>{r}</option>{/each}</select>
-      <select bind:value={partner} aria-label="Partner"><option>Semua</option>{#each PARTNERS as p}<option>{p.name}</option>{/each}</select>
     </div>
     <div class="frow wrap small">
-      <label class="check"><input type="checkbox" bind:checked={onlyVerified} /> Verified saja</label>
       <label class="range">Maks {rp(maxPrice)} <input type="range" min={130000} max={650000} step={10000} bind:value={maxPrice} /></label>
       <button class="link-more" on:click={reset}>Reset filter</button>
     </div>
@@ -90,7 +83,6 @@
   {:else}
     <div class="mkt-grid">
       {#each filtered as p}
-        {@const pt = partnerById(p.partnerId)}
         <article class="mkt-card" data-od-id="mkt-{p.id}">
           <a class="ph" href="#/produk/{p.id}"><img src={p.img} alt={p.name} loading="lazy" />
             {#if p.popular}<span class="flag-pop">Populer</span>{/if}
@@ -99,11 +91,8 @@
           <div class="tx">
             <a class="nm ptitle-2" href="#/produk/{p.id}">{p.name}</a>
             <div class="price">{#if p.was}<span class="was">{rp(p.was)}</span>{/if}<b>{rp(p.price)}</b></div>
-            <a class="pt-line" href="#/partner/{pt.id}">
-              {#if pt.verified}<span class="vbadge">✓ Verified</span>{/if}
-              <span class="pt-name">{pt.name}</span><span class="dot">·</span><span>★ {pt.rating} ({pt.reviews})</span>
-            </a>
-            <div class="meta">{p.deliveryEstimate} · {p.deliveryArea[0]}</div>
+            <div class="pt-line"><span class="pt-name">Bungapedia</span><span class="dot">·</span><span>★ {p.rating} ({p.reviews})</span></div>
+            <div class="meta"><span class="badge-delivery {deliveryTone(p.deliveryEstimate)}"><span class="dot"></span>{p.deliveryEstimate}</span> · {p.deliveryArea[0]}</div>
             <div class="row">
               <button class="btn btn-primary btn-sm" on:click={() => addMarketToCart(p)}>+ Keranjang</button>
               <button class="btn btn-sm" class:on={$wishlist.includes(p.id)} on:click={() => toggleWishlist(p.id)} aria-label="Wishlist">{$wishlist.includes(p.id) ? '♥' : '♡'}</button>

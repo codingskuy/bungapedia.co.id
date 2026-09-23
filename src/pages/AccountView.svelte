@@ -23,7 +23,7 @@
   <div class="ahead">
     <div class="avatar">{me.name.slice(0, 1).toUpperCase()}</div>
     <div><h1>Halo, {me.name}</h1><p class="lede">{me.email}</p></div>
-    <button class="btn btn-sm" on:click={out}>Keluar</button>
+    <button class="btn btn-sm btn-danger" on:click={out}>Keluar</button>
   </div>
   <div class="kpis">
     <div class="kpi"><span>Pesanan</span><b>{mine.length}</b><small>termasuk dummy seed</small></div>
@@ -60,6 +60,9 @@
   .ahead { display: flex; gap: 14px; align-items: center; margin-bottom: 18px; }
   .avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 24px; font-weight: 800; display: grid; place-items: center; flex: none; }
   .ahead .btn { margin-left: auto; }
+  .btn-danger { background: var(--danger); border-color: var(--danger); color: #fff; }
+  .btn-danger:hover { background: #b93d26; border-color: #b93d26; color: #fff; }
+  .btn-danger:focus-visible { outline: 3px solid var(--danger); outline-offset: 2px; }
   .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
   .kpi { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
   .kpi span { font-size: 12px; color: var(--muted); } .kpi b { display: block; font-size: 20px; color: var(--ink); margin: 4px 0 2px; } .kpi small { font-size: 12px; color: var(--muted); }

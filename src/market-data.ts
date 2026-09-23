@@ -17,6 +17,26 @@ export function rp(n: number): string {
   return 'Rp' + Math.round(n).toLocaleString('id-ID');
 }
 
+export type DeliveryTone = 'instant' | 'sameday' | 'nextday' | 'overnight';
+export function deliveryTone(est: string): DeliveryTone {
+  const s = (est ?? '').toLowerCase();
+  if (s.includes('instant')) return 'instant';
+  if (s.includes('overnight')) return 'overnight';
+  if (s.includes('h+1') || s.includes('besok')) return 'nextday';
+  if (s.includes('same-day')) return 'sameday';
+  // fallback produksi cepat → instant
+  if (s.includes('1–2 jam') || s.includes('1–3 jam')) return 'instant';
+  if (s.includes('2–3 jam') || s.includes('2–4 jam')) return 'sameday';
+  return 'sameday';
+}
+export function deliveryShortLabel(est: string): string {
+  const t = deliveryTone(est);
+  if (t === 'instant') return 'Instant';
+  if (t === 'sameday') return 'Same-day';
+  if (t === 'nextday') return 'H+1';
+  return 'Overnight';
+}
+
 /** Normalisasi path gambar lawas (/assets/...) ke BASE_URL.
  *  localStorage pengunjung lama masih menyimpan path absolut pra-fix —
  *  tanpa ini gambar produk tampil rusak di subpath Pages. Self-healing:
@@ -424,6 +444,78 @@ export const PRODUCTS: MarketProduct[] = [
     available: true,
     reviewSnippets: [{ name: 'Clara', text: 'Buat pre-wedding, mekarnya cantik di foto.', rating: 5 }],
   },
+  {
+    id: 'prd-instant-mawar',
+    name: 'Buket Mawar Merah Instant — 1 Jam Sampai',
+    slug: 'buket-mawar-instant',
+    partnerId: 'pt-hampers-kita',
+    price: 425000,
+    was: 480000,
+    category: 'Buket',
+    occasions: ['Ulang Tahun', 'Anniversary', 'Congratulations'],
+    recipients: ['Pasangan', 'Orang Tua'],
+    rating: 4.9,
+    reviews: 203,
+    img: G('831fd0b98e08fe217a7e37f4f54c445d-249-e6dc7924b5.webp'),
+    gallery: [G('831fd0b98e08fe217a7e37f4f54c445d-249-e6dc7924b5.webp'), G('7765fbdaac48650bf283a3ff81a126dc-450-a0ccac80a9.webp')],
+    description: 'Buket mawar merah 20 tangkai + kartu ucapan tulis tangan. Kurir standby Jabodetabek — pesan sekarang, 60–90 menit sampai. Foto QC dikirim sebelum jalan.',
+    materials: 'Mawar merah premium, baby breath, wrapping kraft',
+    size: '20 tangkai · Ø 32 cm',
+    productionTime: '15–30 menit',
+    deliveryArea: ['Jabodetabek'],
+    deliveryEstimate: 'Instant 1–2 jam',
+    available: true,
+    popular: true,
+    reviewSnippets: [
+      { name: 'Andra', text: 'Pesan jam 14, jam 15 sudah sampai kantor istri. Kilat!', rating: 5 },
+      { name: 'Maya', text: 'Kurir chat dulu, bunganya masih segar pas sampai.', rating: 5 },
+    ],
+  },
+  {
+    id: 'prd-instant-lily',
+    name: 'Buket Lily Putih Instant — Hadiah Mendadak',
+    slug: 'buket-lily-instant',
+    partnerId: 'pt-flower-house',
+    price: 385000,
+    category: 'Buket',
+    occasions: ['Ulang Tahun', 'Duka Cita', 'Congratulations'],
+    recipients: ['Teman', 'Keluarga'],
+    rating: 4.8,
+    reviews: 96,
+    img: G('b7696452f26e685c3a5a8d2ecdfcfb2e-800-161358b056.webp'),
+    gallery: [G('b7696452f26e685c3a5a8d2ecdfcfb2e-800-161358b056.webp')],
+    description: 'Lily putih 7 tangkai + eucalyptus. Untuk momen mendadak — chat kurir langsung, estimasi 90 menit. Cocok untuk ucapan duka atau kejutan.',
+    materials: 'Lily putih, eucalyptus, wrapping putih',
+    size: '7 tangkai',
+    productionTime: '20 menit',
+    deliveryArea: ['Bandung', 'Jabodetabek'],
+    deliveryEstimate: 'Instant 2 jam',
+    available: true,
+    reviewSnippets: [{ name: 'Dewi', text: 'Butuh cepat untuk melayat, bunganya rapi dan wangi.', rating: 5 }],
+  },
+  {
+    id: 'prd-instant-papan',
+    name: 'Bunga Papan Instant — Opening Hari Ini',
+    slug: 'bunga-papan-instant',
+    partnerId: 'pt-bunga-sejahtera',
+    price: 695000,
+    category: 'Bunga Papan',
+    occasions: ['Congratulations', 'Corporate'],
+    recipients: ['Klien', 'Rekan Kerja'],
+    rating: 4.9,
+    reviews: 58,
+    img: G('33366d30ffbd0b9304731257f074f57d-480-146fdb3e85.webp'),
+    gallery: [G('33366d30ffbd0b9304731257f074f57d-480-146fdb3e85.webp')],
+    description: 'Bunga papan 2×1,2 m ready stock — teks pita custom 15 menit jadi. Armada sendiri Jabodetabek, untuk opening dadakan hari ini.',
+    materials: 'Mawar, krisan, styrofoam premium',
+    size: '200 × 120 cm',
+    productionTime: '30–45 menit',
+    deliveryArea: ['Jabodetabek'],
+    deliveryEstimate: 'Instant 2–3 jam',
+    available: true,
+    popular: true,
+    reviewSnippets: [{ name: 'Pak Hendra', text: 'Pagi pesan, siang sudah nangkring di lobi ruko. Top!', rating: 5 }],
+  },
 ];
 
 export const productById = (id: string): MarketProduct | undefined => PRODUCTS.find((p) => p.id === id);
@@ -630,14 +722,14 @@ export const STATUS_LABEL: Record<string, string> = {
 };
 
 export const REVIEWS = [
-  { name: 'Rina · Jakarta', text: 'Akhirnya nggak perlu chat 5 toko satu-satu. Bandingin partner, bayar sekali, tinggal pantau.', product: 'Buket Peony' },
+  { name: 'Rina · Jakarta', text: 'Pilihnya gampang, bayar sekali, tinggal pantau sampai tiba. Praktis banget!', product: 'Buket Peony' },
   { name: 'Budi · Bandung', text: 'Status dananya jelas — tahu uang saya di tahap mana. Itu yang bikin berani pesan papan 2 unit.', product: 'Bunga Papan' },
-  { name: 'Sinta · Surabaya', text: 'Buket wisuda sampai sebelum acara. Ada foto QC dari partner-nya dulu.', product: 'Buket Tulip' },
+  { name: 'Sinta · Surabaya', text: 'Buket wisuda sampai sebelum acara. Ada foto QC sebelum dikirim, jadi tenang.', product: 'Buket Tulip' },
 ];
 
 export const FAQS = [
-  { q: 'Siapa yang membuat pesanan saya?', a: 'Partner terverifikasi yang kamu pilih di halaman produk. Profil, rating, dan estimasi produksinya selalu terlihat sebelum checkout.' },
-  { q: 'Uang saya ke mana setelah bayar?', a: 'Dana tercatat di platform dengan status Pending. Settlement ke partner baru tersedia setelah kamu konfirmasi pesanan selesai.' },
-  { q: 'Bagaimana kalau produk bermasalah?', a: 'Ajukan komplain dari halaman tracking. Admin memediasi: refund, partial refund, atau release settlement ke partner.' },
-  { q: 'Apakah Bungapedia toko bunga?', a: 'Bukan. Bungapedia marketplace yang mempertemukan kamu dengan banyak penyedia jasa dalam satu transaksi terlindungi.' },
+  { q: 'Siapa yang membuat pesanan saya?', a: 'Semua rangkaian dikurasi dan disiapkan oleh tim Bungapedia dengan standar foto QC sebelum dikirim.' },
+  { q: 'Uang saya ke mana setelah bayar?', a: 'Dana tercatat dengan status Pending sampai kamu konfirmasi pesanan selesai. Kamu bisa pantau statusnya di halaman tracking.' },
+  { q: 'Bagaimana kalau produk bermasalah?', a: 'Ajukan komplain dari halaman tracking. Tim Bungapedia akan membantu: refund, partial refund, atau pengiriman ulang.' },
+  { q: 'Apakah Bungapedia toko bunga?', a: 'Ya — Bungapedia adalah toko rangkaian bunga & hadiah kurasi. Kamu pesan langsung dari Bungapedia, bukan dari pihak ketiga.' },
 ];

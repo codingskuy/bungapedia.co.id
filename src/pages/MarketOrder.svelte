@@ -1,6 +1,6 @@
 <!-- Pembayaran simulasi + tracking timeline + daftar pesanan -->
 <script lang="ts">
-  import { STATUS_LABEL, partnerById, rp } from '../market-data';
+  import { STATUS_LABEL, rp } from '../market-data';
   import { confirmReceived, fileDispute, orderById, orders, payState, showToast, simulatePayment } from '../market-store';
   import { sessionCustomer } from '../auth';
   import { ensureOrderThread } from '../chat-store';
@@ -15,7 +15,6 @@
   $: os = [] as Order[];
   $: orders.subscribe((v) => (os = v))();
   $: live = order ?? orderById(orderId);
-  $: pt = live ? partnerById(live.partnerId) : null;
 
   async function pay() { if (live) { const ok = await simulatePayment(live.id, failNext); if (ok) location.hash = `#/lacak/${live.id}`; } }
   function confirm() { if (live && confirm('Pesanan sudah diterima dengan baik?')) confirmReceived(live.id); }
@@ -86,8 +85,8 @@
     </div>
   {:else}
     <div class="container trk" data-od-id="lacak-{live.id}">
-      <p class="eyebrow">{live.id} · {pt?.name}</p><h1>{STATUS_LABEL[live.status]}</h1>
-      <p class="lede">“Uang saya di tahap mana?” — dana <b>{live.settlement === 'available' ? 'tersedia untuk settlement partner' : 'Pending di platform'}</b>. Bukan klaim escrow legal.</p>
+      <p class="eyebrow">{live.id} · Bungapedia</p><h1>{STATUS_LABEL[live.status]}</h1>
+      <p class="lede">“Uang saya di tahap mana?” — dana <b>{live.settlement === 'available' ? 'tersedia — pesanan selesai' : 'Pending di Bungapedia'}</b>. Bukan klaim escrow legal.</p>
       <div class="tgrid">
         <div class="card">
           <h3>Timeline pesanan</h3>
@@ -117,11 +116,11 @@
           <h3>Detail</h3>
           <p><b>{live.items[0].name}</b><br /><small>{live.recipient.name} · {live.recipient.address}<br />{live.delivery.date} {live.delivery.time}<br />“{live.message}”</small></p>
           <div class="trow"><span>Dibayar</span><span>{rp(live.total)} ✓</span></div>
-          <div class="trow"><span>Settlement</span><span>{live.settlement.toUpperCase()}</span></div>
+          <div class="trow"><span>Status dana</span><span>{live.settlement === 'pending' ? 'Pending' : live.settlement.toUpperCase()}</span></div>
           <div class="chat-row">
-            <button class="btn btn-sm" style="flex:1;justify-content:center" on:click={() => chatWith('admin')}>🛡 Chat admin — mediasi & bantuan</button>
+            <button class="btn btn-sm" style="flex:1;justify-content:center" on:click={() => chatWith('admin')}>💬 Chat bantuan</button>
           </div>
-          <p><a class="btn" style="width:100%;justify-content:center" href="#/partner/{live.partnerId}">Lihat profil partner →</a></p>
+          <p><a class="btn" style="width:100%;justify-content:center" href="#/pesan">Butuh bantuan? Hubungi kami →</a></p>
         </aside>
       </div>
     </div>

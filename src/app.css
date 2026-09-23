@@ -383,6 +383,25 @@ button { font-family: var(--font-ui); cursor: pointer; }
 }
 .toast.show { opacity: 1; transform: translateX(-50%); }
 
+/* ---------- delivery badge — aksen warna per kecepatan kirim ---------- */
+.badge-delivery {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-ui); font-size: 11.5px; font-weight: 800; letter-spacing: 0.02em;
+  padding: 4px 9px; border-radius: 999px; border: 1px solid;
+  white-space: nowrap; line-height: 1;
+}
+.badge-delivery .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.badge-delivery.instant { background: #fef0ec; color: #7a1f0a; border-color: #f9c2b0; }
+.badge-delivery.instant .dot { background: #d6492f; animation: pulse-instant 1.6s ease-in-out infinite; }
+.badge-delivery.sameday { background: #eef5e6; color: #2e5a1a; border-color: #c5e0b0; }
+.badge-delivery.sameday .dot { background: #4f7f2b; }
+.badge-delivery.nextday { background: #fef3e0; color: #7a4a00; border-color: #f5d6a0; }
+.badge-delivery.nextday .dot { background: #c78a00; }
+.badge-delivery.overnight { background: #eef1f6; color: #2f3e62; border-color: #cbd6ea; }
+.badge-delivery.overnight .dot { background: #4a6fa5; }
+.badge-delivery.muted { background: #f3f4f6; color: var(--muted); border-color: var(--border); }
+@keyframes pulse-instant { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.7; transform: scale(0.85); } }
+
 /* ---------- motion language (satu bahasa: easeOut 140–220ms kontrol, ≤500ms reveal) ---------- */
 :root { --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1); }
 .route { min-height: 40vh; }

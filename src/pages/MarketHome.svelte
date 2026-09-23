@@ -2,7 +2,7 @@
      strip tab, grid produk + pesanan aktif. Tamu tetap melihat homepage editorial. -->
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { CATEGORIES, STATUS_LABEL, partnerById, rp } from '../market-data';
+  import { CATEGORIES, STATUS_LABEL, deliveryTone, rp } from '../market-data';
   import { sessionCustomer } from '../auth';
   import { addMarketToCart, orders, toggleWishlist, wishlist } from '../market-store';
   import { catalog } from '../ops-store';
@@ -44,7 +44,7 @@
 
 <div class="mhome" data-od-id="home-member">
   <a class="promo" href="#/produk" data-od-id="home-promo">
-    <div><b>Same-day untuk momen hari ini</b><span>Pesan sebelum 15:00 — foto QC dari partner sebelum dikirim</span></div>
+    <div><b>Same-day untuk momen hari ini</b><span>Pesan sebelum 15:00 — foto QC sebelum dikirim</span></div>
     <span class="promo-cta">Lihat penawaran →</span>
   </a>
 
@@ -67,12 +67,12 @@
     <div class="shead"><h2>Penawaran berakhir {left}</h2><a class="link-more" href="#/produk">Semua →</a></div>
     <div class="deal-strip">
       {#each deals as p}
-        {@const pt = partnerById(p.partnerId)}
+        {@const tone = deliveryTone(p.deliveryEstimate)}
         <article class="dcard" data-od-id="deal-{p.id}">
           <a href="#/produk/{p.id}"><img src={p.img} alt={p.name} loading="lazy" /><span class="off">−{Math.round((1 - p.price / (p.was ?? p.price)) * 100)}%</span></a>
           <div class="tx"><a href="#/produk/{p.id}">{p.name}</a>
             <div class="pr">{#if p.was}<s>{rp(p.was)}</s>{/if}<b>{rp(p.price)}</b></div>
-            <small>{pt.name} · ★ {p.rating}</small>
+            <div class="meta-row"><span class="badge-delivery {tone}"><span class="dot"></span>{p.deliveryEstimate}</span><small>★ {p.rating}</small></div>
           </div>
         </article>
       {/each}
@@ -92,14 +92,14 @@
     </div>
     <div class="grid">
       {#each grid as p}
-        {@const pt2 = partnerById(p.partnerId)}
+        {@const t = deliveryTone(p.deliveryEstimate)}
         <article class="gcard" data-od-id="home-{p.id}">
           <a href="#/produk/{p.id}"><img src={p.img} alt={p.name} loading="lazy" /></a>
           <div class="tx">
             <a class="nm ptitle-2" href="#/produk/{p.id}">{p.name}</a>
             <b>{rp(p.price)}</b>
             <small>★ {p.rating} · {p.reviews} ulasan</small>
-            <small class="pt">{pt2.name}{#if pt2.verified} ✓{/if} · {pt2.city}</small>
+            <div class="pt"><span class="badge-delivery {t}"><span class="dot"></span>{p.deliveryEstimate}</span></div>
             <div class="row">
               <button class="btn btn-primary btn-sm" on:click={() => addMarketToCart(p)}>+ Keranjang</button>
               <button class="btn btn-sm" class:on={$wishlist.includes(p.id)} on:click={() => toggleWishlist(p.id)} aria-label="Wishlist">{$wishlist.includes(p.id) ? '♥' : '♡'}</button>
@@ -131,9 +131,9 @@
   .dcard > a { position: relative; display: block; aspect-ratio: 1; background: #efe9dc; }
   .dcard img { width: 100%; height: 100%; object-fit: cover; }
   .off { position: absolute; top: 8px; left: 8px; background: var(--danger); color: #fff; font-size: 11px; font-weight: 800; border-radius: 6px; padding: 3px 7px; }
-  .dcard .tx { padding: 10px 12px 12px; } .dcard .tx a { color: var(--ink); font-size: 13px; font-weight: 700; text-decoration: none; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .pr { display: flex; gap: 6px; align-items: baseline; margin-top: 4px; } .pr s { color: var(--muted); font-size: 11.5px; } .pr b { font-size: 14.5px; }
-  .dcard small { color: var(--muted); font-size: 11.5px; }
+  .dcard .tx { padding: 10px 12px 12px; display:flex; flex-direction:column; gap:4px; } .dcard .tx a { color: var(--ink); font-size: 13px; font-weight: 700; text-decoration: none; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pr { display: flex; gap: 6px; align-items: baseline; margin-top: 2px; } .pr s { color: var(--muted); font-size: 11.5px; } .pr b { font-size: 14.5px; }
+  .dcard small { color: var(--muted); font-size: 11.5px; } .meta-row { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
   .pills { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 8px; }
   .pills button { flex: none; border: 0; background: none; font-size: 14px; font-weight: 600; color: var(--muted); padding: 8px 4px; border-bottom: 2px solid transparent; }
   .pills button.on { color: var(--accent-dark); border-bottom-color: var(--accent); }
@@ -143,7 +143,7 @@
   .gcard > a { display: block; aspect-ratio: 1; background: #efe9dc; } .gcard img { width: 100%; height: 100%; object-fit: cover; }
   .gcard .tx { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 3px; flex: 1; }
   .nm { font-size: 13px; font-weight: 600; color: var(--ink); text-decoration: none; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .gcard b { font-size: 14.5px; } .gcard small { color: var(--muted); font-size: 11.5px; } .pt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .gcard b { font-size: 14.5px; } .gcard small { color: var(--muted); font-size: 11.5px; } .pt { display:flex; margin-top:2px; }
   .row { display: flex; gap: 6px; margin-top: auto; padding-top: 6px; } .row .btn { flex: 1; justify-content: center; padding: 8px 6px; font-size: 12.5px; }
   .row .btn.on { border-color: var(--danger); color: var(--danger); }
   @media (max-width: 1100px) { .grid { grid-template-columns: repeat(4, 1fr); } }

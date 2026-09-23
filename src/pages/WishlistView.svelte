@@ -1,6 +1,6 @@
-<!-- Wishlist customer. -->
+<!-- Wishlist customer — sebagai toko tunggal Bungapedia -->
 <script lang="ts">
-  import { partnerById, rp } from '../market-data';
+  import { deliveryTone, rp } from '../market-data';
   import { addMarketToCart, toggleWishlist, wishlist } from '../market-store';
   import { catalog } from '../ops-store';
 
@@ -16,11 +16,10 @@
   {:else}
     <div class="grid">
       {#each items as p}
-        {@const pt = partnerById(p.partnerId)}
         <article class="card">
           <a href="#/produk/{p.id}"><img src={p.img} alt={p.name} loading="lazy" /></a>
           <div class="tx"><a class="nm ptitle-2" href="#/produk/{p.id}">{p.name}</a>
-            <div class="meta">{pt.name} · ★ {p.rating}</div>
+            <div class="meta" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><span class="badge-delivery {deliveryTone(p.deliveryEstimate)}"><span class="dot"></span>{p.deliveryEstimate}</span><span>Bungapedia · ★ {p.rating}</span></div>
             <b>{rp(p.price)}</b>
             <div class="row">
               <button class="btn btn-primary btn-sm" on:click={() => addMarketToCart(p)}>+ Keranjang</button>

@@ -2,12 +2,11 @@
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import './app.css';
-  import { FAQS, OCCASIONS, PARTNERS, PRODUCTS, REVIEWS, COMPANY_LEGAL, partnerById, rp } from './market-data';
+  import { FAQS, OCCASIONS, PRODUCTS, REVIEWS, COMPANY_LEGAL, rp } from './market-data';
   import { cartCount, cartTotal, appError, catalogQuery, clearError, showToast, toast, wishlist } from './market-store';
   import { logout, sessionCustomer } from './auth';
   import MarketProducts from './pages/MarketProducts.svelte';
   import MarketProductDetail from './pages/MarketProductDetail.svelte';
-  import MarketPartners from './pages/MarketPartners.svelte';
   import MarketCheckout from './pages/MarketCheckout.svelte';
   import MarketOrder from './pages/MarketOrder.svelte';
   import Login from './pages/Login.svelte';
@@ -62,22 +61,20 @@
     reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   });
 
-  // hash router: #/produk/ID, #/partner/ID, #/bayar/ID, #/lacak/ID
+  // hash router: #/produk/ID, #/bayar/ID, #/lacak/ID — partner hidden dari customer (portal ada di /partner/ terpisah)
   $: path = rawHash.startsWith('#/') ? rawHash.slice(1) : '/';
   $: seg = path.split('/').filter(Boolean);
   $: page = seg.length === 0 ? 'home' : seg[0];
   $: param = decodeURIComponent(seg[1] ?? '');
 
   $: pdp = page === 'produk' && param ? ($catalog.find((p) => p.id === param) ?? productById(param)) : undefined;
-  $: partnerObj = page === 'partner' && param ? PARTNERS.find((p) => p.id === param) : undefined;
-  $: document.title = pageTitle(page, pdp?.name, partnerObj?.name);
+  $: document.title = pageTitle(page, pdp?.name);
 
-  function pageTitle(p: string, product?: string, partner?: string): string {
+  function pageTitle(p: string, product?: string): string {
     const suffix = 'Bungapedia';
     if (p === 'produk' && product) return `${product} — ${suffix}`;
-    if (p === 'partner' && partner) return `${partner} — ${suffix}`;
     const map: Record<string, string> = {
-      produk: 'Katalog Karangan Bunga', partner: 'Partner Terpercaya', checkout: 'Checkout',
+      produk: 'Katalog Karangan Bunga', checkout: 'Checkout',
       bayar: 'Pembayaran', lacak: 'Lacak Pesanan', pesanan: 'Pesanan Saya', masuk: 'Masuk',
       daftar: 'Daftar', akun: 'Akun Saya', wishlist: 'Wishlist', pesan: 'Pesan', tentang: 'Tentang Kami',
     };
@@ -107,7 +104,7 @@
 <svelte:window on:scroll={onScroll} />
 
 <div class="topbar" data-od-id="topbar">
-  Marketplace karangan bunga · <b>{PARTNERS.length} partner</b> · Transaksi via platform · Settlement transparan
+  Karangan bunga kurasi · Pengiriman same-day · Foto QC sebelum kirim · Bantuan 1×24 jam
 </div>
 
 <header class="site-header" class:scrolled data-od-id="site-header">
@@ -150,14 +147,13 @@
   </div>
   {#if mobileNav}
     <nav class="mobile-nav" data-od-id="mobile-nav">
-      <a href="#/produk" on:click={() => (mobileNav = false)}>Produk</a>
-      <a href="#/partner" on:click={() => (mobileNav = false)}>Partner</a>
+      <a href="#/produk" on:click={() => (mobileNav = false)}>Katalog</a>
       <a href="#/pesanan" on:click={() => (mobileNav = false)}>Pesanan</a>
       <a href="#/tentang" on:click={() => (mobileNav = false)}>Tentang</a>
-      <a href="#/checkout" on:click={() => (mobileNav = false)}>Checkout</a>
+      <a href="#/checkout" on:click={() => (mobileNav = false)}>Keranjang</a>
       {#if $sessionCustomer}
         <a href="#/akun" on:click={() => (mobileNav = false)}>Akun saya</a>
-        <a href="#/pesan" on:click={() => (mobileNav = false)}>Pesan</a>
+        <a href="#/pesan" on:click={() => (mobileNav = false)}>Bantuan</a>
         <a href="#/wishlist" on:click={() => (mobileNav = false)}>Wishlist</a>
       {:else}
         <a href="#/masuk" on:click={() => (mobileNav = false)}>Masuk / Daftar</a>
@@ -183,10 +179,6 @@
     <MarketProductDetail product={pdp} notFoundId={param} />
   {:else if page === 'produk'}
     <MarketProducts />
-  {:else if page === 'partner' && param}
-    <MarketPartners partner={partnerObj} />
-  {:else if page === 'partner'}
-    <MarketPartners listMode />
   {:else if page === 'checkout'}
     {#if $sessionCustomer}
       <MarketCheckout />
@@ -224,7 +216,7 @@
   {:else if page === 'pesan'}
     {#if $sessionCustomer}
       <div class="container wrap">
-        <p class="eyebrow">Pesan · admin & partner</p>
+        <p class="eyebrow">Bantuan · Bungapedia</p>
         <h1 class="ptitle">Kotak masuk</h1>
         <ChatList me={{ role: 'customer', id: $sessionCustomer.customerId, name: $sessionCustomer.name }} emptyHint="Belum ada percakapan. Buka dari halaman tracking via tombol Chat." />
       </div>
@@ -237,7 +229,7 @@
     <MarketOrder orderId={param} />
   {:else if page === 'pesanan'}
     <MarketOrder listMode />
-  {:else if page !== 'home' && !['produk','partner','checkout','masuk','daftar','akun','wishlist','pesan','tentang','bayar','lacak','pesanan'].includes(page)}
+  {:else if page !== 'home' && !['produk','checkout','masuk','daftar','akun','wishlist','pesan','tentang','bayar','lacak','pesanan'].includes(page)}
     <div class="container soon" data-od-id="404">
       <p class="eyebrow">404 · rute tidak dikenal</p>
       <h1>Halaman “/{page}” tidak ada</h1>
@@ -247,13 +239,13 @@
   {:else if $sessionCustomer}
     <MarketHome />
   {:else}
-    <!-- HOMEPAGE marketplace — IA prompt §24 -->
+    <!-- HOMEPAGE — Bungapedia sebagai penjual tunggal (partner hidden) -->
     <section class="hero" data-od-id="hero">
       <div class="hero-grid">
         <div>
-          <p class="eyebrow">Marketplace · {PARTNERS.length} partner terkurasi</p>
-          <h1>Temukan Karangan Bunga dari Partner Terpercaya</h1>
-          <p class="hero-sub">Pilih, pesan, dan pantau karangan bunga dari berbagai penyedia jasa dalam satu platform. Kamu tahu siapa yang merangkai — dan tahu uangmu di tahap mana.</p>
+          <p class="eyebrow">Kurasi harian · Foto QC sebelum kirim</p>
+          <h1>Hantarkan Apresiasi untuk Setiap Momen Berharga</h1>
+          <p class="hero-sub">Pilih rangkaian favorit, pesan dalam menit, dan pantau hingga tiba di tujuan — semua dalam satu platform Bungapedia.</p>
           <div class="hero-search" data-od-id="hero-search">
             <input type="search" placeholder="Cari “Bunga Ulang Tahun”…" bind:value={homeQuery} on:keydown={(e) => { if (e.key === 'Enter') goSearch(); }} aria-label="Cari karangan bunga" />
             <button class="btn btn-primary" on:click={goSearch}>Cari Karangan Bunga</button>
@@ -269,8 +261,8 @@
           </div>
         </div>
         <div class="hero-media">
-          <img src={heroImg} alt="Rangkaian bunga Bungapedia dari partner terverifikasi" width="1600" height="900" />
-          <div class="hero-card"><span class="live-dot"></span><span><b>Dibuat oleh Bunga Sejahtera</b> ✓ Verified · ★ 4.9 · foto QC sebelum kirim</span></div>
+          <img src={heroImg} alt="Rangkaian bunga Bungapedia" width="1600" height="900" />
+          <div class="hero-card"><span class="live-dot"></span><span><b>Dikurasi Bungapedia</b> · ★ 4.9 · foto QC sebelum kirim</span></div>
         </div>
       </div>
     </section>
@@ -292,10 +284,9 @@
         <div class="section-head"><div><p class="eyebrow">Populer minggu ini</p><h2>Produk favorit customer</h2></div><a class="link-more" href="#/produk">Semua produk →</a></div>
         <div class="deal-grid">
           {#each popular as p}
-            {@const pt = partnerById(p.partnerId)}
             <article class="deal-card" data-od-id="pop-{p.id}">
               <a class="ph" href="#/produk/{p.id}"><img src={p.img} alt={p.name} loading="lazy" /></a>
-              <div class="tx"><span class="deal-farm">{pt.name} {#if pt.verified}✓{/if}</span>
+              <div class="tx"><span class="deal-farm">Bungapedia</span>
                 <a class="deal-name" href="#/produk/{p.id}">{p.name}</a>
                 <div class="deal-price"><b class="now">{rp(p.price)}</b><span>★ {p.rating} ({p.reviews})</span></div>
               </div>
@@ -305,36 +296,22 @@
       </div>
     </section>
 
-    <section class="section" data-od-id="trusted-partners">
-      <div class="container">
-        <div class="section-head"><div><p class="eyebrow">Trusted partners</p><h2>Dikerjakan siapa? Jelas.</h2></div><a class="link-more" href="#/partner">Semua partner →</a></div>
-        <div class="steps-grid">
-          {#each PARTNERS.slice(0, 3) as pt}
-            <a class="step-card" href="#/partner/{pt.id}" data-od-id="home-{pt.id}">
-              <span class="step-num">✓</span><b>{pt.name} {#if pt.verified}<span class="vbadge">Verified</span>{/if}</b>
-              <p>★ {pt.rating} · {(pt.orders / 1000).toFixed(1)}K order · {pt.city}. {pt.productionTime} produksi.</p>
-            </a>
-          {/each}
-        </div>
-      </div>
-    </section>
-
     <section class="section" data-od-id="how-it-works">
       <div class="container">
-        <p class="eyebrow">Cara kerja</p><h2>Discover → Compare → Protected → Track → Settlement</h2>
+        <p class="eyebrow">Cara kerja</p><h2>Pilih → Pesan → Pantau → Terima</h2>
         <div class="steps-grid">
-          <div class="step-card"><span class="step-num">1</span><b>🔍 Discover by momen</b><p>Cari berdasar momen & penerima — bukan sekadar kategori bunga mentah.</p></div>
-          <div class="step-card"><span class="step-num">2</span><b>⚖ Compare partner</b><p>Bandingkan harga, rating, estimasi, dan area sebelum memilih.</p></div>
-          <div class="step-card"><span class="step-num">3</span><b>🛡 Protected transaction</b><p>Bayar via platform. Dana Pending sampai kamu konfirmasi selesai.</p></div>
+          <div class="step-card"><span class="step-num">1</span><b>🔍 Pilih berdasar momen</b><p>Cari berdasar momen & penerima — ulang tahun, wisuda, duka cita, atau corporate.</p></div>
+          <div class="step-card"><span class="step-num">2</span><b>⚖ Bandingkan pilihan</b><p>Bandingkan harga, ukuran, dan estimasi tiba sebelum menambah ke keranjang.</p></div>
+          <div class="step-card"><span class="step-num">3</span><b>🛡 Pesan dengan tenang</b><p>Bayar via platform. Pantau status pesanan sampai tiba di tujuan.</p></div>
         </div>
       </div>
     </section>
 
     <section class="band-dark" data-od-id="protection">
       <div class="band-inner">
-        <p class="eyebrow" style="color: var(--footer-fg)">Transaction protection</p>
+        <p class="eyebrow" style="color: var(--footer-fg)">Jaminan Bungapedia</p>
         <h2>Uangmu di tahap mana? Selalu terlihat.</h2>
-        <p class="lead">✓ Payment received → ✓ Partner confirmed → ✓ Being prepared → ● Waiting delivery → ○ Settlement after completion. Bukan klaim escrow legal — visualisasi proteksi untuk demo bisnis.</p>
+        <p class="lead">✓ Pesanan diterima → ✓ Dirangkai & QC foto → ● Dalam pengiriman → ○ Selesai & konfirmasi. Bukan klaim escrow legal — visualisasi proteksi untuk demo bisnis.</p>
         <p><a class="btn btn-primary" href="#/pesanan">Coba lacak pesanan dummy →</a></p>
       </div>
     </section>
@@ -353,9 +330,9 @@
     <section class="section" data-od-id="faq">
       <div class="container">
         <div class="wholesale-card">
-          <div><p class="eyebrow">FAQ</p><h2>Punya toko bunga? Gabung sebagai partner.</h2>
-          <p style="color:var(--muted);font-size:15px;line-height:1.65">Dapatkan order konsisten, kelola katalog & settlement dalam satu dashboard. Verifikasi dikontrol admin.</p>
-          <p><a class="btn btn-primary" href={base + 'partner/'} data-od-id="cta-join">Gabung sebagai Partner →</a></p></div>
+          <div><p class="eyebrow">FAQ</p><h2>Pertanyaan yang sering ditanyakan</h2>
+          <p style="color:var(--muted);font-size:15px;line-height:1.65">Seputar pengiriman, kartu ucapan, dan bantuan pesanan — semua dijawab di sini.</p>
+          <p><a class="btn btn-primary" href="#/tentang" data-od-id="cta-faq">Pelajari cara kerja →</a></p></div>
           <div>
             {#each FAQS as f}<details><summary>{f.q}</summary><p>{f.a}</p></details>{/each}
           </div>
@@ -372,13 +349,13 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img class="logo-lockup foot" src={base + 'assets/brand/bungapedia-lockup.png'} alt="Bungapedia — Small Gifts, Meaningful Bonds" />
-        <p>Hantarkan Apresiasi, Satukan Kebersamaan. Marketplace yang mempertemukan customer dengan partner terpercaya — dari pencarian hingga settlement.</p>
+        <p>Hantarkan Apresiasi, Satukan Kebersamaan. Kurasi karangan bunga & hadiah — pesan mudah, dikirim tepat waktu, dengan foto QC sebelum kirim.</p>
       </div>
-      <div><h4>Customer</h4><a href="#/produk">Katalog</a><a href="#/partner">Partner</a><a href="#/pesanan">Lacak pesanan</a><a href="#/akun">Akun saya</a><a href="#/wishlist">Wishlist</a></div>
-      <div><h4>Partner</h4><a href={base + 'partner/'}>Gabung sebagai partner</a><a href="#/partner">Direktori partner</a></div>
-      <div><h4>Bantuan</h4><a href="#/tentang">Tentang kami</a><a href="#/pesan">Pesan & bantuan</a><a href="#/pesanan">Lacak pesanan</a><a href="#/masuk">Masuk / Daftar</a><a href="#/">Beranda</a></div>
+      <div><h4>Belanja</h4><a href="#/produk">Katalog</a><a href="#/produk">Bunga Papan</a><a href="#/produk">Buket</a><a href="#/produk">Hampers</a></div>
+      <div><h4>Bantuan</h4><a href="#/tentang">Tentang kami</a><a href="#/pesan">Bantuan & chat</a><a href="#/pesanan">Lacak pesanan</a><a href="#/wishlist">Wishlist</a></div>
+      <div><h4>Akun</h4><a href="#/akun">Akun saya</a><a href="#/pesanan">Pesanan saya</a><a href="#/masuk">Masuk / Daftar</a><a href="#/">Beranda</a></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Bungapedia · {COMPANY_LEGAL} · Prototype validasi — mock data, pembayaran & settlement disimulasikan.</span></div>
+    <div class="footer-bottom"><span>© 2026 Bungapedia · {COMPANY_LEGAL} · Prototype validasi — mock data & pembayaran disimulasikan.</span></div>
   </div>
 </footer>
 

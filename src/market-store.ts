@@ -69,9 +69,9 @@ export function addMarketToCart(p: MarketProduct, qty = 1): boolean {
   cart.update((cs) => {
     if (cs.length > 0 && cs[0].partnerId !== p.partnerId) {
       raiseError(
-        'mixed-partner',
-        'Keranjang marketplace hanya untuk satu partner per pesanan agar produksi & pengiriman jelas.',
-        'Selesaikan pesanan ini dulu, atau kosongkan keranjang untuk ganti partner.'
+        'mixed-cart',
+        'Selesaikan pesanan ini dulu sebelum menambah produk lain.',
+        'Kosongkan keranjang atau selesaikan checkout terlebih dahulu.'
       );
       ok = false;
       return cs;
@@ -215,7 +215,7 @@ export function confirmReceived(orderId: string) {
         : o
     )
   );
-  showToast('Pesanan dikonfirmasi. Settlement partner kini tersedia.');
+  showToast('Pesanan dikonfirmasi. Terima kasih!');
 }
 
 export function fileDispute(orderId: string, reason: string) {
@@ -299,7 +299,7 @@ export function advanceOrder(id: string) {
   showToast('Status pesanan diperbarui.');
 }
 
-export function cancelOrder(id: string, reason = 'Dibatalkan partner — stok tidak tersedia') {
+export function cancelOrder(id: string, reason = 'Dibatalkan — stok tidak tersedia') {
   orders.update((os) =>
     os.map((o) => (o.id === id ? { ...o, status: 'cancelled', dispute: { reason, status: 'Cancelled' } } : o))
   );
@@ -331,7 +331,7 @@ export function resolveDispute(id: string, action: 'refund' | 'release' | 'rejec
           ...o,
           status: 'completed',
           settlement: 'available',
-          dispute: { reason: o.dispute?.reason ?? '', status: 'Released ke partner' },
+          dispute: { reason: o.dispute?.reason ?? '', status: 'Disetujui — pesanan selesai' },
           timeline: o.timeline.map((t) => ({ ...t, done: true })),
         };
       return { ...o, status: 'shipped', dispute: { reason: o.dispute?.reason ?? '', status: 'Ditolak — kembali dikirim' } };

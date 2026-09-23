@@ -1,17 +1,22 @@
-<!-- PDP marketplace — Visual → Produk → Harga → Partner → Trust → CTA -->
+<!-- PDP — Bungapedia sebagai penjual tunggal -->
 <script lang="ts">
-  import { partnerById, productsByPartner, rp } from '../market-data';
+  import { CATEGORIES, deliveryTone, rp } from '../market-data';
+  import { catalog } from '../ops-store';
   import { addMarketToCart, clearError, raiseError, toggleWishlist, wishlist } from '../market-store';
   import type { MarketProduct } from '../market-types';
   export let product: MarketProduct | undefined;
   export let notFoundId = '';
 
-  $: pt = product ? partnerById(product.partnerId) : null;
-  $: siblings = product ? productsByPartner(product.partnerId).filter((p) => p.id !== product!.id).slice(0, 3) : [];
+  $: siblings = (() => {
+    let all: MarketProduct[] = [];
+    catalog.subscribe((v) => (all = v))();
+    if (!product) return [];
+    return all.filter((p) => p.category === product!.category && p.id !== product!.id).slice(0, 3);
+  })();
   let qty = 1;
   let activeImg = 0;
   $: if (product) { activeImg = 0; qty = 1; clearError(); }
-  $: if (!product) raiseError('pdp-missing', `Produk "${notFoundId || 'tanpa ID'}" tidak tersedia.`, 'Pilih produk lain dari katalog — semua link PDP kini tervalidasi.');
+  $: if (!product) raiseError('pdp-missing', `Produk "${notFoundId || 'tanpa ID'}" tidak tersedia.`, 'Pilih produk lain dari katalog.');
 
   function buyNow() {
     if (!product) return;
@@ -19,7 +24,7 @@
   }
 </script>
 
-{#if product && pt}
+{#if product}
 <div class="container pdp" data-od-id="pdp-{product.id}">
   <nav class="crumb"><a href="#/">Beranda</a> / <a href="#/produk">Katalog</a> / <span>{product.name}</span></nav>
   <div class="pdp-grid">
@@ -63,17 +68,16 @@
           <button class="btn" class:on={$wishlist.includes(product.id)} on:click={() => toggleWishlist(product.id)} aria-label="Wishlist">{$wishlist.includes(product.id) ? '♥' : '♡'}</button>
         </div>
         <div class="trust-mini">
-          <span>🛡 Transaksi via platform</span><span>📍 {product.deliveryArea[0]}</span><span>⏱ {product.productionTime}</span>
+          <span>🛡 Transaksi aman</span><span class="badge-delivery {deliveryTone(product.deliveryEstimate)}"><span class="dot"></span>{product.deliveryEstimate}</span><span>📍 {product.deliveryArea[0]}</span>
         </div>
       </div>
-      <a class="partner-card" href="#/partner/{pt.id}" data-od-id="pdp-partner">
-        <img src={pt.logo} alt={pt.name} />
-        <div><span class="lbl">Dibuat oleh</span><b>{pt.name} {#if pt.verified}<span class="vbadge">✓ Verified Partner</span>{/if}</b>
-        <small>★ {pt.rating} · {(pt.orders / 1000).toFixed(1)}K order · respon {pt.responseRate}%</small></div>
-        <span class="go">→</span>
-      </a>
+      <div class="partner-card" data-od-id="pdp-guarantee">
+        <div class="guar-ic">✓</div>
+        <div><span class="lbl">Jaminan Bungapedia</span><b>Foto QC sebelum kirim</b>
+        <small>Dirangkai dengan standar Bungapedia · ★ {product.rating} · {product.reviews} ulasan</small></div>
+      </div>
       {#if siblings.length}
-        <div class="sib"><h3>Lainnya dari {pt.name}</h3>
+        <div class="sib"><h3>Rangkaian serupa</h3>
           {#each siblings as s}<a href="#/produk/{s.id}"><img src={s.img} alt={s.name} /><span><b>{s.name}</b><small>{rp(s.price)}</small></span></a>{/each}
         </div>
       {/if}
@@ -99,9 +103,9 @@
   .qty-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; } .est { font-size: 13px; color: var(--accent-dark); font-weight: 700; }
   .stepper { display: flex; align-items: center; gap: 12px; border: 1px solid var(--border-strong); border-radius: 999px; padding: 6px 12px; } .stepper button { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border-strong); background: #fff; }
   .big { width: 100%; justify-content: center; padding: 14px; font-size: 15.5px; } .row2 { display: flex; gap: 10px; margin-top: 10px; } .row2 .on { border-color: var(--danger); color: var(--danger); }
-  .trust-mini { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; font-size: 12.5px; color: var(--muted); }
-  .partner-card { display: flex; gap: 12px; align-items: center; background: var(--accent-soft); border: 1px solid #d8e6c6; border-radius: 16px; padding: 14px 16px; margin-top: 14px; text-decoration: none; color: var(--ink); }
-  .partner-card img { width: 52px; height: 52px; border-radius: 12px; object-fit: cover; } .partner-card .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-dark); font-weight: 800; display: block; } .partner-card small { color: var(--muted); display: block; } .go { margin-left: auto; font-size: 20px; }
+  .trust-mini { display: flex; gap: 8px; flex-wrap: wrap; align-items:center; margin-top: 14px; font-size: 12.5px; color: var(--muted); }
+  .partner-card { display: flex; gap: 12px; align-items: center; background: var(--accent-soft); border: 1px solid #d8e6c6; border-radius: 16px; padding: 14px 16px; margin-top: 14px; color: var(--ink); }
+  .guar-ic { width: 52px; height: 52px; border-radius: 12px; background: #fff; color: var(--accent-dark); display: grid; place-items: center; font-size: 22px; font-weight: 800; flex: none; } .partner-card .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-dark); font-weight: 800; display: block; } .partner-card small { color: var(--muted); display: block; }
   .vbadge { background: #fff; color: var(--accent-dark); font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 800; }
   .sib { margin-top: 14px; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 16px; } .sib h3 { margin: 0 0 10px; font-size: 15px; } .sib a { display: flex; gap: 10px; align-items: center; text-decoration: none; color: var(--ink); padding: 8px 0; border-top: 1px solid var(--border); }   .sib img { width: 52px; height: 52px; border-radius: 10px; object-fit: cover; flex: none; } .sib a > span { min-width: 0; flex: 1; } .sib b { display: block; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .sib small { display: block; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   @media (max-width: 960px) { .pdp-grid { grid-template-columns: 1fr; } .buy-card { position: static; } .gallery img { height: 300px; } }

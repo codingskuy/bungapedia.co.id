@@ -1,23 +1,19 @@
 <!-- Checkout marketplace — recipient + delivery + message + payment summary + validasi eksplisit -->
 <script lang="ts">
-  import { DELIVERY_FEE, PLATFORM_FEE, partnerById, rp } from '../market-data';
-  import { cart, cartPartnerId, cartTotal, draft, placeOrder, validateDraft, type CartLine } from '../market-store';
+  import { DELIVERY_FEE, PLATFORM_FEE, rp } from '../market-data';
+  import { cart, cartTotal, draft, placeOrder, validateDraft, type CartLine } from '../market-store';
   import type { FieldErrors } from '../market-store';
 
   let lines: CartLine[] = [];
   let total = 0;
-  let pid: string | null = null;
   $: cart.subscribe((c) => (lines = c))();
   $: cartTotal.subscribe((t) => (total = t))();
-  $: cartPartnerId.subscribe((p) => (pid = p))();
 
   let d = $draft;
   $: draft.subscribe((v) => (d = v))();
   function sync() { draft.set(d); }
   let errors: FieldErrors = {};
   let attempted = false;
-
-  $: pt = pid ? partnerById(pid) : null;
 
   function submit(e: Event) {
     e.preventDefault();
@@ -33,10 +29,10 @@
 <div class="container co" data-od-id="checkout-mkt">
   {#if lines.length === 0 && !attempted}
     <p class="eyebrow">Checkout</p><h1>Keranjang masih kosong</h1>
-    <p class="lede">Pilih dulu produk dari katalog — setiap pesanan terikat ke satu partner agar jelas siapa yang memproduksi.</p>
+    <p class="lede">Pilih dulu rangkaian favoritmu dari katalog.</p>
     <p><a class="btn btn-primary" href="#/produk">Cari karangan bunga →</a></p>
   {:else}
-    <p class="eyebrow">Checkout · {lines.length} item {#if pt}· {pt.name}{/if}</p>
+    <p class="eyebrow">Checkout · {lines.length} item</p>
     <h1>Selesaikan pemesanan</h1>
     {#if errors.cart}<div class="err" role="alert">{errors.cart}</div>{/if}
     <div class="co-grid">
@@ -50,7 +46,7 @@
           <input id="r-phone" inputmode="tel" placeholder="0812xxxxxxx" value={d.recipientPhone} on:input={(e) => set('recipientPhone', e.currentTarget.value)} />
           {#if errors.recipientPhone}<small class="ferr">{errors.recipientPhone}</small>{/if}</div>
           <div><label for="r-date">Tanggal kirim</label>
-          <input id="r-date" type="date" min="2026-09-16" value={d.deliveryDate} on:input={(e) => set('recipientAddress', d.recipientAddress)} on:change={(e) => set('deliveryDate', e.currentTarget.value)} />
+          <input id="r-date" type="date" min="2026-09-16" value={d.deliveryDate} on:change={(e) => set('deliveryDate', e.currentTarget.value)} />
           {#if errors.deliveryDate}<small class="ferr">{errors.deliveryDate}</small>{/if}</div>
         </div>
         <label for="r-addr">Alamat lengkap</label>
@@ -81,8 +77,8 @@
         <div class="trow"><span>Ongkir</span><span>{rp(DELIVERY_FEE)}</span></div>
         <div class="trow"><span>Platform fee</span><span>{rp(PLATFORM_FEE)}</span></div>
         <div class="trow grand"><span>Total</span><span>{rp(total + DELIVERY_FEE + PLATFORM_FEE)}</span></div>
-        <p class="prot">🛡 Pembayaran diproses via platform. Status dana <b>Pending</b> sampai kamu konfirmasi pesanan selesai — bukan escrow legal, melainkan visualisasi proteksi transaksi.</p>
-        {#if pt}<p class="by">Dikerjakan oleh <b>{pt.name}</b> {#if pt.verified}✓{/if} · {pt.productionTime}</p>{/if}
+        <p class="prot">🛡 Pembayaran aman via Bungapedia. Status dana <b>Pending</b> sampai kamu konfirmasi pesanan selesai.</p>
+        <p class="by">Dikirim oleh <b>Bungapedia</b> · estimasi same-day sebelum 15:00</p>
       </aside>
     </div>
   {/if}
